@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package elysium_api;
+package elysium_service;
 
 import "elysium.proto";
 
