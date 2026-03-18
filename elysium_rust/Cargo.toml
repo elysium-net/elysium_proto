@@ -1,5 +1,6 @@
 [package]
 name = "elysium_rust"
+description = "The official Elysium protocol buffers API."
 version = "0.1.0"
 edition = "2024"
 
