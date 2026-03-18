@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package chat.v1;
+
+import "common/v1/common.proto";
+import "resource/v1/resource.proto";
+
+service ChatService {
+  rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
+}
+
+message SendMessageRequest {
+  string channel_id = 1;
+  Content content = 2;
+}
+
+message SendMessageResponse {
+  oneof result {
+    Message message = 1;
+    common.v1.Error error = 2;
+  }
+}
+
+message Message {
+  string id = 1;
+  string channel_id = 2;
+  string user_id = 3;
+  Content content = 4;
+}
+
+message Content {
+  oneof content {
+    string text = 1;
+    resource.v1.ResourceId resource = 2;
+  }
+}

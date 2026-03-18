@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package resource.v1;
+
+import "common/v1/common.proto";
+
+service ResourceService {
+  rpc UploadResource(stream UploadResourceRequest) returns (UploadResourceResponse);
+  rpc DownloadResource(DownloadResourceRequest) returns (stream DownloadResourceResponse);
+}
+
+message UploadResourceRequest {
+  ResourceId id = 1;
+  oneof payload {
+    ResourceMeta meta = 2;
+    bytes data = 3;
+  }
+}
+
+message UploadResourceResponse {
+  optional common.v1.Error error = 1;
+}
+
+message DownloadResourceRequest {
+  ResourceId id = 1;
+}
+
+message DownloadResourceResponse {
+  oneof result {
+    ResourceMeta meta = 1;
+    bytes data = 2;
+    common.v1.Error error = 3;
+  }
+}
+
+message ResourceId {
+  string namespace = 1;
+  string key = 2;
+}
+
+message ResourceMeta {
+  string format = 1;
+  string checksum = 3;
+  int32 size = 4;
+  map<string, string> metadata = 5;
+}

@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package user.v1;
+
+import "common/v1/common.proto";
+import "resource/v1/resource.proto";
+
+service UserService {
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+  rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
+  rpc GetUser(GetUserRequest) returns (GetUserResponse);
+  rpc SearchUsers(SearchUsersRequest) returns (SearchUsersResponse);
+}
+
+message CreateUserRequest {
+  User user = 1;
+}
+
+message CreateUserResponse {
+  optional common.v1.Error error = 1;
+}
+
+message DeleteUserRequest {
+  string id = 1;
+}
+
+message DeleteUserResponse {
+  optional common.v1.Error error = 1;
+}
+
+message UpdateUserRequest {
+  User user = 1;
+}
+
+message UpdateUserResponse {
+  optional common.v1.Error error = 1;
+}
+
+message GetUserRequest {
+  string id = 1;
+}
+
+message GetUserResponse {
+  oneof result {
+    UserProfile user = 1;
+    common.v1.Error error = 2;
+  }
+}
+
+message SearchUsersRequest {
+  string query = 1;
+}
+
+message SearchUsersResponse {
+  repeated UserProfile users = 1;
+  optional common.v1.Error error = 2;
+}
+
+message User {
+  string id = 1;
+  string username = 2;
+  string email = 3;
+  string password = 4;
+  UserRole role = 5;
+  resource.v1.ResourceId icon = 6;
+}
+
+message UserProfile {
+  string id = 1;
+  string username = 2;
+  UserRole role = 4;
+  resource.v1.ResourceId icon = 5;
+}
+
+enum UserRole {
+  USER_ROLE_USER_UNSPECIFIED = 0;
+  USER_ROLE_SUPERVISOR = 1;
+  USER_ROLE_ADMIN = 2;
+}
