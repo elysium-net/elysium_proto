@@ -2,13 +2,20 @@ syntax = "proto3";
 
 package common.v1;
 
+// Message represents an error that occurred during a request.
 message Error {
+  // The error code.
   ErrorCode code = 1;
+  // The error message.
   string message = 2;
 }
 
+// The code of an error.
 enum ErrorCode {
+  // The error code is unspecified/unknown. Should not be used.
   ERROR_CODE_UNSPECIFIED = 0;
+  // Indicates the request was unauthorized.
   ERROR_CODE_UNAUTHORIZED = 1;
+  // Indicates the requested item was not found.
   ERROR_CODE_NOT_FOUND = 2;
 }

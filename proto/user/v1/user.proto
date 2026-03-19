@@ -5,75 +5,134 @@ package user.v1;
 import "common/v1/common.proto";
 import "resource/v1/resource.proto";
 
+// Service for managing users.
 service UserService {
+  // Creates a new user.
+  //
+  // Requires Authentication: Only administrators can create users.
   rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+
+  // Deletes a user by ID.
+  //
+  // Requires Authentication: Only administrators can delete users.
   rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
+
+  // Gets a user by ID.
+  //
+  // Requires Authentication: All authenticated users can get a user.
   rpc GetUser(GetUserRequest) returns (GetUserResponse);
+
+  // Searches for users by query.
+  //
+  // Requires Authentication: All authenticated users can search for users.
   rpc SearchUsers(SearchUsersRequest) returns (SearchUsersResponse);
 }
 
+// Request message for creating a user.
 message CreateUserRequest {
+  // User to create.
   User user = 1;
 }
 
+// Response message for creating a user.
 message CreateUserResponse {
+  // Error, if any.
   optional common.v1.Error error = 1;
 }
 
+// Request message for deleting a user.
 message DeleteUserRequest {
+  // ID of the user to delete.
   string id = 1;
 }
 
+// Response message for deleting a user.
 message DeleteUserResponse {
+  // Error, if any.
   optional common.v1.Error error = 1;
 }
 
+// Request message for updating a user.
 message UpdateUserRequest {
+  // User to update.
   User user = 1;
 }
 
+// Response message for updating a user.
 message UpdateUserResponse {
+  // Error, if any.
   optional common.v1.Error error = 1;
 }
 
+// Request message for getting a user.
 message GetUserRequest {
+  // ID of the user to get.
   string id = 1;
 }
 
+// Response message for getting a user.
 message GetUserResponse {
+  // One of the following results.
   oneof result {
+    // User profile.
     UserProfile user = 1;
+    // Error, if any.
     common.v1.Error error = 2;
   }
 }
 
+// Request message for searching users.
 message SearchUsersRequest {
+  // Query string to search for.
   string query = 1;
 }
 
+// Response message for searching users.
 message SearchUsersResponse {
+  // List of users matching the query.
   repeated UserProfile users = 1;
+  // Error, if any.
   optional common.v1.Error error = 2;
 }
 
+// An application user.
+//
+// Should only be used internally or by administrators.
 message User {
+  // Unique user identifier.
   string id = 1;
+  // Username of the user.
   string username = 2;
+  // Email of the user.
   string email = 3;
+  // Password hash of the user.
   string password = 4;
+  // Role of the user.
   UserRole role = 5;
+  // Icon/Avatar of the user.
   resource.v1.ResourceId icon = 6;
 }
 
+// User profile.
+//
+// A safe representation of a user without sensitive information.
 message UserProfile {
+  // Unique user identifier.
   string id = 1;
+  // Username of the user.
   string username = 2;
-  UserRole role = 4;
-  resource.v1.ResourceId icon = 5;
+  // Role of the user.
+  UserRole role = 3;
+  // Icon/Avatar of the user.
+  resource.v1.ResourceId icon = 4;
 }
 
+// Role of the user.
 enum UserRole {
+  // Default value is a normal user.
   USER_ROLE_USER_UNSPECIFIED = 0;
+  // A supervisor user.
   USER_ROLE_SUPERVISOR = 1;
+  // An administrator user.
   USER_ROLE_ADMIN = 2;
 }

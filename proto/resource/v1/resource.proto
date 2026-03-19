@@ -4,43 +4,67 @@ package resource.v1;
 
 import "common/v1/common.proto";
 
+// Service for managing resources.
 service ResourceService {
+  // Upload a resource via a stream.
   rpc Upload(stream UploadRequest) returns (UploadResponse);
+  // Download a resource via a stream.
   rpc Download(DownloadRequest) returns (stream DownloadResponse);
 }
 
+// Request for uploading a resource.
 message UploadRequest {
+  // The ID of the resource to upload.
   ResourceId id = 1;
+  // The payload of the resource to upload.
   oneof payload {
+    // The metadata of the resource to upload.
     ResourceMeta meta = 2;
+    // The raw data of the resource to upload.
     bytes data = 3;
   }
 }
 
+// Response for uploading a resource.
 message UploadResponse {
+  // The error, if any, that occurred during the upload.
   optional common.v1.Error error = 1;
 }
 
+// Request for downloading a resource.
 message DownloadRequest {
+  // The ID of the resource to download.
   ResourceId id = 1;
 }
 
+// Response for downloading a resource.
 message DownloadResponse {
+  // The result of the download.
   oneof result {
+    // The metadata of the resource.
     ResourceMeta meta = 1;
+    // The raw data of the resource.
     bytes data = 2;
     common.v1.Error error = 3;
   }
 }
 
+// The unique identifier for a resource.
 message ResourceId {
+  // The namespace of the resource. Can be a channel, user or other entity.
   string namespace = 1;
+  // The key of the resource within the namespace.
   string key = 2;
 }
 
+// The metadata for a resource.
 message ResourceMeta {
+  // The format of the resource.
   string format = 1;
+  // The checksum of the resource.
   string checksum = 3;
+  // The size of the resource in bytes.
   int32 size = 4;
+  // Additional metadata for the resource.
   map<string, string> metadata = 5;
 }

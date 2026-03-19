@@ -5,32 +5,50 @@ package chat.v1;
 import "common/v1/common.proto";
 import "resource/v1/resource.proto";
 
+// The chat service provides methods for sending messages.
 service ChatService {
+  // Sends a message to a channel.
   rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
 }
 
+// The request message for sending a message.
 message SendMessageRequest {
+  // The ID of the channel to send the message to.
   string channel_id = 1;
+  // The content of the message.
   Content content = 2;
 }
 
+// The response message for sending a message.
 message SendMessageResponse {
+  // The result of the send operation.
   oneof result {
+    // The message that was sent.
     Message message = 1;
+    // An error that occurred during the send operation.
     common.v1.Error error = 2;
   }
 }
 
+// A message sent to a channel.
 message Message {
+  // The ID of the message.
   string id = 1;
+  // The ID of the channel the message was sent to.
   string channel_id = 2;
+  // The ID of the user who sent the message.
   string user_id = 3;
+  // The content of the message.
   Content content = 4;
 }
 
+// The content of a message.
 message Content {
+  // The type of content.
   oneof content {
+    // The text content of the message.
     string text = 1;
+    // The resource content of the message.
     resource.v1.ResourceId resource = 2;
   }
 }
