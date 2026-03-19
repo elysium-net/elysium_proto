@@ -70,6 +70,98 @@ final $typed_data.Uint8List sendMessageResponseDescriptor = $convert.base64Decod
     'VIAFIHbWVzc2FnZRIoCgVlcnJvchgCIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcnJvckII'
     'CgZyZXN1bHQ=');
 
+@$core.Deprecated('Use deleteMessageRequestDescriptor instead')
+const DeleteMessageRequest$json = {
+  '1': 'DeleteMessageRequest',
+  '2': [
+    {'1': 'message_id', '3': 1, '4': 1, '5': 9, '10': 'messageId'},
+  ],
+};
+
+/// Descriptor for `DeleteMessageRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List deleteMessageRequestDescriptor = $convert.base64Decode(
+    'ChREZWxldGVNZXNzYWdlUmVxdWVzdBIdCgptZXNzYWdlX2lkGAEgASgJUgltZXNzYWdlSWQ=');
+
+@$core.Deprecated('Use deleteMessageResponseDescriptor instead')
+const DeleteMessageResponse$json = {
+  '1': 'DeleteMessageResponse',
+  '2': [
+    {
+      '1': 'error',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `DeleteMessageResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List deleteMessageResponseDescriptor = $convert.base64Decode(
+    'ChVEZWxldGVNZXNzYWdlUmVzcG9uc2USKwoFZXJyb3IYASABKAsyEC5jb21tb24udjEuRXJyb3'
+    'JIAFIFZXJyb3KIAQFCCAoGX2Vycm9y');
+
+@$core.Deprecated('Use updateMessageRequestDescriptor instead')
+const UpdateMessageRequest$json = {
+  '1': 'UpdateMessageRequest',
+  '2': [
+    {'1': 'message_id', '3': 1, '4': 1, '5': 9, '10': 'messageId'},
+    {
+      '1': 'content',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.chat.v1.Content',
+      '10': 'content'
+    },
+  ],
+};
+
+/// Descriptor for `UpdateMessageRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateMessageRequestDescriptor = $convert.base64Decode(
+    'ChRVcGRhdGVNZXNzYWdlUmVxdWVzdBIdCgptZXNzYWdlX2lkGAEgASgJUgltZXNzYWdlSWQSKg'
+    'oHY29udGVudBgCIAEoCzIQLmNoYXQudjEuQ29udGVudFIHY29udGVudA==');
+
+@$core.Deprecated('Use updateMessageResponseDescriptor instead')
+const UpdateMessageResponse$json = {
+  '1': 'UpdateMessageResponse',
+  '2': [
+    {
+      '1': 'message',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.chat.v1.Message',
+      '9': 0,
+      '10': 'message'
+    },
+    {
+      '1': 'error',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error'
+    },
+  ],
+  '8': [
+    {'1': 'result'},
+  ],
+};
+
+/// Descriptor for `UpdateMessageResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateMessageResponseDescriptor = $convert.base64Decode(
+    'ChVVcGRhdGVNZXNzYWdlUmVzcG9uc2USLAoHbWVzc2FnZRgBIAEoCzIQLmNoYXQudjEuTWVzc2'
+    'FnZUgAUgdtZXNzYWdlEigKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9y'
+    'QggKBnJlc3VsdA==');
+
 @$core.Deprecated('Use messageDescriptor instead')
 const Message$json = {
   '1': 'Message',

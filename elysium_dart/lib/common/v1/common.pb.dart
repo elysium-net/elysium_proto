@@ -20,6 +20,7 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 export 'common.pbenum.dart';
 
+/// Message represents an error that occurred during a request.
 class Error extends $pb.GeneratedMessage {
   factory Error({
     ErrorCode? code,
@@ -67,6 +68,7 @@ class Error extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Error>(create);
   static Error? _defaultInstance;
 
+  /// The error code.
   @$pb.TagNumber(1)
   ErrorCode get code => $_getN(0);
   @$pb.TagNumber(1)
@@ -76,6 +78,7 @@ class Error extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearCode() => $_clearField(1);
 
+  /// The error message.
   @$pb.TagNumber(2)
   $core.String get message => $_getSZ(1);
   @$pb.TagNumber(2)

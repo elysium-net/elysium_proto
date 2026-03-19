@@ -116,6 +116,54 @@ const UpdateUserRequest$json = {
 final $typed_data.Uint8List updateUserRequestDescriptor = $convert.base64Decode(
     'ChFVcGRhdGVVc2VyUmVxdWVzdBIhCgR1c2VyGAEgASgLMg0udXNlci52MS5Vc2VyUgR1c2Vy');
 
+@$core.Deprecated('Use updateUserAvatarRequestDescriptor instead')
+const UpdateUserAvatarRequest$json = {
+  '1': 'UpdateUserAvatarRequest',
+  '2': [
+    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {
+      '1': 'avatar',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.resource.v1.ResourceId',
+      '10': 'avatar'
+    },
+  ],
+};
+
+/// Descriptor for `UpdateUserAvatarRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateUserAvatarRequestDescriptor =
+    $convert.base64Decode(
+        'ChdVcGRhdGVVc2VyQXZhdGFyUmVxdWVzdBIOCgJpZBgBIAEoCVICaWQSLwoGYXZhdGFyGAIgAS'
+        'gLMhcucmVzb3VyY2UudjEuUmVzb3VyY2VJZFIGYXZhdGFy');
+
+@$core.Deprecated('Use updateUserAvatarResponseDescriptor instead')
+const UpdateUserAvatarResponse$json = {
+  '1': 'UpdateUserAvatarResponse',
+  '2': [
+    {
+      '1': 'error',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `UpdateUserAvatarResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List updateUserAvatarResponseDescriptor =
+    $convert.base64Decode(
+        'ChhVcGRhdGVVc2VyQXZhdGFyUmVzcG9uc2USKwoFZXJyb3IYASABKAsyEC5jb21tb24udjEuRX'
+        'Jyb3JIAFIFZXJyb3KIAQFCCAoGX2Vycm9y');
+
 @$core.Deprecated('Use updateUserResponseDescriptor instead')
 const UpdateUserResponse$json = {
   '1': 'UpdateUserResponse',
@@ -275,7 +323,7 @@ const UserProfile$json = {
     {'1': 'username', '3': 2, '4': 1, '5': 9, '10': 'username'},
     {
       '1': 'role',
-      '3': 4,
+      '3': 3,
       '4': 1,
       '5': 14,
       '6': '.user.v1.UserRole',
@@ -283,7 +331,7 @@ const UserProfile$json = {
     },
     {
       '1': 'icon',
-      '3': 5,
+      '3': 4,
       '4': 1,
       '5': 11,
       '6': '.resource.v1.ResourceId',
@@ -295,5 +343,5 @@ const UserProfile$json = {
 /// Descriptor for `UserProfile`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List userProfileDescriptor = $convert.base64Decode(
     'CgtVc2VyUHJvZmlsZRIOCgJpZBgBIAEoCVICaWQSGgoIdXNlcm5hbWUYAiABKAlSCHVzZXJuYW'
-    '1lEiUKBHJvbGUYBCABKA4yES51c2VyLnYxLlVzZXJSb2xlUgRyb2xlEisKBGljb24YBSABKAsy'
+    '1lEiUKBHJvbGUYAyABKA4yES51c2VyLnYxLlVzZXJSb2xlUgRyb2xlEisKBGljb24YBCABKAsy'
     'Fy5yZXNvdXJjZS52MS5SZXNvdXJjZUlkUgRpY29u');

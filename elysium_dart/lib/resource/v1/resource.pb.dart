@@ -18,10 +18,11 @@ import '../../common/v1/common.pb.dart' as $1;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
-enum UploadResRequest_Payload { meta, data, notSet }
+enum UploadRequest_Payload { meta, data, notSet }
 
-class UploadResRequest extends $pb.GeneratedMessage {
-  factory UploadResRequest({
+/// Request for uploading a resource.
+class UploadRequest extends $pb.GeneratedMessage {
+  factory UploadRequest({
     ResourceId? id,
     ResourceMeta? meta,
     $core.List<$core.int>? data,
@@ -33,23 +34,23 @@ class UploadResRequest extends $pb.GeneratedMessage {
     return result;
   }
 
-  UploadResRequest._();
+  UploadRequest._();
 
-  factory UploadResRequest.fromBuffer($core.List<$core.int> data,
+  factory UploadRequest.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory UploadResRequest.fromJson($core.String json,
+  factory UploadRequest.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, UploadResRequest_Payload>
-      _UploadResRequest_PayloadByTag = {
-    2: UploadResRequest_Payload.meta,
-    3: UploadResRequest_Payload.data,
-    0: UploadResRequest_Payload.notSet
+  static const $core.Map<$core.int, UploadRequest_Payload>
+      _UploadRequest_PayloadByTag = {
+    2: UploadRequest_Payload.meta,
+    3: UploadRequest_Payload.data,
+    0: UploadRequest_Payload.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'UploadResRequest',
+      _omitMessageNames ? '' : 'UploadRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
     ..oo(0, [2, 3])
@@ -62,32 +63,33 @@ class UploadResRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UploadResRequest clone() => deepCopy();
+  UploadRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UploadResRequest copyWith(void Function(UploadResRequest) updates) =>
-      super.copyWith((message) => updates(message as UploadResRequest))
-          as UploadResRequest;
+  UploadRequest copyWith(void Function(UploadRequest) updates) =>
+      super.copyWith((message) => updates(message as UploadRequest))
+          as UploadRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static UploadResRequest create() => UploadResRequest._();
+  static UploadRequest create() => UploadRequest._();
   @$core.override
-  UploadResRequest createEmptyInstance() => create();
+  UploadRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static UploadResRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<UploadResRequest>(create);
-  static UploadResRequest? _defaultInstance;
+  static UploadRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UploadRequest>(create);
+  static UploadRequest? _defaultInstance;
 
   @$pb.TagNumber(2)
   @$pb.TagNumber(3)
-  UploadResRequest_Payload whichPayload() =>
-      _UploadResRequest_PayloadByTag[$_whichOneof(0)]!;
+  UploadRequest_Payload whichPayload() =>
+      _UploadRequest_PayloadByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(2)
   @$pb.TagNumber(3)
   void clearPayload() => $_clearField($_whichOneof(0));
 
+  /// The ID of the resource to upload.
   @$pb.TagNumber(1)
   ResourceId get id => $_getN(0);
   @$pb.TagNumber(1)
@@ -99,6 +101,7 @@ class UploadResRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   ResourceId ensureId() => $_ensure(0);
 
+  /// The metadata of the resource to upload.
   @$pb.TagNumber(2)
   ResourceMeta get meta => $_getN(1);
   @$pb.TagNumber(2)
@@ -110,6 +113,7 @@ class UploadResRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   ResourceMeta ensureMeta() => $_ensure(1);
 
+  /// The raw data of the resource to upload.
   @$pb.TagNumber(3)
   $core.List<$core.int> get data => $_getN(2);
   @$pb.TagNumber(3)
@@ -120,8 +124,9 @@ class UploadResRequest extends $pb.GeneratedMessage {
   void clearData() => $_clearField(3);
 }
 
-class UploadResResponse extends $pb.GeneratedMessage {
-  factory UploadResResponse({
+/// Response for uploading a resource.
+class UploadResponse extends $pb.GeneratedMessage {
+  factory UploadResponse({
     $1.Error? error,
   }) {
     final result = create();
@@ -129,17 +134,17 @@ class UploadResResponse extends $pb.GeneratedMessage {
     return result;
   }
 
-  UploadResResponse._();
+  UploadResponse._();
 
-  factory UploadResResponse.fromBuffer($core.List<$core.int> data,
+  factory UploadResponse.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory UploadResResponse.fromJson($core.String json,
+  factory UploadResponse.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'UploadResResponse',
+      _omitMessageNames ? '' : 'UploadResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
     ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
@@ -147,24 +152,25 @@ class UploadResResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UploadResResponse clone() => deepCopy();
+  UploadResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UploadResResponse copyWith(void Function(UploadResResponse) updates) =>
-      super.copyWith((message) => updates(message as UploadResResponse))
-          as UploadResResponse;
+  UploadResponse copyWith(void Function(UploadResponse) updates) =>
+      super.copyWith((message) => updates(message as UploadResponse))
+          as UploadResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static UploadResResponse create() => UploadResResponse._();
+  static UploadResponse create() => UploadResponse._();
   @$core.override
-  UploadResResponse createEmptyInstance() => create();
+  UploadResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static UploadResResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<UploadResResponse>(create);
-  static UploadResResponse? _defaultInstance;
+  static UploadResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UploadResponse>(create);
+  static UploadResponse? _defaultInstance;
 
+  /// The error, if any, that occurred during the upload.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -177,8 +183,9 @@ class UploadResResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(0);
 }
 
-class DownloadResRequest extends $pb.GeneratedMessage {
-  factory DownloadResRequest({
+/// Request for downloading a resource.
+class DownloadRequest extends $pb.GeneratedMessage {
+  factory DownloadRequest({
     ResourceId? id,
   }) {
     final result = create();
@@ -186,17 +193,17 @@ class DownloadResRequest extends $pb.GeneratedMessage {
     return result;
   }
 
-  DownloadResRequest._();
+  DownloadRequest._();
 
-  factory DownloadResRequest.fromBuffer($core.List<$core.int> data,
+  factory DownloadRequest.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory DownloadResRequest.fromJson($core.String json,
+  factory DownloadRequest.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'DownloadResRequest',
+      _omitMessageNames ? '' : 'DownloadRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
     ..aOM<ResourceId>(1, _omitFieldNames ? '' : 'id',
@@ -204,24 +211,25 @@ class DownloadResRequest extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DownloadResRequest clone() => deepCopy();
+  DownloadRequest clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DownloadResRequest copyWith(void Function(DownloadResRequest) updates) =>
-      super.copyWith((message) => updates(message as DownloadResRequest))
-          as DownloadResRequest;
+  DownloadRequest copyWith(void Function(DownloadRequest) updates) =>
+      super.copyWith((message) => updates(message as DownloadRequest))
+          as DownloadRequest;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static DownloadResRequest create() => DownloadResRequest._();
+  static DownloadRequest create() => DownloadRequest._();
   @$core.override
-  DownloadResRequest createEmptyInstance() => create();
+  DownloadRequest createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static DownloadResRequest getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<DownloadResRequest>(create);
-  static DownloadResRequest? _defaultInstance;
+  static DownloadRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DownloadRequest>(create);
+  static DownloadRequest? _defaultInstance;
 
+  /// The ID of the resource to download.
   @$pb.TagNumber(1)
   ResourceId get id => $_getN(0);
   @$pb.TagNumber(1)
@@ -234,10 +242,11 @@ class DownloadResRequest extends $pb.GeneratedMessage {
   ResourceId ensureId() => $_ensure(0);
 }
 
-enum DownloadResResponse_Result { meta, data, error, notSet }
+enum DownloadResponse_Result { meta, data, error, notSet }
 
-class DownloadResResponse extends $pb.GeneratedMessage {
-  factory DownloadResResponse({
+/// Response for downloading a resource.
+class DownloadResponse extends $pb.GeneratedMessage {
+  factory DownloadResponse({
     ResourceMeta? meta,
     $core.List<$core.int>? data,
     $1.Error? error,
@@ -249,24 +258,24 @@ class DownloadResResponse extends $pb.GeneratedMessage {
     return result;
   }
 
-  DownloadResResponse._();
+  DownloadResponse._();
 
-  factory DownloadResResponse.fromBuffer($core.List<$core.int> data,
+  factory DownloadResponse.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory DownloadResResponse.fromJson($core.String json,
+  factory DownloadResponse.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, DownloadResResponse_Result>
-      _DownloadResResponse_ResultByTag = {
-    1: DownloadResResponse_Result.meta,
-    2: DownloadResResponse_Result.data,
-    3: DownloadResResponse_Result.error,
-    0: DownloadResResponse_Result.notSet
+  static const $core.Map<$core.int, DownloadResponse_Result>
+      _DownloadResponse_ResultByTag = {
+    1: DownloadResponse_Result.meta,
+    2: DownloadResponse_Result.data,
+    3: DownloadResponse_Result.error,
+    0: DownloadResponse_Result.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'DownloadResResponse',
+      _omitMessageNames ? '' : 'DownloadResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2, 3])
@@ -279,34 +288,35 @@ class DownloadResResponse extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DownloadResResponse clone() => deepCopy();
+  DownloadResponse clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  DownloadResResponse copyWith(void Function(DownloadResResponse) updates) =>
-      super.copyWith((message) => updates(message as DownloadResResponse))
-          as DownloadResResponse;
+  DownloadResponse copyWith(void Function(DownloadResponse) updates) =>
+      super.copyWith((message) => updates(message as DownloadResponse))
+          as DownloadResponse;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static DownloadResResponse create() => DownloadResResponse._();
+  static DownloadResponse create() => DownloadResponse._();
   @$core.override
-  DownloadResResponse createEmptyInstance() => create();
+  DownloadResponse createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static DownloadResResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<DownloadResResponse>(create);
-  static DownloadResResponse? _defaultInstance;
+  static DownloadResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DownloadResponse>(create);
+  static DownloadResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
   @$pb.TagNumber(3)
-  DownloadResResponse_Result whichResult() =>
-      _DownloadResResponse_ResultByTag[$_whichOneof(0)]!;
+  DownloadResponse_Result whichResult() =>
+      _DownloadResponse_ResultByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
   @$pb.TagNumber(3)
   void clearResult() => $_clearField($_whichOneof(0));
 
+  /// The metadata of the resource.
   @$pb.TagNumber(1)
   ResourceMeta get meta => $_getN(0);
   @$pb.TagNumber(1)
@@ -318,6 +328,7 @@ class DownloadResResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   ResourceMeta ensureMeta() => $_ensure(0);
 
+  /// The raw data of the resource.
   @$pb.TagNumber(2)
   $core.List<$core.int> get data => $_getN(1);
   @$pb.TagNumber(2)
@@ -339,6 +350,7 @@ class DownloadResResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(2);
 }
 
+/// The unique identifier for a resource.
 class ResourceId extends $pb.GeneratedMessage {
   factory ResourceId({
     $core.String? namespace,
@@ -385,6 +397,7 @@ class ResourceId extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ResourceId>(create);
   static ResourceId? _defaultInstance;
 
+  /// The namespace of the resource. Can be a channel, user or other entity.
   @$pb.TagNumber(1)
   $core.String get namespace => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -394,6 +407,7 @@ class ResourceId extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearNamespace() => $_clearField(1);
 
+  /// The key of the resource within the namespace.
   @$pb.TagNumber(2)
   $core.String get key => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -404,6 +418,7 @@ class ResourceId extends $pb.GeneratedMessage {
   void clearKey() => $_clearField(2);
 }
 
+/// The metadata for a resource.
 class ResourceMeta extends $pb.GeneratedMessage {
   factory ResourceMeta({
     $core.String? format,
@@ -461,6 +476,7 @@ class ResourceMeta extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ResourceMeta>(create);
   static ResourceMeta? _defaultInstance;
 
+  /// The format of the resource.
   @$pb.TagNumber(1)
   $core.String get format => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -470,6 +486,7 @@ class ResourceMeta extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearFormat() => $_clearField(1);
 
+  /// The checksum of the resource.
   @$pb.TagNumber(3)
   $core.String get checksum => $_getSZ(1);
   @$pb.TagNumber(3)
@@ -479,6 +496,7 @@ class ResourceMeta extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearChecksum() => $_clearField(3);
 
+  /// The size of the resource in bytes.
   @$pb.TagNumber(4)
   $core.int get size => $_getIZ(2);
   @$pb.TagNumber(4)
@@ -488,6 +506,7 @@ class ResourceMeta extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearSize() => $_clearField(4);
 
+  /// Additional metadata for the resource.
   @$pb.TagNumber(5)
   $pb.PbMap<$core.String, $core.String> get metadata => $_getMap(3);
 }

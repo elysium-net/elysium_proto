@@ -19,6 +19,7 @@ import '../../resource/v1/resource.pb.dart' as $2;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
+/// The request message for sending a message.
 class SendMessageRequest extends $pb.GeneratedMessage {
   factory SendMessageRequest({
     $core.String? channelId,
@@ -67,6 +68,7 @@ class SendMessageRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<SendMessageRequest>(create);
   static SendMessageRequest? _defaultInstance;
 
+  /// The ID of the channel to send the message to.
   @$pb.TagNumber(1)
   $core.String get channelId => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -76,6 +78,7 @@ class SendMessageRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearChannelId() => $_clearField(1);
 
+  /// The content of the message.
   @$pb.TagNumber(2)
   Content get content => $_getN(1);
   @$pb.TagNumber(2)
@@ -90,6 +93,7 @@ class SendMessageRequest extends $pb.GeneratedMessage {
 
 enum SendMessageResponse_Result { message, error, notSet }
 
+/// The response message for sending a message.
 class SendMessageResponse extends $pb.GeneratedMessage {
   factory SendMessageResponse({
     Message? message,
@@ -154,6 +158,7 @@ class SendMessageResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearResult() => $_clearField($_whichOneof(0));
 
+  /// The message that was sent.
   @$pb.TagNumber(1)
   Message get message => $_getN(0);
   @$pb.TagNumber(1)
@@ -165,6 +170,7 @@ class SendMessageResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   Message ensureMessage() => $_ensure(0);
 
+  /// An error that occurred during the send operation.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -177,6 +183,287 @@ class SendMessageResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(1);
 }
 
+/// The request message for deleting a message.
+class DeleteMessageRequest extends $pb.GeneratedMessage {
+  factory DeleteMessageRequest({
+    $core.String? messageId,
+  }) {
+    final result = create();
+    if (messageId != null) result.messageId = messageId;
+    return result;
+  }
+
+  DeleteMessageRequest._();
+
+  factory DeleteMessageRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory DeleteMessageRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DeleteMessageRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'messageId')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DeleteMessageRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DeleteMessageRequest copyWith(void Function(DeleteMessageRequest) updates) =>
+      super.copyWith((message) => updates(message as DeleteMessageRequest))
+          as DeleteMessageRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DeleteMessageRequest create() => DeleteMessageRequest._();
+  @$core.override
+  DeleteMessageRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static DeleteMessageRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DeleteMessageRequest>(create);
+  static DeleteMessageRequest? _defaultInstance;
+
+  /// The ID of the message to delete.
+  @$pb.TagNumber(1)
+  $core.String get messageId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set messageId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasMessageId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMessageId() => $_clearField(1);
+}
+
+/// The response message for deleting a message.
+class DeleteMessageResponse extends $pb.GeneratedMessage {
+  factory DeleteMessageResponse({
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  DeleteMessageResponse._();
+
+  factory DeleteMessageResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory DeleteMessageResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'DeleteMessageResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DeleteMessageResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  DeleteMessageResponse copyWith(
+          void Function(DeleteMessageResponse) updates) =>
+      super.copyWith((message) => updates(message as DeleteMessageResponse))
+          as DeleteMessageResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DeleteMessageResponse create() => DeleteMessageResponse._();
+  @$core.override
+  DeleteMessageResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static DeleteMessageResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<DeleteMessageResponse>(create);
+  static DeleteMessageResponse? _defaultInstance;
+
+  /// The error that occurred during the delete operation, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+}
+
+class UpdateMessageRequest extends $pb.GeneratedMessage {
+  factory UpdateMessageRequest({
+    $core.String? messageId,
+    Content? content,
+  }) {
+    final result = create();
+    if (messageId != null) result.messageId = messageId;
+    if (content != null) result.content = content;
+    return result;
+  }
+
+  UpdateMessageRequest._();
+
+  factory UpdateMessageRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory UpdateMessageRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UpdateMessageRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'messageId')
+    ..aOM<Content>(2, _omitFieldNames ? '' : 'content',
+        subBuilder: Content.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UpdateMessageRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UpdateMessageRequest copyWith(void Function(UpdateMessageRequest) updates) =>
+      super.copyWith((message) => updates(message as UpdateMessageRequest))
+          as UpdateMessageRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UpdateMessageRequest create() => UpdateMessageRequest._();
+  @$core.override
+  UpdateMessageRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static UpdateMessageRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UpdateMessageRequest>(create);
+  static UpdateMessageRequest? _defaultInstance;
+
+  /// The ID of the message to update.
+  @$pb.TagNumber(1)
+  $core.String get messageId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set messageId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasMessageId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMessageId() => $_clearField(1);
+
+  /// The updated content of the message.
+  @$pb.TagNumber(2)
+  Content get content => $_getN(1);
+  @$pb.TagNumber(2)
+  set content(Content value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasContent() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearContent() => $_clearField(2);
+  @$pb.TagNumber(2)
+  Content ensureContent() => $_ensure(1);
+}
+
+enum UpdateMessageResponse_Result { message, error, notSet }
+
+/// The response message for updating a message.
+class UpdateMessageResponse extends $pb.GeneratedMessage {
+  factory UpdateMessageResponse({
+    Message? message,
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (message != null) result.message = message;
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  UpdateMessageResponse._();
+
+  factory UpdateMessageResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory UpdateMessageResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static const $core.Map<$core.int, UpdateMessageResponse_Result>
+      _UpdateMessageResponse_ResultByTag = {
+    1: UpdateMessageResponse_Result.message,
+    2: UpdateMessageResponse_Result.error,
+    0: UpdateMessageResponse_Result.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UpdateMessageResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOM<Message>(1, _omitFieldNames ? '' : 'message',
+        subBuilder: Message.create)
+    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UpdateMessageResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UpdateMessageResponse copyWith(
+          void Function(UpdateMessageResponse) updates) =>
+      super.copyWith((message) => updates(message as UpdateMessageResponse))
+          as UpdateMessageResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UpdateMessageResponse create() => UpdateMessageResponse._();
+  @$core.override
+  UpdateMessageResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static UpdateMessageResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UpdateMessageResponse>(create);
+  static UpdateMessageResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  UpdateMessageResponse_Result whichResult() =>
+      _UpdateMessageResponse_ResultByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  void clearResult() => $_clearField($_whichOneof(0));
+
+  /// The updated message.
+  @$pb.TagNumber(1)
+  Message get message => $_getN(0);
+  @$pb.TagNumber(1)
+  set message(Message value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasMessage() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMessage() => $_clearField(1);
+  @$pb.TagNumber(1)
+  Message ensureMessage() => $_ensure(0);
+
+  /// An error that occurred during the update operation.
+  @$pb.TagNumber(2)
+  $1.Error get error => $_getN(1);
+  @$pb.TagNumber(2)
+  set error($1.Error value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasError() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearError() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $1.Error ensureError() => $_ensure(1);
+}
+
+/// A message sent to a channel.
 class Message extends $pb.GeneratedMessage {
   factory Message({
     $core.String? id,
@@ -230,6 +517,7 @@ class Message extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Message>(create);
   static Message? _defaultInstance;
 
+  /// The ID of the message.
   @$pb.TagNumber(1)
   $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -239,6 +527,7 @@ class Message extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearId() => $_clearField(1);
 
+  /// The ID of the channel the message was sent to.
   @$pb.TagNumber(2)
   $core.String get channelId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -248,6 +537,7 @@ class Message extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearChannelId() => $_clearField(2);
 
+  /// The ID of the user who sent the message.
   @$pb.TagNumber(3)
   $core.String get userId => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -257,6 +547,7 @@ class Message extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearUserId() => $_clearField(3);
 
+  /// The content of the message.
   @$pb.TagNumber(4)
   Content get content => $_getN(3);
   @$pb.TagNumber(4)
@@ -271,6 +562,7 @@ class Message extends $pb.GeneratedMessage {
 
 enum Content_Content { text, resource, notSet }
 
+/// The content of a message.
 class Content extends $pb.GeneratedMessage {
   factory Content({
     $core.String? text,
@@ -331,6 +623,7 @@ class Content extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearContent() => $_clearField($_whichOneof(0));
 
+  /// The text content of the message.
   @$pb.TagNumber(1)
   $core.String get text => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -340,6 +633,7 @@ class Content extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearText() => $_clearField(1);
 
+  /// The resource content of the message.
   @$pb.TagNumber(2)
   $2.ResourceId get resource => $_getN(1);
   @$pb.TagNumber(2)

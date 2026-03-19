@@ -14,11 +14,17 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// Role of the user.
 class UserRole extends $pb.ProtobufEnum {
+  /// Default value is a normal user.
   static const UserRole USER_ROLE_USER_UNSPECIFIED =
       UserRole._(0, _omitEnumNames ? '' : 'USER_ROLE_USER_UNSPECIFIED');
+
+  /// A supervisor user.
   static const UserRole USER_ROLE_SUPERVISOR =
       UserRole._(1, _omitEnumNames ? '' : 'USER_ROLE_SUPERVISOR');
+
+  /// An administrator user.
   static const UserRole USER_ROLE_ADMIN =
       UserRole._(2, _omitEnumNames ? '' : 'USER_ROLE_ADMIN');
 

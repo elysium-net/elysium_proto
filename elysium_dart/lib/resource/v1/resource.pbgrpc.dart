@@ -20,6 +20,7 @@ import 'resource.pb.dart' as $0;
 
 export 'resource.pb.dart';
 
+/// Service for managing resources.
 @$pb.GrpcServiceName('resource.v1.ResourceService')
 class ResourceServiceClient extends $grpc.Client {
   /// The hostname for this service.
@@ -32,35 +33,40 @@ class ResourceServiceClient extends $grpc.Client {
 
   ResourceServiceClient(super.channel, {super.options, super.interceptors});
 
-  $grpc.ResponseFuture<$0.UploadResResponse> uploadResource(
-    $async.Stream<$0.UploadResRequest> request, {
+  /// Upload a resource via a stream.
+  ///
+  /// Requires Authentication: Only authorized users can upload resources.
+  $grpc.ResponseFuture<$0.UploadResponse> upload(
+    $async.Stream<$0.UploadRequest> request, {
     $grpc.CallOptions? options,
   }) {
-    return $createStreamingCall(_$uploadResource, request, options: options)
-        .single;
+    return $createStreamingCall(_$upload, request, options: options).single;
   }
 
-  $grpc.ResponseStream<$0.DownloadResResponse> downloadResource(
-    $0.DownloadResRequest request, {
+  /// Download a resource via a stream.
+  ///
+  /// Requires Authentication: Only authorized users can download resources.
+  $grpc.ResponseStream<$0.DownloadResponse> download(
+    $0.DownloadRequest request, {
     $grpc.CallOptions? options,
   }) {
     return $createStreamingCall(
-        _$downloadResource, $async.Stream.fromIterable([request]),
+        _$download, $async.Stream.fromIterable([request]),
         options: options);
   }
 
   // method descriptors
 
-  static final _$uploadResource =
-      $grpc.ClientMethod<$0.UploadResRequest, $0.UploadResResponse>(
-          '/resource.v1.ResourceService/UploadResource',
-          ($0.UploadResRequest value) => value.writeToBuffer(),
-          $0.UploadResResponse.fromBuffer);
-  static final _$downloadResource =
-      $grpc.ClientMethod<$0.DownloadResRequest, $0.DownloadResResponse>(
-          '/resource.v1.ResourceService/DownloadResource',
-          ($0.DownloadResRequest value) => value.writeToBuffer(),
-          $0.DownloadResResponse.fromBuffer);
+  static final _$upload =
+      $grpc.ClientMethod<$0.UploadRequest, $0.UploadResponse>(
+          '/resource.v1.ResourceService/Upload',
+          ($0.UploadRequest value) => value.writeToBuffer(),
+          $0.UploadResponse.fromBuffer);
+  static final _$download =
+      $grpc.ClientMethod<$0.DownloadRequest, $0.DownloadResponse>(
+          '/resource.v1.ResourceService/Download',
+          ($0.DownloadRequest value) => value.writeToBuffer(),
+          $0.DownloadResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('resource.v1.ResourceService')
@@ -68,33 +74,30 @@ abstract class ResourceServiceBase extends $grpc.Service {
   $core.String get $name => 'resource.v1.ResourceService';
 
   ResourceServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.UploadResRequest, $0.UploadResResponse>(
-        'UploadResource',
-        uploadResource,
+    $addMethod($grpc.ServiceMethod<$0.UploadRequest, $0.UploadResponse>(
+        'Upload',
+        upload,
         true,
         false,
-        ($core.List<$core.int> value) => $0.UploadResRequest.fromBuffer(value),
-        ($0.UploadResResponse value) => value.writeToBuffer()));
-    $addMethod(
-        $grpc.ServiceMethod<$0.DownloadResRequest, $0.DownloadResResponse>(
-            'DownloadResource',
-            downloadResource_Pre,
-            false,
-            true,
-            ($core.List<$core.int> value) =>
-                $0.DownloadResRequest.fromBuffer(value),
-            ($0.DownloadResResponse value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $0.UploadRequest.fromBuffer(value),
+        ($0.UploadResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.DownloadRequest, $0.DownloadResponse>(
+        'Download',
+        download_Pre,
+        false,
+        true,
+        ($core.List<$core.int> value) => $0.DownloadRequest.fromBuffer(value),
+        ($0.DownloadResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.UploadResResponse> uploadResource(
-      $grpc.ServiceCall call, $async.Stream<$0.UploadResRequest> request);
+  $async.Future<$0.UploadResponse> upload(
+      $grpc.ServiceCall call, $async.Stream<$0.UploadRequest> request);
 
-  $async.Stream<$0.DownloadResResponse> downloadResource_Pre(
-      $grpc.ServiceCall $call,
-      $async.Future<$0.DownloadResRequest> $request) async* {
-    yield* downloadResource($call, await $request);
+  $async.Stream<$0.DownloadResponse> download_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.DownloadRequest> $request) async* {
+    yield* download($call, await $request);
   }
 
-  $async.Stream<$0.DownloadResResponse> downloadResource(
-      $grpc.ServiceCall call, $0.DownloadResRequest request);
+  $async.Stream<$0.DownloadResponse> download(
+      $grpc.ServiceCall call, $0.DownloadRequest request);
 }

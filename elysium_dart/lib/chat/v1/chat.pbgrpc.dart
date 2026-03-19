@@ -20,6 +20,7 @@ import 'chat.pb.dart' as $0;
 
 export 'chat.pb.dart';
 
+/// The chat service provides methods for sending messages.
 @$pb.GrpcServiceName('chat.v1.ChatService')
 class ChatServiceClient extends $grpc.Client {
   /// The hostname for this service.
@@ -32,11 +33,38 @@ class ChatServiceClient extends $grpc.Client {
 
   ChatServiceClient(super.channel, {super.options, super.interceptors});
 
+  /// Sends a message to a channel.
+  ///
+  /// Requires Authentication: Only authorized users can send messages.
   $grpc.ResponseFuture<$0.SendMessageResponse> sendMessage(
     $0.SendMessageRequest request, {
     $grpc.CallOptions? options,
   }) {
     return $createUnaryCall(_$sendMessage, request, options: options);
+  }
+
+  /// Deletes a message.
+  ///
+  /// Config-dependent: This can be disabled.
+  ///
+  /// Requires Authentication: Only authorized users can delete messages.
+  $grpc.ResponseFuture<$0.DeleteMessageResponse> deleteMessage(
+    $0.DeleteMessageRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$deleteMessage, request, options: options);
+  }
+
+  /// Updates a message.
+  ///
+  /// Config-dependent: This can be disabled.
+  ///
+  /// Requires Authentication: Only authorized users can update messages.
+  $grpc.ResponseFuture<$0.UpdateMessageResponse> updateMessage(
+    $0.UpdateMessageRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$updateMessage, request, options: options);
   }
 
   // method descriptors
@@ -46,6 +74,16 @@ class ChatServiceClient extends $grpc.Client {
           '/chat.v1.ChatService/SendMessage',
           ($0.SendMessageRequest value) => value.writeToBuffer(),
           $0.SendMessageResponse.fromBuffer);
+  static final _$deleteMessage =
+      $grpc.ClientMethod<$0.DeleteMessageRequest, $0.DeleteMessageResponse>(
+          '/chat.v1.ChatService/DeleteMessage',
+          ($0.DeleteMessageRequest value) => value.writeToBuffer(),
+          $0.DeleteMessageResponse.fromBuffer);
+  static final _$updateMessage =
+      $grpc.ClientMethod<$0.UpdateMessageRequest, $0.UpdateMessageResponse>(
+          '/chat.v1.ChatService/UpdateMessage',
+          ($0.UpdateMessageRequest value) => value.writeToBuffer(),
+          $0.UpdateMessageResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('chat.v1.ChatService')
@@ -62,6 +100,24 @@ abstract class ChatServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.SendMessageRequest.fromBuffer(value),
             ($0.SendMessageResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.DeleteMessageRequest, $0.DeleteMessageResponse>(
+            'DeleteMessage',
+            deleteMessage_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.DeleteMessageRequest.fromBuffer(value),
+            ($0.DeleteMessageResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.UpdateMessageRequest, $0.UpdateMessageResponse>(
+            'UpdateMessage',
+            updateMessage_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.UpdateMessageRequest.fromBuffer(value),
+            ($0.UpdateMessageResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.SendMessageResponse> sendMessage_Pre($grpc.ServiceCall $call,
@@ -71,4 +127,22 @@ abstract class ChatServiceBase extends $grpc.Service {
 
   $async.Future<$0.SendMessageResponse> sendMessage(
       $grpc.ServiceCall call, $0.SendMessageRequest request);
+
+  $async.Future<$0.DeleteMessageResponse> deleteMessage_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.DeleteMessageRequest> $request) async {
+    return deleteMessage($call, await $request);
+  }
+
+  $async.Future<$0.DeleteMessageResponse> deleteMessage(
+      $grpc.ServiceCall call, $0.DeleteMessageRequest request);
+
+  $async.Future<$0.UpdateMessageResponse> updateMessage_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.UpdateMessageRequest> $request) async {
+    return updateMessage($call, await $request);
+  }
+
+  $async.Future<$0.UpdateMessageResponse> updateMessage(
+      $grpc.ServiceCall call, $0.UpdateMessageRequest request);
 }

@@ -15,9 +15,9 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
-@$core.Deprecated('Use uploadResRequestDescriptor instead')
-const UploadResRequest$json = {
-  '1': 'UploadResRequest',
+@$core.Deprecated('Use uploadRequestDescriptor instead')
+const UploadRequest$json = {
+  '1': 'UploadRequest',
   '2': [
     {
       '1': 'id',
@@ -43,15 +43,15 @@ const UploadResRequest$json = {
   ],
 };
 
-/// Descriptor for `UploadResRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List uploadResRequestDescriptor = $convert.base64Decode(
-    'ChBVcGxvYWRSZXNSZXF1ZXN0EicKAmlkGAEgASgLMhcucmVzb3VyY2UudjEuUmVzb3VyY2VJZF'
-    'ICaWQSLwoEbWV0YRgCIAEoCzIZLnJlc291cmNlLnYxLlJlc291cmNlTWV0YUgAUgRtZXRhEhQK'
-    'BGRhdGEYAyABKAxIAFIEZGF0YUIJCgdwYXlsb2Fk');
+/// Descriptor for `UploadRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List uploadRequestDescriptor = $convert.base64Decode(
+    'Cg1VcGxvYWRSZXF1ZXN0EicKAmlkGAEgASgLMhcucmVzb3VyY2UudjEuUmVzb3VyY2VJZFICaW'
+    'QSLwoEbWV0YRgCIAEoCzIZLnJlc291cmNlLnYxLlJlc291cmNlTWV0YUgAUgRtZXRhEhQKBGRh'
+    'dGEYAyABKAxIAFIEZGF0YUIJCgdwYXlsb2Fk');
 
-@$core.Deprecated('Use uploadResResponseDescriptor instead')
-const UploadResResponse$json = {
-  '1': 'UploadResResponse',
+@$core.Deprecated('Use uploadResponseDescriptor instead')
+const UploadResponse$json = {
+  '1': 'UploadResponse',
   '2': [
     {
       '1': 'error',
@@ -69,14 +69,14 @@ const UploadResResponse$json = {
   ],
 };
 
-/// Descriptor for `UploadResResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List uploadResResponseDescriptor = $convert.base64Decode(
-    'ChFVcGxvYWRSZXNSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUg'
-    'VlcnJvcogBAUIICgZfZXJyb3I=');
+/// Descriptor for `UploadResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List uploadResponseDescriptor = $convert.base64Decode(
+    'Cg5VcGxvYWRSZXNwb25zZRIrCgVlcnJvchgBIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcn'
+    'JvcogBAUIICgZfZXJyb3I=');
 
-@$core.Deprecated('Use downloadResRequestDescriptor instead')
-const DownloadResRequest$json = {
-  '1': 'DownloadResRequest',
+@$core.Deprecated('Use downloadRequestDescriptor instead')
+const DownloadRequest$json = {
+  '1': 'DownloadRequest',
   '2': [
     {
       '1': 'id',
@@ -89,14 +89,14 @@ const DownloadResRequest$json = {
   ],
 };
 
-/// Descriptor for `DownloadResRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List downloadResRequestDescriptor = $convert.base64Decode(
-    'ChJEb3dubG9hZFJlc1JlcXVlc3QSJwoCaWQYASABKAsyFy5yZXNvdXJjZS52MS5SZXNvdXJjZU'
-    'lkUgJpZA==');
+/// Descriptor for `DownloadRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List downloadRequestDescriptor = $convert.base64Decode(
+    'Cg9Eb3dubG9hZFJlcXVlc3QSJwoCaWQYASABKAsyFy5yZXNvdXJjZS52MS5SZXNvdXJjZUlkUg'
+    'JpZA==');
 
-@$core.Deprecated('Use downloadResResponseDescriptor instead')
-const DownloadResResponse$json = {
-  '1': 'DownloadResResponse',
+@$core.Deprecated('Use downloadResponseDescriptor instead')
+const DownloadResponse$json = {
+  '1': 'DownloadResponse',
   '2': [
     {
       '1': 'meta',
@@ -123,11 +123,11 @@ const DownloadResResponse$json = {
   ],
 };
 
-/// Descriptor for `DownloadResResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List downloadResResponseDescriptor = $convert.base64Decode(
-    'ChNEb3dubG9hZFJlc1Jlc3BvbnNlEi8KBG1ldGEYASABKAsyGS5yZXNvdXJjZS52MS5SZXNvdX'
-    'JjZU1ldGFIAFIEbWV0YRIUCgRkYXRhGAIgASgMSABSBGRhdGESKAoFZXJyb3IYAyABKAsyEC5j'
-    'b21tb24udjEuRXJyb3JIAFIFZXJyb3JCCAoGcmVzdWx0');
+/// Descriptor for `DownloadResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List downloadResponseDescriptor = $convert.base64Decode(
+    'ChBEb3dubG9hZFJlc3BvbnNlEi8KBG1ldGEYASABKAsyGS5yZXNvdXJjZS52MS5SZXNvdXJjZU'
+    '1ldGFIAFIEbWV0YRIUCgRkYXRhGAIgASgMSABSBGRhdGESKAoFZXJyb3IYAyABKAsyEC5jb21t'
+    'b24udjEuRXJyb3JIAFIFZXJyb3JCCAoGcmVzdWx0');
 
 @$core.Deprecated('Use resourceIdDescriptor instead')
 const ResourceId$json = {

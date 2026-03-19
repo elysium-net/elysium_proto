@@ -14,11 +14,17 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+/// The code of an error.
 class ErrorCode extends $pb.ProtobufEnum {
+  /// The error code is unspecified/unknown. Should not be used.
   static const ErrorCode ERROR_CODE_UNSPECIFIED =
       ErrorCode._(0, _omitEnumNames ? '' : 'ERROR_CODE_UNSPECIFIED');
+
+  /// Indicates the request was unauthorized.
   static const ErrorCode ERROR_CODE_UNAUTHORIZED =
       ErrorCode._(1, _omitEnumNames ? '' : 'ERROR_CODE_UNAUTHORIZED');
+
+  /// Indicates the requested item was not found.
   static const ErrorCode ERROR_CODE_NOT_FOUND =
       ErrorCode._(2, _omitEnumNames ? '' : 'ERROR_CODE_NOT_FOUND');
 

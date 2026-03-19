@@ -22,6 +22,7 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 export 'user.pbenum.dart';
 
+/// Request message for creating a user.
 class CreateUserRequest extends $pb.GeneratedMessage {
   factory CreateUserRequest({
     User? user,
@@ -66,6 +67,7 @@ class CreateUserRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<CreateUserRequest>(create);
   static CreateUserRequest? _defaultInstance;
 
+  /// User to create.
   @$pb.TagNumber(1)
   User get user => $_getN(0);
   @$pb.TagNumber(1)
@@ -78,6 +80,7 @@ class CreateUserRequest extends $pb.GeneratedMessage {
   User ensureUser() => $_ensure(0);
 }
 
+/// Response message for creating a user.
 class CreateUserResponse extends $pb.GeneratedMessage {
   factory CreateUserResponse({
     $1.Error? error,
@@ -123,6 +126,7 @@ class CreateUserResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<CreateUserResponse>(create);
   static CreateUserResponse? _defaultInstance;
 
+  /// Error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -135,6 +139,7 @@ class CreateUserResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(0);
 }
 
+/// Request message for deleting a user.
 class DeleteUserRequest extends $pb.GeneratedMessage {
   factory DeleteUserRequest({
     $core.String? id,
@@ -179,6 +184,7 @@ class DeleteUserRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<DeleteUserRequest>(create);
   static DeleteUserRequest? _defaultInstance;
 
+  /// ID of the user to delete.
   @$pb.TagNumber(1)
   $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -189,6 +195,7 @@ class DeleteUserRequest extends $pb.GeneratedMessage {
   void clearId() => $_clearField(1);
 }
 
+/// Response message for deleting a user.
 class DeleteUserResponse extends $pb.GeneratedMessage {
   factory DeleteUserResponse({
     $1.Error? error,
@@ -234,6 +241,7 @@ class DeleteUserResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<DeleteUserResponse>(create);
   static DeleteUserResponse? _defaultInstance;
 
+  /// Error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -246,6 +254,7 @@ class DeleteUserResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(0);
 }
 
+/// Request message for updating a user.
 class UpdateUserRequest extends $pb.GeneratedMessage {
   factory UpdateUserRequest({
     User? user,
@@ -290,6 +299,7 @@ class UpdateUserRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<UpdateUserRequest>(create);
   static UpdateUserRequest? _defaultInstance;
 
+  /// User to update.
   @$pb.TagNumber(1)
   User get user => $_getN(0);
   @$pb.TagNumber(1)
@@ -302,6 +312,140 @@ class UpdateUserRequest extends $pb.GeneratedMessage {
   User ensureUser() => $_ensure(0);
 }
 
+/// Request message for updating a user's avatar.
+class UpdateUserAvatarRequest extends $pb.GeneratedMessage {
+  factory UpdateUserAvatarRequest({
+    $core.String? id,
+    $2.ResourceId? avatar,
+  }) {
+    final result = create();
+    if (id != null) result.id = id;
+    if (avatar != null) result.avatar = avatar;
+    return result;
+  }
+
+  UpdateUserAvatarRequest._();
+
+  factory UpdateUserAvatarRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory UpdateUserAvatarRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UpdateUserAvatarRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOM<$2.ResourceId>(2, _omitFieldNames ? '' : 'avatar',
+        subBuilder: $2.ResourceId.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UpdateUserAvatarRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UpdateUserAvatarRequest copyWith(
+          void Function(UpdateUserAvatarRequest) updates) =>
+      super.copyWith((message) => updates(message as UpdateUserAvatarRequest))
+          as UpdateUserAvatarRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UpdateUserAvatarRequest create() => UpdateUserAvatarRequest._();
+  @$core.override
+  UpdateUserAvatarRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static UpdateUserAvatarRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UpdateUserAvatarRequest>(create);
+  static UpdateUserAvatarRequest? _defaultInstance;
+
+  /// ID of the user to update.
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => $_clearField(1);
+
+  /// New avatar resource ID.
+  @$pb.TagNumber(2)
+  $2.ResourceId get avatar => $_getN(1);
+  @$pb.TagNumber(2)
+  set avatar($2.ResourceId value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasAvatar() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearAvatar() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $2.ResourceId ensureAvatar() => $_ensure(1);
+}
+
+/// Response message for updating a user's avatar.
+class UpdateUserAvatarResponse extends $pb.GeneratedMessage {
+  factory UpdateUserAvatarResponse({
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  UpdateUserAvatarResponse._();
+
+  factory UpdateUserAvatarResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory UpdateUserAvatarResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UpdateUserAvatarResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Error>(1, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UpdateUserAvatarResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UpdateUserAvatarResponse copyWith(
+          void Function(UpdateUserAvatarResponse) updates) =>
+      super.copyWith((message) => updates(message as UpdateUserAvatarResponse))
+          as UpdateUserAvatarResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UpdateUserAvatarResponse create() => UpdateUserAvatarResponse._();
+  @$core.override
+  UpdateUserAvatarResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static UpdateUserAvatarResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UpdateUserAvatarResponse>(create);
+  static UpdateUserAvatarResponse? _defaultInstance;
+
+  /// Error, if any.
+  @$pb.TagNumber(1)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(1)
+  set error($1.Error value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearError() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Error ensureError() => $_ensure(0);
+}
+
+/// Response message for updating a user.
 class UpdateUserResponse extends $pb.GeneratedMessage {
   factory UpdateUserResponse({
     $1.Error? error,
@@ -347,6 +491,7 @@ class UpdateUserResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<UpdateUserResponse>(create);
   static UpdateUserResponse? _defaultInstance;
 
+  /// Error, if any.
   @$pb.TagNumber(1)
   $1.Error get error => $_getN(0);
   @$pb.TagNumber(1)
@@ -359,6 +504,7 @@ class UpdateUserResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(0);
 }
 
+/// Request message for getting a user.
 class GetUserRequest extends $pb.GeneratedMessage {
   factory GetUserRequest({
     $core.String? id,
@@ -403,6 +549,7 @@ class GetUserRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GetUserRequest>(create);
   static GetUserRequest? _defaultInstance;
 
+  /// ID of the user to get.
   @$pb.TagNumber(1)
   $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -415,6 +562,7 @@ class GetUserRequest extends $pb.GeneratedMessage {
 
 enum GetUserResponse_Result { user, error, notSet }
 
+/// Response message for getting a user.
 class GetUserResponse extends $pb.GeneratedMessage {
   factory GetUserResponse({
     UserProfile? user,
@@ -479,6 +627,7 @@ class GetUserResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearResult() => $_clearField($_whichOneof(0));
 
+  /// User profile.
   @$pb.TagNumber(1)
   UserProfile get user => $_getN(0);
   @$pb.TagNumber(1)
@@ -490,6 +639,7 @@ class GetUserResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   UserProfile ensureUser() => $_ensure(0);
 
+  /// Error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -502,6 +652,7 @@ class GetUserResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(1);
 }
 
+/// Request message for searching users.
 class SearchUsersRequest extends $pb.GeneratedMessage {
   factory SearchUsersRequest({
     $core.String? query,
@@ -546,6 +697,7 @@ class SearchUsersRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<SearchUsersRequest>(create);
   static SearchUsersRequest? _defaultInstance;
 
+  /// Query string to search for.
   @$pb.TagNumber(1)
   $core.String get query => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -556,6 +708,7 @@ class SearchUsersRequest extends $pb.GeneratedMessage {
   void clearQuery() => $_clearField(1);
 }
 
+/// Response message for searching users.
 class SearchUsersResponse extends $pb.GeneratedMessage {
   factory SearchUsersResponse({
     $core.Iterable<UserProfile>? users,
@@ -605,9 +758,11 @@ class SearchUsersResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<SearchUsersResponse>(create);
   static SearchUsersResponse? _defaultInstance;
 
+  /// List of users matching the query.
   @$pb.TagNumber(1)
   $pb.PbList<UserProfile> get users => $_getList(0);
 
+  /// Error, if any.
   @$pb.TagNumber(2)
   $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
@@ -620,6 +775,9 @@ class SearchUsersResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(1);
 }
 
+/// An application user.
+///
+/// Should only be used internally or by administrators.
 class User extends $pb.GeneratedMessage {
   factory User({
     $core.String? id,
@@ -680,6 +838,7 @@ class User extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<User>(create);
   static User? _defaultInstance;
 
+  /// Unique user identifier.
   @$pb.TagNumber(1)
   $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -689,6 +848,7 @@ class User extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearId() => $_clearField(1);
 
+  /// Username of the user.
   @$pb.TagNumber(2)
   $core.String get username => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -698,6 +858,7 @@ class User extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearUsername() => $_clearField(2);
 
+  /// Email of the user.
   @$pb.TagNumber(3)
   $core.String get email => $_getSZ(2);
   @$pb.TagNumber(3)
@@ -707,6 +868,7 @@ class User extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearEmail() => $_clearField(3);
 
+  /// Password hash of the user.
   @$pb.TagNumber(4)
   $core.String get password => $_getSZ(3);
   @$pb.TagNumber(4)
@@ -716,6 +878,7 @@ class User extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearPassword() => $_clearField(4);
 
+  /// Role of the user.
   @$pb.TagNumber(5)
   UserRole get role => $_getN(4);
   @$pb.TagNumber(5)
@@ -725,6 +888,7 @@ class User extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearRole() => $_clearField(5);
 
+  /// Icon/Avatar of the user.
   @$pb.TagNumber(6)
   $2.ResourceId get icon => $_getN(5);
   @$pb.TagNumber(6)
@@ -737,6 +901,9 @@ class User extends $pb.GeneratedMessage {
   $2.ResourceId ensureIcon() => $_ensure(5);
 }
 
+/// User profile.
+///
+/// A safe representation of a user without sensitive information.
 class UserProfile extends $pb.GeneratedMessage {
   factory UserProfile({
     $core.String? id,
@@ -767,9 +934,9 @@ class UserProfile extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'id')
     ..aOS(2, _omitFieldNames ? '' : 'username')
-    ..aE<UserRole>(4, _omitFieldNames ? '' : 'role',
+    ..aE<UserRole>(3, _omitFieldNames ? '' : 'role',
         enumValues: UserRole.values)
-    ..aOM<$2.ResourceId>(5, _omitFieldNames ? '' : 'icon',
+    ..aOM<$2.ResourceId>(4, _omitFieldNames ? '' : 'icon',
         subBuilder: $2.ResourceId.create)
     ..hasRequiredFields = false;
 
@@ -792,6 +959,7 @@ class UserProfile extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<UserProfile>(create);
   static UserProfile? _defaultInstance;
 
+  /// Unique user identifier.
   @$pb.TagNumber(1)
   $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -801,6 +969,7 @@ class UserProfile extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearId() => $_clearField(1);
 
+  /// Username of the user.
   @$pb.TagNumber(2)
   $core.String get username => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -810,24 +979,26 @@ class UserProfile extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearUsername() => $_clearField(2);
 
-  @$pb.TagNumber(4)
+  /// Role of the user.
+  @$pb.TagNumber(3)
   UserRole get role => $_getN(2);
-  @$pb.TagNumber(4)
-  set role(UserRole value) => $_setField(4, value);
-  @$pb.TagNumber(4)
+  @$pb.TagNumber(3)
+  set role(UserRole value) => $_setField(3, value);
+  @$pb.TagNumber(3)
   $core.bool hasRole() => $_has(2);
-  @$pb.TagNumber(4)
-  void clearRole() => $_clearField(4);
+  @$pb.TagNumber(3)
+  void clearRole() => $_clearField(3);
 
-  @$pb.TagNumber(5)
+  /// Icon/Avatar of the user.
+  @$pb.TagNumber(4)
   $2.ResourceId get icon => $_getN(3);
-  @$pb.TagNumber(5)
-  set icon($2.ResourceId value) => $_setField(5, value);
-  @$pb.TagNumber(5)
+  @$pb.TagNumber(4)
+  set icon($2.ResourceId value) => $_setField(4, value);
+  @$pb.TagNumber(4)
   $core.bool hasIcon() => $_has(3);
-  @$pb.TagNumber(5)
-  void clearIcon() => $_clearField(5);
-  @$pb.TagNumber(5)
+  @$pb.TagNumber(4)
+  void clearIcon() => $_clearField(4);
+  @$pb.TagNumber(4)
   $2.ResourceId ensureIcon() => $_ensure(3);
 }
 

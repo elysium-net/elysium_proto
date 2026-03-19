@@ -20,6 +20,7 @@ import 'user.pb.dart' as $0;
 
 export 'user.pb.dart';
 
+/// Service for managing users.
 @$pb.GrpcServiceName('user.v1.UserService')
 class UserServiceClient extends $grpc.Client {
   /// The hostname for this service.
@@ -32,6 +33,9 @@ class UserServiceClient extends $grpc.Client {
 
   UserServiceClient(super.channel, {super.options, super.interceptors});
 
+  /// Creates a new user.
+  ///
+  /// Requires Authentication: Only administrators can create users.
   $grpc.ResponseFuture<$0.CreateUserResponse> createUser(
     $0.CreateUserRequest request, {
     $grpc.CallOptions? options,
@@ -39,6 +43,9 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$createUser, request, options: options);
   }
 
+  /// Deletes a user by ID.
+  ///
+  /// Requires Authentication: Only administrators can delete users.
   $grpc.ResponseFuture<$0.DeleteUserResponse> deleteUser(
     $0.DeleteUserRequest request, {
     $grpc.CallOptions? options,
@@ -46,6 +53,31 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$deleteUser, request, options: options);
   }
 
+  /// Updates a user.
+  ///
+  /// Requires Authentication: Only administrators can update users.
+  $grpc.ResponseFuture<$0.UpdateUserResponse> updateUser(
+    $0.UpdateUserRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$updateUser, request, options: options);
+  }
+
+  /// Updates a user's avatar.
+  ///
+  /// Config-dependent: This can be disabled.
+  ///
+  /// Requires Authentication: All authenticated users can update a their avatar.
+  $grpc.ResponseFuture<$0.UpdateUserAvatarResponse> updateUserAvatar(
+    $0.UpdateUserAvatarRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$updateUserAvatar, request, options: options);
+  }
+
+  /// Gets a user by ID.
+  ///
+  /// Requires Authentication: All authenticated users can get a user.
   $grpc.ResponseFuture<$0.GetUserResponse> getUser(
     $0.GetUserRequest request, {
     $grpc.CallOptions? options,
@@ -53,6 +85,9 @@ class UserServiceClient extends $grpc.Client {
     return $createUnaryCall(_$getUser, request, options: options);
   }
 
+  /// Searches for users by query.
+  ///
+  /// Requires Authentication: All authenticated users can search for users.
   $grpc.ResponseFuture<$0.SearchUsersResponse> searchUsers(
     $0.SearchUsersRequest request, {
     $grpc.CallOptions? options,
@@ -72,6 +107,16 @@ class UserServiceClient extends $grpc.Client {
           '/user.v1.UserService/DeleteUser',
           ($0.DeleteUserRequest value) => value.writeToBuffer(),
           $0.DeleteUserResponse.fromBuffer);
+  static final _$updateUser =
+      $grpc.ClientMethod<$0.UpdateUserRequest, $0.UpdateUserResponse>(
+          '/user.v1.UserService/UpdateUser',
+          ($0.UpdateUserRequest value) => value.writeToBuffer(),
+          $0.UpdateUserResponse.fromBuffer);
+  static final _$updateUserAvatar = $grpc.ClientMethod<
+          $0.UpdateUserAvatarRequest, $0.UpdateUserAvatarResponse>(
+      '/user.v1.UserService/UpdateUserAvatar',
+      ($0.UpdateUserAvatarRequest value) => value.writeToBuffer(),
+      $0.UpdateUserAvatarResponse.fromBuffer);
   static final _$getUser =
       $grpc.ClientMethod<$0.GetUserRequest, $0.GetUserResponse>(
           '/user.v1.UserService/GetUser',
@@ -103,6 +148,22 @@ abstract class UserServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.DeleteUserRequest.fromBuffer(value),
         ($0.DeleteUserResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.UpdateUserRequest, $0.UpdateUserResponse>(
+        'UpdateUser',
+        updateUser_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.UpdateUserRequest.fromBuffer(value),
+        ($0.UpdateUserResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.UpdateUserAvatarRequest,
+            $0.UpdateUserAvatarResponse>(
+        'UpdateUserAvatar',
+        updateUserAvatar_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.UpdateUserAvatarRequest.fromBuffer(value),
+        ($0.UpdateUserAvatarResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.GetUserRequest, $0.GetUserResponse>(
         'GetUser',
         getUser_Pre,
@@ -136,6 +197,23 @@ abstract class UserServiceBase extends $grpc.Service {
 
   $async.Future<$0.DeleteUserResponse> deleteUser(
       $grpc.ServiceCall call, $0.DeleteUserRequest request);
+
+  $async.Future<$0.UpdateUserResponse> updateUser_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.UpdateUserRequest> $request) async {
+    return updateUser($call, await $request);
+  }
+
+  $async.Future<$0.UpdateUserResponse> updateUser(
+      $grpc.ServiceCall call, $0.UpdateUserRequest request);
+
+  $async.Future<$0.UpdateUserAvatarResponse> updateUserAvatar_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.UpdateUserAvatarRequest> $request) async {
+    return updateUserAvatar($call, await $request);
+  }
+
+  $async.Future<$0.UpdateUserAvatarResponse> updateUserAvatar(
+      $grpc.ServiceCall call, $0.UpdateUserAvatarRequest request);
 
   $async.Future<$0.GetUserResponse> getUser_Pre($grpc.ServiceCall $call,
       $async.Future<$0.GetUserRequest> $request) async {
