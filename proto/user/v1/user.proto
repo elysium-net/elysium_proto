@@ -17,6 +17,18 @@ service UserService {
   // Requires Authentication: Only administrators can delete users.
   rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse);
 
+  // Updates a user.
+  //
+  // Requires Authentication: Only administrators can update users.
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse);
+
+  // Updates a user's avatar.
+  //
+  // Config-dependent: This can be disabled.
+  //
+  // Requires Authentication: All authenticated users can update a their avatar.
+  rpc UpdateUserAvatar(UpdateUserAvatarRequest) returns (UpdateUserAvatarResponse);
+
   // Gets a user by ID.
   //
   // Requires Authentication: All authenticated users can get a user.
@@ -56,6 +68,20 @@ message DeleteUserResponse {
 message UpdateUserRequest {
   // User to update.
   User user = 1;
+}
+
+// Request message for updating a user's avatar.
+message UpdateUserAvatarRequest {
+  // ID of the user to update.
+  string id = 1;
+  // New avatar resource ID.
+  resource.v1.ResourceId avatar = 2;
+}
+
+// Response message for updating a user's avatar.
+message UpdateUserAvatarResponse {
+  // Error, if any.
+  optional common.v1.Error error = 1;
 }
 
 // Response message for updating a user.
