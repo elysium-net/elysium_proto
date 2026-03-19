@@ -5,11 +5,11 @@ package resource.v1;
 import "common/v1/common.proto";
 
 service ResourceService {
-  rpc UploadResource(stream UploadResRequest) returns (UploadResResponse);
-  rpc DownloadResource(DownloadResRequest) returns (stream DownloadResResponse);
+  rpc Upload(stream UploadRequest) returns (UploadResponse);
+  rpc Download(DownloadRequest) returns (stream DownloadResponse);
 }
 
-message UploadResRequest {
+message UploadRequest {
   ResourceId id = 1;
   oneof payload {
     ResourceMeta meta = 2;
@@ -17,15 +17,15 @@ message UploadResRequest {
   }
 }
 
-message UploadResResponse {
+message UploadResponse {
   optional common.v1.Error error = 1;
 }
 
-message DownloadResRequest {
+message DownloadRequest {
   ResourceId id = 1;
 }
 
-message DownloadResResponse {
+message DownloadResponse {
   oneof result {
     ResourceMeta meta = 1;
     bytes data = 2;
