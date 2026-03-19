@@ -7,8 +7,13 @@ import "common/v1/common.proto";
 // Service for managing resources.
 service ResourceService {
   // Upload a resource via a stream.
+  //
+  // Requires Authentication: Only authorized users can upload resources.
   rpc Upload(stream UploadRequest) returns (UploadResponse);
+
   // Download a resource via a stream.
+  //
+  // Requires Authentication: Only authorized users can download resources.
   rpc Download(DownloadRequest) returns (stream DownloadResponse);
 }
 

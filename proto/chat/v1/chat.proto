@@ -8,7 +8,23 @@ import "resource/v1/resource.proto";
 // The chat service provides methods for sending messages.
 service ChatService {
   // Sends a message to a channel.
+  //
+  // Requires Authentication: Only authorized users can send messages.
   rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
+
+  // Deletes a message.
+  //
+  // Config-dependent: This can be disabled.
+  //
+  // Requires Authentication: Only authorized users can delete messages.
+  rpc DeleteMessage(DeleteMessageRequest) returns (DeleteMessageResponse);
+
+  // Updates a message.
+  //
+  // Config-dependent: This can be disabled.
+  //
+  // Requires Authentication: Only authorized users can update messages.
+  rpc UpdateMessage(UpdateMessageRequest) returns (UpdateMessageResponse);
 }
 
 // The request message for sending a message.
@@ -26,6 +42,36 @@ message SendMessageResponse {
     // The message that was sent.
     Message message = 1;
     // An error that occurred during the send operation.
+    common.v1.Error error = 2;
+  }
+}
+
+// The request message for deleting a message.
+message DeleteMessageRequest {
+  // The ID of the message to delete.
+  string message_id = 1;
+}
+
+// The response message for deleting a message.
+message DeleteMessageResponse {
+  // The error that occurred during the delete operation, if any.
+  optional common.v1.Error error = 1;
+}
+
+message UpdateMessageRequest {
+  // The ID of the message to update.
+  string message_id = 1;
+  // The updated content of the message.
+  Content content = 2;
+}
+
+// The response message for updating a message.
+message UpdateMessageResponse {
+  // The result of the update operation.
+  oneof result {
+    // The updated message.
+    Message message = 1;
+    // An error that occurred during the update operation.
     common.v1.Error error = 2;
   }
 }
