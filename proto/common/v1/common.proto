@@ -14,8 +14,10 @@ message Error {
 enum ErrorCode {
   // The error code is unspecified/unknown. Should not be used.
   ERROR_CODE_UNSPECIFIED = 0;
+  // Internal Error.
+  ERROR_CODE_INTERNAL = 1;
   // Indicates the request was unauthorized.
-  ERROR_CODE_UNAUTHORIZED = 1;
+  ERROR_CODE_UNAUTHORIZED = 2;
   // Indicates the requested item was not found.
-  ERROR_CODE_NOT_FOUND = 2;
+  ERROR_CODE_NOT_FOUND = 3;
 }
