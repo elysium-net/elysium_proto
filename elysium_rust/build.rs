@@ -19,6 +19,8 @@ fn main() {
         .build_server(true)
         .build_client(false)
         .emit_rerun_if_changed(true)
+        .type_attribute(".", "#[derive(serde::Serialize)]")
+        .type_attribute(".", "#[derive(serde::Deserialize)]")
         .compile_protos(&protos, &[PathBuf::from("../proto")])
         .expect("Failed to compile protocol buffers");
 }
