@@ -20,22 +20,27 @@ class ErrorCode extends $pb.ProtobufEnum {
   static const ErrorCode ERROR_CODE_UNSPECIFIED =
       ErrorCode._(0, _omitEnumNames ? '' : 'ERROR_CODE_UNSPECIFIED');
 
+  /// Internal Error.
+  static const ErrorCode ERROR_CODE_INTERNAL =
+      ErrorCode._(1, _omitEnumNames ? '' : 'ERROR_CODE_INTERNAL');
+
   /// Indicates the request was unauthorized.
   static const ErrorCode ERROR_CODE_UNAUTHORIZED =
-      ErrorCode._(1, _omitEnumNames ? '' : 'ERROR_CODE_UNAUTHORIZED');
+      ErrorCode._(2, _omitEnumNames ? '' : 'ERROR_CODE_UNAUTHORIZED');
 
   /// Indicates the requested item was not found.
   static const ErrorCode ERROR_CODE_NOT_FOUND =
-      ErrorCode._(2, _omitEnumNames ? '' : 'ERROR_CODE_NOT_FOUND');
+      ErrorCode._(3, _omitEnumNames ? '' : 'ERROR_CODE_NOT_FOUND');
 
   static const $core.List<ErrorCode> values = <ErrorCode>[
     ERROR_CODE_UNSPECIFIED,
+    ERROR_CODE_INTERNAL,
     ERROR_CODE_UNAUTHORIZED,
     ERROR_CODE_NOT_FOUND,
   ];
 
   static final $core.List<ErrorCode?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 2);
+      $pb.ProtobufEnum.$_initByValueList(values, 3);
   static ErrorCode? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 

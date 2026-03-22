@@ -20,15 +20,17 @@ const ErrorCode$json = {
   '1': 'ErrorCode',
   '2': [
     {'1': 'ERROR_CODE_UNSPECIFIED', '2': 0},
-    {'1': 'ERROR_CODE_UNAUTHORIZED', '2': 1},
-    {'1': 'ERROR_CODE_NOT_FOUND', '2': 2},
+    {'1': 'ERROR_CODE_INTERNAL', '2': 1},
+    {'1': 'ERROR_CODE_UNAUTHORIZED', '2': 2},
+    {'1': 'ERROR_CODE_NOT_FOUND', '2': 3},
   ],
 };
 
 /// Descriptor for `ErrorCode`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List errorCodeDescriptor = $convert.base64Decode(
-    'CglFcnJvckNvZGUSGgoWRVJST1JfQ09ERV9VTlNQRUNJRklFRBAAEhsKF0VSUk9SX0NPREVfVU'
-    '5BVVRIT1JJWkVEEAESGAoURVJST1JfQ09ERV9OT1RfRk9VTkQQAg==');
+    'CglFcnJvckNvZGUSGgoWRVJST1JfQ09ERV9VTlNQRUNJRklFRBAAEhcKE0VSUk9SX0NPREVfSU'
+    '5URVJOQUwQARIbChdFUlJPUl9DT0RFX1VOQVVUSE9SSVpFRBACEhgKFEVSUk9SX0NPREVfTk9U'
+    'X0ZPVU5EEAM=');
 
 @$core.Deprecated('Use errorDescriptor instead')
 const Error$json = {
