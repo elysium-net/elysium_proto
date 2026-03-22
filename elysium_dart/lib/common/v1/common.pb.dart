@@ -12,6 +12,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'common.pbenum.dart';
@@ -19,6 +20,74 @@ import 'common.pbenum.dart';
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 export 'common.pbenum.dart';
+
+/// A JWT token claim.
+class Auth extends $pb.GeneratedMessage {
+  factory Auth({
+    $core.String? userid,
+    $fixnum.Int64? exp,
+  }) {
+    final result = create();
+    if (userid != null) result.userid = userid;
+    if (exp != null) result.exp = exp;
+    return result;
+  }
+
+  Auth._();
+
+  factory Auth.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory Auth.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Auth',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'common.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'userid')
+    ..aInt64(2, _omitFieldNames ? '' : 'exp')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  Auth clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  Auth copyWith(void Function(Auth) updates) =>
+      super.copyWith((message) => updates(message as Auth)) as Auth;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static Auth create() => Auth._();
+  @$core.override
+  Auth createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static Auth getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Auth>(create);
+  static Auth? _defaultInstance;
+
+  /// The user ID.
+  @$pb.TagNumber(1)
+  $core.String get userid => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set userid($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasUserid() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUserid() => $_clearField(1);
+
+  /// The expiration date as a Unix timestamp.
+  @$pb.TagNumber(2)
+  $fixnum.Int64 get exp => $_getI64(1);
+  @$pb.TagNumber(2)
+  set exp($fixnum.Int64 value) => $_setInt64(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasExp() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearExp() => $_clearField(2);
+}
 
 /// Message represents an error that occurred during a request.
 class Error extends $pb.GeneratedMessage {

@@ -840,6 +840,7 @@ name = "elysium_rust"
 version = "0.1.0"
 dependencies = [
  "prost",
+ "serde",
  "surrealdb",
  "tonic",
  "tonic-prost",

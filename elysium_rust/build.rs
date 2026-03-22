@@ -46,6 +46,12 @@ fn main() {
         builder = builder.type_attribute(import, IMPORT);
     }
 
+    // Derive serde for Auth message
+    builder = builder.type_attribute(
+        "common.v1.Auth",
+        "#[derive(serde::Serialize, serde::Deserialize)]",
+    );
+
     builder
         .type_attribute(".", "#[derive(surrealdb::types::SurrealValue)]")
         .compile_protos(&protos, &[PathBuf::from("../proto")])

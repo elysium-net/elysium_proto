@@ -35,6 +35,19 @@ final $typed_data.Uint8List errorCodeDescriptor = $convert.base64Decode(
     'X0ZPVU5EEAMSHQoZRVJST1JfQ09ERV9BTFJFQURZX0VYSVNUUxAEEh0KGUVSUk9SX0NPREVfSU'
     '5WQUxJRF9GT1JNQVQQBQ==');
 
+@$core.Deprecated('Use authDescriptor instead')
+const Auth$json = {
+  '1': 'Auth',
+  '2': [
+    {'1': 'userid', '3': 1, '4': 1, '5': 9, '10': 'userid'},
+    {'1': 'exp', '3': 2, '4': 1, '5': 3, '10': 'exp'},
+  ],
+};
+
+/// Descriptor for `Auth`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List authDescriptor = $convert.base64Decode(
+    'CgRBdXRoEhYKBnVzZXJpZBgBIAEoCVIGdXNlcmlkEhAKA2V4cBgCIAEoA1IDZXhw');
+
 @$core.Deprecated('Use errorDescriptor instead')
 const Error$json = {
   '1': 'Error',

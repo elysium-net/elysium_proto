@@ -2,6 +2,14 @@ syntax = "proto3";
 
 package common.v1;
 
+// A JWT token claim.
+message Auth {
+  // The user ID.
+  string userid = 1;
+  // The expiration date as a Unix timestamp.
+  int64 exp = 2;
+}
+
 // Message represents an error that occurred during a request.
 message Error {
   // The error code.
