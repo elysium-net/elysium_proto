@@ -20,4 +20,8 @@ enum ErrorCode {
   ERROR_CODE_UNAUTHORIZED = 2;
   // Indicates the requested item was not found.
   ERROR_CODE_NOT_FOUND = 3;
+  // Indicates the requested item already exists.
+  ERROR_CODE_ALREADY_EXISTS = 4;
+  // Indicates the request format was invalid.
+  ERROR_CODE_INVALID_FORMAT = 5;
 }

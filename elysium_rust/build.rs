@@ -29,6 +29,10 @@ fn main() {
         })
         .collect::<Vec<_>>();
 
+    for proto in &protos {
+        println!("cargo:rerun-if-changed={}", proto.display());
+    }
+
     let mut builder = tonic_prost_build::configure()
         .build_server(true)
         .build_client(false)

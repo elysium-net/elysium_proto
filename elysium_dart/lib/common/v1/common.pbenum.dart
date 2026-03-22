@@ -32,15 +32,25 @@ class ErrorCode extends $pb.ProtobufEnum {
   static const ErrorCode ERROR_CODE_NOT_FOUND =
       ErrorCode._(3, _omitEnumNames ? '' : 'ERROR_CODE_NOT_FOUND');
 
+  /// Indicates the requested item already exists.
+  static const ErrorCode ERROR_CODE_ALREADY_EXISTS =
+      ErrorCode._(4, _omitEnumNames ? '' : 'ERROR_CODE_ALREADY_EXISTS');
+
+  /// Indicates the request format was invalid.
+  static const ErrorCode ERROR_CODE_INVALID_FORMAT =
+      ErrorCode._(5, _omitEnumNames ? '' : 'ERROR_CODE_INVALID_FORMAT');
+
   static const $core.List<ErrorCode> values = <ErrorCode>[
     ERROR_CODE_UNSPECIFIED,
     ERROR_CODE_INTERNAL,
     ERROR_CODE_UNAUTHORIZED,
     ERROR_CODE_NOT_FOUND,
+    ERROR_CODE_ALREADY_EXISTS,
+    ERROR_CODE_INVALID_FORMAT,
   ];
 
   static final $core.List<ErrorCode?> _byValue =
-      $pb.ProtobufEnum.$_initByValueList(values, 3);
+      $pb.ProtobufEnum.$_initByValueList(values, 5);
   static ErrorCode? valueOf($core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 

@@ -23,6 +23,8 @@ const ErrorCode$json = {
     {'1': 'ERROR_CODE_INTERNAL', '2': 1},
     {'1': 'ERROR_CODE_UNAUTHORIZED', '2': 2},
     {'1': 'ERROR_CODE_NOT_FOUND', '2': 3},
+    {'1': 'ERROR_CODE_ALREADY_EXISTS', '2': 4},
+    {'1': 'ERROR_CODE_INVALID_FORMAT', '2': 5},
   ],
 };
 
@@ -30,7 +32,8 @@ const ErrorCode$json = {
 final $typed_data.Uint8List errorCodeDescriptor = $convert.base64Decode(
     'CglFcnJvckNvZGUSGgoWRVJST1JfQ09ERV9VTlNQRUNJRklFRBAAEhcKE0VSUk9SX0NPREVfSU'
     '5URVJOQUwQARIbChdFUlJPUl9DT0RFX1VOQVVUSE9SSVpFRBACEhgKFEVSUk9SX0NPREVfTk9U'
-    'X0ZPVU5EEAM=');
+    'X0ZPVU5EEAMSHQoZRVJST1JfQ09ERV9BTFJFQURZX0VYSVNUUxAEEh0KGUVSUk9SX0NPREVfSU'
+    '5WQUxJRF9GT1JNQVQQBQ==');
 
 @$core.Deprecated('Use errorDescriptor instead')
 const Error$json = {
