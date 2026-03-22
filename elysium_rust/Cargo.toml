@@ -8,8 +8,7 @@ edition = "2024"
 tonic = { version = "0.14.5", default-features = false, features = ["codegen"] }
 tonic-prost = "0.14.5"
 prost = "0.14.3"
-surrealdb-types = "3.0.4"
-surrealdb-types-derive = "3.0.4"
+surrealdb = { version = "3.0.4", default-features = false }
 
 [build-dependencies]
 tonic-prost-build = "0.14.5"

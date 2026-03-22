@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 use walkdir::WalkDir;
 
-const IMPORT: &str = "#[allow(unused)] use surrealdb_types::SurrealValue;";
+const IMPORT: &str = "#[allow(unused)] use surrealdb::types::SurrealValue;";
 const IMPORT_AT: &[&str] = &[
     "chat.v1.SendMessageRequest",
     "chat.v1.Content.content",
@@ -43,7 +43,7 @@ fn main() {
     }
 
     builder
-        .type_attribute(".", "#[derive(surrealdb_types_derive::SurrealValue)]")
+        .type_attribute(".", "#[derive(surrealdb::types::SurrealValue)]")
         .compile_protos(&protos, &[PathBuf::from("../proto")])
         .expect("Failed to compile protocol buffers");
 }
