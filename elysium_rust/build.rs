@@ -54,6 +54,9 @@ fn main() {
 
     builder
         .type_attribute(".", "#[derive(surrealdb::types::SurrealValue)]")
+        .file_descriptor_set_path(
+            PathBuf::from(std::env::var("OUT_DIR").unwrap()).join("descriptor.bin"),
+        )
         .compile_protos(&protos, &[PathBuf::from("../proto")])
         .expect("Failed to compile protocol buffers");
 }
