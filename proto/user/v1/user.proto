@@ -55,7 +55,7 @@ message CreateUserResponse {
 // Request message for deleting a user.
 message DeleteUserRequest {
   // ID of the user to delete.
-  string id = 1;
+  string user_id = 1;
 }
 
 // Response message for deleting a user.
@@ -73,7 +73,7 @@ message UpdateUserRequest {
 // Request message for updating a user's avatar.
 message UpdateUserAvatarRequest {
   // ID of the user to update.
-  string id = 1;
+  string user_id = 1;
   // New avatar resource ID.
   resource.v1.ResourceId avatar = 2;
 }
@@ -93,7 +93,7 @@ message UpdateUserResponse {
 // Request message for getting a user.
 message GetUserRequest {
   // ID of the user to get.
-  string id = 1;
+  string user_id = 1;
 }
 
 // Response message for getting a user.
@@ -126,7 +126,7 @@ message SearchUsersResponse {
 // Should only be used internally or by administrators.
 message User {
   // Unique user identifier.
-  string id = 1;
+  string user_id = 1;
   // Username of the user.
   string username = 2;
   // Email of the user.
@@ -144,7 +144,7 @@ message User {
 // A safe representation of a user without sensitive information.
 message UserProfile {
   // Unique user identifier.
-  string id = 1;
+  string user_id = 1;
   // Username of the user.
   string username = 2;
   // Role of the user.
