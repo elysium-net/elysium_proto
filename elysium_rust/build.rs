@@ -8,6 +8,7 @@ const IMPORT_AT: &[&str] = &[
     "chat.v1.UpdateMessageResponse.result",
     "chat.v1.SendMessageResponse.result",
     "common.v1.Error",
+    "user.v1.AuthUserResponse.result",
     "user.v1.UserRole",
     "user.v1.GetUserResponse.result",
     "resource.v1.ResourceId",

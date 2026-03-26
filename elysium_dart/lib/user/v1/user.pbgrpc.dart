@@ -33,6 +33,14 @@ class UserServiceClient extends $grpc.Client {
 
   UserServiceClient(super.channel, {super.options, super.interceptors});
 
+  /// Authenticates a user.
+  $grpc.ResponseFuture<$0.AuthUserResponse> authUser(
+    $0.AuthUserRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$authUser, request, options: options);
+  }
+
   /// Creates a new user.
   ///
   /// Requires Authentication: Only administrators can create users.
@@ -97,6 +105,11 @@ class UserServiceClient extends $grpc.Client {
 
   // method descriptors
 
+  static final _$authUser =
+      $grpc.ClientMethod<$0.AuthUserRequest, $0.AuthUserResponse>(
+          '/user.v1.UserService/AuthUser',
+          ($0.AuthUserRequest value) => value.writeToBuffer(),
+          $0.AuthUserResponse.fromBuffer);
   static final _$createUser =
       $grpc.ClientMethod<$0.CreateUserRequest, $0.CreateUserResponse>(
           '/user.v1.UserService/CreateUser',
@@ -134,6 +147,13 @@ abstract class UserServiceBase extends $grpc.Service {
   $core.String get $name => 'user.v1.UserService';
 
   UserServiceBase() {
+    $addMethod($grpc.ServiceMethod<$0.AuthUserRequest, $0.AuthUserResponse>(
+        'AuthUser',
+        authUser_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.AuthUserRequest.fromBuffer(value),
+        ($0.AuthUserResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.CreateUserRequest, $0.CreateUserResponse>(
         'CreateUser',
         createUser_Pre,
@@ -181,6 +201,14 @@ abstract class UserServiceBase extends $grpc.Service {
                 $0.SearchUsersRequest.fromBuffer(value),
             ($0.SearchUsersResponse value) => value.writeToBuffer()));
   }
+
+  $async.Future<$0.AuthUserResponse> authUser_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.AuthUserRequest> $request) async {
+    return authUser($call, await $request);
+  }
+
+  $async.Future<$0.AuthUserResponse> authUser(
+      $grpc.ServiceCall call, $0.AuthUserRequest request);
 
   $async.Future<$0.CreateUserResponse> createUser_Pre($grpc.ServiceCall $call,
       $async.Future<$0.CreateUserRequest> $request) async {

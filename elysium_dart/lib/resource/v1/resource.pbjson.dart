@@ -20,12 +20,12 @@ const UploadRequest$json = {
   '1': 'UploadRequest',
   '2': [
     {
-      '1': 'id',
+      '1': 'resource_id',
       '3': 1,
       '4': 1,
       '5': 11,
       '6': '.resource.v1.ResourceId',
-      '10': 'id'
+      '10': 'resourceId'
     },
     {
       '1': 'meta',
@@ -45,9 +45,9 @@ const UploadRequest$json = {
 
 /// Descriptor for `UploadRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List uploadRequestDescriptor = $convert.base64Decode(
-    'Cg1VcGxvYWRSZXF1ZXN0EicKAmlkGAEgASgLMhcucmVzb3VyY2UudjEuUmVzb3VyY2VJZFICaW'
-    'QSLwoEbWV0YRgCIAEoCzIZLnJlc291cmNlLnYxLlJlc291cmNlTWV0YUgAUgRtZXRhEhQKBGRh'
-    'dGEYAyABKAxIAFIEZGF0YUIJCgdwYXlsb2Fk');
+    'Cg1VcGxvYWRSZXF1ZXN0EjgKC3Jlc291cmNlX2lkGAEgASgLMhcucmVzb3VyY2UudjEuUmVzb3'
+    'VyY2VJZFIKcmVzb3VyY2VJZBIvCgRtZXRhGAIgASgLMhkucmVzb3VyY2UudjEuUmVzb3VyY2VN'
+    'ZXRhSABSBG1ldGESFAoEZGF0YRgDIAEoDEgAUgRkYXRhQgkKB3BheWxvYWQ=');
 
 @$core.Deprecated('Use uploadResponseDescriptor instead')
 const UploadResponse$json = {
@@ -79,20 +79,20 @@ const DownloadRequest$json = {
   '1': 'DownloadRequest',
   '2': [
     {
-      '1': 'id',
+      '1': 'resource_id',
       '3': 1,
       '4': 1,
       '5': 11,
       '6': '.resource.v1.ResourceId',
-      '10': 'id'
+      '10': 'resourceId'
     },
   ],
 };
 
 /// Descriptor for `DownloadRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List downloadRequestDescriptor = $convert.base64Decode(
-    'Cg9Eb3dubG9hZFJlcXVlc3QSJwoCaWQYASABKAsyFy5yZXNvdXJjZS52MS5SZXNvdXJjZUlkUg'
-    'JpZA==');
+    'Cg9Eb3dubG9hZFJlcXVlc3QSOAoLcmVzb3VyY2VfaWQYASABKAsyFy5yZXNvdXJjZS52MS5SZX'
+    'NvdXJjZUlkUgpyZXNvdXJjZUlk');
 
 @$core.Deprecated('Use downloadResponseDescriptor instead')
 const DownloadResponse$json = {

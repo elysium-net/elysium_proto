@@ -7,6 +7,9 @@ import "resource/v1/resource.proto";
 
 // Service for managing users.
 service UserService {
+  // Authenticates a user.
+  rpc AuthUser(AuthUserRequest) returns (AuthUserResponse);
+
   // Creates a new user.
   //
   // Requires Authentication: Only administrators can create users.
@@ -38,6 +41,24 @@ service UserService {
   //
   // Requires Authentication: All authenticated users can search for users.
   rpc SearchUsers(SearchUsersRequest) returns (SearchUsersResponse);
+}
+
+// Request message for authenticating a user.
+message AuthUserRequest {
+  // User ID of the user.
+  string user_id = 1;
+  // Password of the user.
+  string password = 2;
+}
+
+// Response message for authenticating a user.
+message AuthUserResponse {
+  oneof result {
+    // Authentication token.
+    string token = 1;
+    // Error, if any.
+    common.v1.Error error = 2;
+  }
 }
 
 // Request message for creating a user.

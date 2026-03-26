@@ -30,6 +30,45 @@ final $typed_data.Uint8List userRoleDescriptor = $convert.base64Decode(
     'CghVc2VyUm9sZRIeChpVU0VSX1JPTEVfVVNFUl9VTlNQRUNJRklFRBAAEhgKFFVTRVJfUk9MRV'
     '9TVVBFUlZJU09SEAESEwoPVVNFUl9ST0xFX0FETUlOEAI=');
 
+@$core.Deprecated('Use authUserRequestDescriptor instead')
+const AuthUserRequest$json = {
+  '1': 'AuthUserRequest',
+  '2': [
+    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
+    {'1': 'password', '3': 2, '4': 1, '5': 9, '10': 'password'},
+  ],
+};
+
+/// Descriptor for `AuthUserRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List authUserRequestDescriptor = $convert.base64Decode(
+    'Cg9BdXRoVXNlclJlcXVlc3QSFwoHdXNlcl9pZBgBIAEoCVIGdXNlcklkEhoKCHBhc3N3b3JkGA'
+    'IgASgJUghwYXNzd29yZA==');
+
+@$core.Deprecated('Use authUserResponseDescriptor instead')
+const AuthUserResponse$json = {
+  '1': 'AuthUserResponse',
+  '2': [
+    {'1': 'token', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'token'},
+    {
+      '1': 'error',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error'
+    },
+  ],
+  '8': [
+    {'1': 'result'},
+  ],
+};
+
+/// Descriptor for `AuthUserResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List authUserResponseDescriptor = $convert.base64Decode(
+    'ChBBdXRoVXNlclJlc3BvbnNlEhYKBXRva2VuGAEgASgJSABSBXRva2VuEigKBWVycm9yGAIgAS'
+    'gLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9yQggKBnJlc3VsdA==');
+
 @$core.Deprecated('Use createUserRequestDescriptor instead')
 const CreateUserRequest$json = {
   '1': 'CreateUserRequest',
@@ -71,13 +110,13 @@ final $typed_data.Uint8List createUserResponseDescriptor = $convert.base64Decode
 const DeleteUserRequest$json = {
   '1': 'DeleteUserRequest',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
   ],
 };
 
 /// Descriptor for `DeleteUserRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteUserRequestDescriptor =
-    $convert.base64Decode('ChFEZWxldGVVc2VyUmVxdWVzdBIOCgJpZBgBIAEoCVICaWQ=');
+final $typed_data.Uint8List deleteUserRequestDescriptor = $convert.base64Decode(
+    'ChFEZWxldGVVc2VyUmVxdWVzdBIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQ=');
 
 @$core.Deprecated('Use deleteUserResponseDescriptor instead')
 const DeleteUserResponse$json = {
@@ -120,7 +159,7 @@ final $typed_data.Uint8List updateUserRequestDescriptor = $convert.base64Decode(
 const UpdateUserAvatarRequest$json = {
   '1': 'UpdateUserAvatarRequest',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
     {
       '1': 'avatar',
       '3': 2,
@@ -135,8 +174,8 @@ const UpdateUserAvatarRequest$json = {
 /// Descriptor for `UpdateUserAvatarRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateUserAvatarRequestDescriptor =
     $convert.base64Decode(
-        'ChdVcGRhdGVVc2VyQXZhdGFyUmVxdWVzdBIOCgJpZBgBIAEoCVICaWQSLwoGYXZhdGFyGAIgAS'
-        'gLMhcucmVzb3VyY2UudjEuUmVzb3VyY2VJZFIGYXZhdGFy');
+        'ChdVcGRhdGVVc2VyQXZhdGFyUmVxdWVzdBIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQSLwoGYX'
+        'ZhdGFyGAIgASgLMhcucmVzb3VyY2UudjEuUmVzb3VyY2VJZFIGYXZhdGFy');
 
 @$core.Deprecated('Use updateUserAvatarResponseDescriptor instead')
 const UpdateUserAvatarResponse$json = {
@@ -193,13 +232,13 @@ final $typed_data.Uint8List updateUserResponseDescriptor = $convert.base64Decode
 const GetUserRequest$json = {
   '1': 'GetUserRequest',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
   ],
 };
 
 /// Descriptor for `GetUserRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getUserRequestDescriptor =
-    $convert.base64Decode('Cg5HZXRVc2VyUmVxdWVzdBIOCgJpZBgBIAEoCVICaWQ=');
+final $typed_data.Uint8List getUserRequestDescriptor = $convert
+    .base64Decode('Cg5HZXRVc2VyUmVxdWVzdBIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQ=');
 
 @$core.Deprecated('Use getUserResponseDescriptor instead')
 const GetUserResponse$json = {
@@ -285,7 +324,7 @@ final $typed_data.Uint8List searchUsersResponseDescriptor = $convert.base64Decod
 const User$json = {
   '1': 'User',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
     {'1': 'username', '3': 2, '4': 1, '5': 9, '10': 'username'},
     {'1': 'email', '3': 3, '4': 1, '5': 9, '10': 'email'},
     {'1': 'password', '3': 4, '4': 1, '5': 9, '10': 'password'},
@@ -310,16 +349,16 @@ const User$json = {
 
 /// Descriptor for `User`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List userDescriptor = $convert.base64Decode(
-    'CgRVc2VyEg4KAmlkGAEgASgJUgJpZBIaCgh1c2VybmFtZRgCIAEoCVIIdXNlcm5hbWUSFAoFZW'
-    '1haWwYAyABKAlSBWVtYWlsEhoKCHBhc3N3b3JkGAQgASgJUghwYXNzd29yZBIlCgRyb2xlGAUg'
-    'ASgOMhEudXNlci52MS5Vc2VyUm9sZVIEcm9sZRIrCgRpY29uGAYgASgLMhcucmVzb3VyY2Uudj'
-    'EuUmVzb3VyY2VJZFIEaWNvbg==');
+    'CgRVc2VyEhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZBIaCgh1c2VybmFtZRgCIAEoCVIIdXNlcm'
+    '5hbWUSFAoFZW1haWwYAyABKAlSBWVtYWlsEhoKCHBhc3N3b3JkGAQgASgJUghwYXNzd29yZBIl'
+    'CgRyb2xlGAUgASgOMhEudXNlci52MS5Vc2VyUm9sZVIEcm9sZRIrCgRpY29uGAYgASgLMhcucm'
+    'Vzb3VyY2UudjEuUmVzb3VyY2VJZFIEaWNvbg==');
 
 @$core.Deprecated('Use userProfileDescriptor instead')
 const UserProfile$json = {
   '1': 'UserProfile',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
     {'1': 'username', '3': 2, '4': 1, '5': 9, '10': 'username'},
     {
       '1': 'role',
@@ -342,6 +381,6 @@ const UserProfile$json = {
 
 /// Descriptor for `UserProfile`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List userProfileDescriptor = $convert.base64Decode(
-    'CgtVc2VyUHJvZmlsZRIOCgJpZBgBIAEoCVICaWQSGgoIdXNlcm5hbWUYAiABKAlSCHVzZXJuYW'
-    '1lEiUKBHJvbGUYAyABKA4yES51c2VyLnYxLlVzZXJSb2xlUgRyb2xlEisKBGljb24YBCABKAsy'
-    'Fy5yZXNvdXJjZS52MS5SZXNvdXJjZUlkUgRpY29u');
+    'CgtVc2VyUHJvZmlsZRIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQSGgoIdXNlcm5hbWUYAiABKA'
+    'lSCHVzZXJuYW1lEiUKBHJvbGUYAyABKA4yES51c2VyLnYxLlVzZXJSb2xlUgRyb2xlEisKBGlj'
+    'b24YBCABKAsyFy5yZXNvdXJjZS52MS5SZXNvdXJjZUlkUgRpY29u');

@@ -23,12 +23,12 @@ enum UploadRequest_Payload { meta, data, notSet }
 /// Request for uploading a resource.
 class UploadRequest extends $pb.GeneratedMessage {
   factory UploadRequest({
-    ResourceId? id,
+    ResourceId? resourceId,
     ResourceMeta? meta,
     $core.List<$core.int>? data,
   }) {
     final result = create();
-    if (id != null) result.id = id;
+    if (resourceId != null) result.resourceId = resourceId;
     if (meta != null) result.meta = meta;
     if (data != null) result.data = data;
     return result;
@@ -54,7 +54,7 @@ class UploadRequest extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
     ..oo(0, [2, 3])
-    ..aOM<ResourceId>(1, _omitFieldNames ? '' : 'id',
+    ..aOM<ResourceId>(1, _omitFieldNames ? '' : 'resourceId',
         subBuilder: ResourceId.create)
     ..aOM<ResourceMeta>(2, _omitFieldNames ? '' : 'meta',
         subBuilder: ResourceMeta.create)
@@ -91,15 +91,15 @@ class UploadRequest extends $pb.GeneratedMessage {
 
   /// The ID of the resource to upload.
   @$pb.TagNumber(1)
-  ResourceId get id => $_getN(0);
+  ResourceId get resourceId => $_getN(0);
   @$pb.TagNumber(1)
-  set id(ResourceId value) => $_setField(1, value);
+  set resourceId(ResourceId value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasResourceId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => $_clearField(1);
+  void clearResourceId() => $_clearField(1);
   @$pb.TagNumber(1)
-  ResourceId ensureId() => $_ensure(0);
+  ResourceId ensureResourceId() => $_ensure(0);
 
   /// The metadata of the resource to upload.
   @$pb.TagNumber(2)
@@ -186,10 +186,10 @@ class UploadResponse extends $pb.GeneratedMessage {
 /// Request for downloading a resource.
 class DownloadRequest extends $pb.GeneratedMessage {
   factory DownloadRequest({
-    ResourceId? id,
+    ResourceId? resourceId,
   }) {
     final result = create();
-    if (id != null) result.id = id;
+    if (resourceId != null) result.resourceId = resourceId;
     return result;
   }
 
@@ -206,7 +206,7 @@ class DownloadRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'DownloadRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
-    ..aOM<ResourceId>(1, _omitFieldNames ? '' : 'id',
+    ..aOM<ResourceId>(1, _omitFieldNames ? '' : 'resourceId',
         subBuilder: ResourceId.create)
     ..hasRequiredFields = false;
 
@@ -231,15 +231,15 @@ class DownloadRequest extends $pb.GeneratedMessage {
 
   /// The ID of the resource to download.
   @$pb.TagNumber(1)
-  ResourceId get id => $_getN(0);
+  ResourceId get resourceId => $_getN(0);
   @$pb.TagNumber(1)
-  set id(ResourceId value) => $_setField(1, value);
+  set resourceId(ResourceId value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasResourceId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => $_clearField(1);
+  void clearResourceId() => $_clearField(1);
   @$pb.TagNumber(1)
-  ResourceId ensureId() => $_ensure(0);
+  ResourceId ensureResourceId() => $_ensure(0);
 }
 
 enum DownloadResponse_Result { meta, data, error, notSet }

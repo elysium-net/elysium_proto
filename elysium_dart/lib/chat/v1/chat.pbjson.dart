@@ -166,7 +166,7 @@ final $typed_data.Uint8List updateMessageResponseDescriptor = $convert.base64Dec
 const Message$json = {
   '1': 'Message',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'message_id', '3': 1, '4': 1, '5': 9, '10': 'messageId'},
     {'1': 'channel_id', '3': 2, '4': 1, '5': 9, '10': 'channelId'},
     {'1': 'user_id', '3': 3, '4': 1, '5': 9, '10': 'userId'},
     {
@@ -182,9 +182,9 @@ const Message$json = {
 
 /// Descriptor for `Message`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List messageDescriptor = $convert.base64Decode(
-    'CgdNZXNzYWdlEg4KAmlkGAEgASgJUgJpZBIdCgpjaGFubmVsX2lkGAIgASgJUgljaGFubmVsSW'
-    'QSFwoHdXNlcl9pZBgDIAEoCVIGdXNlcklkEioKB2NvbnRlbnQYBCABKAsyEC5jaGF0LnYxLkNv'
-    'bnRlbnRSB2NvbnRlbnQ=');
+    'CgdNZXNzYWdlEh0KCm1lc3NhZ2VfaWQYASABKAlSCW1lc3NhZ2VJZBIdCgpjaGFubmVsX2lkGA'
+    'IgASgJUgljaGFubmVsSWQSFwoHdXNlcl9pZBgDIAEoCVIGdXNlcklkEioKB2NvbnRlbnQYBCAB'
+    'KAsyEC5jaGF0LnYxLkNvbnRlbnRSB2NvbnRlbnQ=');
 
 @$core.Deprecated('Use contentDescriptor instead')
 const Content$json = {

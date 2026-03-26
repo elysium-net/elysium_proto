@@ -466,13 +466,13 @@ class UpdateMessageResponse extends $pb.GeneratedMessage {
 /// A message sent to a channel.
 class Message extends $pb.GeneratedMessage {
   factory Message({
-    $core.String? id,
+    $core.String? messageId,
     $core.String? channelId,
     $core.String? userId,
     Content? content,
   }) {
     final result = create();
-    if (id != null) result.id = id;
+    if (messageId != null) result.messageId = messageId;
     if (channelId != null) result.channelId = channelId;
     if (userId != null) result.userId = userId;
     if (content != null) result.content = content;
@@ -492,7 +492,7 @@ class Message extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'Message',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(1, _omitFieldNames ? '' : 'messageId')
     ..aOS(2, _omitFieldNames ? '' : 'channelId')
     ..aOS(3, _omitFieldNames ? '' : 'userId')
     ..aOM<Content>(4, _omitFieldNames ? '' : 'content',
@@ -519,13 +519,13 @@ class Message extends $pb.GeneratedMessage {
 
   /// The ID of the message.
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $core.String get messageId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($core.String value) => $_setString(0, value);
+  set messageId($core.String value) => $_setString(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasMessageId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => $_clearField(1);
+  void clearMessageId() => $_clearField(1);
 
   /// The ID of the channel the message was sent to.
   @$pb.TagNumber(2)

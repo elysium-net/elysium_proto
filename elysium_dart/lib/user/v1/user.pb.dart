@@ -22,6 +22,164 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 export 'user.pbenum.dart';
 
+/// Request message for authenticating a user.
+class AuthUserRequest extends $pb.GeneratedMessage {
+  factory AuthUserRequest({
+    $core.String? userId,
+    $core.String? password,
+  }) {
+    final result = create();
+    if (userId != null) result.userId = userId;
+    if (password != null) result.password = password;
+    return result;
+  }
+
+  AuthUserRequest._();
+
+  factory AuthUserRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory AuthUserRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AuthUserRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
+    ..aOS(2, _omitFieldNames ? '' : 'password')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AuthUserRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AuthUserRequest copyWith(void Function(AuthUserRequest) updates) =>
+      super.copyWith((message) => updates(message as AuthUserRequest))
+          as AuthUserRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AuthUserRequest create() => AuthUserRequest._();
+  @$core.override
+  AuthUserRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static AuthUserRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AuthUserRequest>(create);
+  static AuthUserRequest? _defaultInstance;
+
+  /// User ID of the user.
+  @$pb.TagNumber(1)
+  $core.String get userId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set userId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasUserId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearUserId() => $_clearField(1);
+
+  /// Password of the user.
+  @$pb.TagNumber(2)
+  $core.String get password => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set password($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasPassword() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearPassword() => $_clearField(2);
+}
+
+enum AuthUserResponse_Result { token, error, notSet }
+
+/// Response message for authenticating a user.
+class AuthUserResponse extends $pb.GeneratedMessage {
+  factory AuthUserResponse({
+    $core.String? token,
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (token != null) result.token = token;
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  AuthUserResponse._();
+
+  factory AuthUserResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory AuthUserResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static const $core.Map<$core.int, AuthUserResponse_Result>
+      _AuthUserResponse_ResultByTag = {
+    1: AuthUserResponse_Result.token,
+    2: AuthUserResponse_Result.error,
+    0: AuthUserResponse_Result.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AuthUserResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOS(1, _omitFieldNames ? '' : 'token')
+    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AuthUserResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AuthUserResponse copyWith(void Function(AuthUserResponse) updates) =>
+      super.copyWith((message) => updates(message as AuthUserResponse))
+          as AuthUserResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AuthUserResponse create() => AuthUserResponse._();
+  @$core.override
+  AuthUserResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static AuthUserResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AuthUserResponse>(create);
+  static AuthUserResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  AuthUserResponse_Result whichResult() =>
+      _AuthUserResponse_ResultByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  void clearResult() => $_clearField($_whichOneof(0));
+
+  /// Authentication token.
+  @$pb.TagNumber(1)
+  $core.String get token => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set token($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasToken() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearToken() => $_clearField(1);
+
+  /// Error, if any.
+  @$pb.TagNumber(2)
+  $1.Error get error => $_getN(1);
+  @$pb.TagNumber(2)
+  set error($1.Error value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasError() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearError() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $1.Error ensureError() => $_ensure(1);
+}
+
 /// Request message for creating a user.
 class CreateUserRequest extends $pb.GeneratedMessage {
   factory CreateUserRequest({
@@ -142,10 +300,10 @@ class CreateUserResponse extends $pb.GeneratedMessage {
 /// Request message for deleting a user.
 class DeleteUserRequest extends $pb.GeneratedMessage {
   factory DeleteUserRequest({
-    $core.String? id,
+    $core.String? userId,
   }) {
     final result = create();
-    if (id != null) result.id = id;
+    if (userId != null) result.userId = userId;
     return result;
   }
 
@@ -162,7 +320,7 @@ class DeleteUserRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'DeleteUserRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -186,13 +344,13 @@ class DeleteUserRequest extends $pb.GeneratedMessage {
 
   /// ID of the user to delete.
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($core.String value) => $_setString(0, value);
+  set userId($core.String value) => $_setString(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => $_clearField(1);
+  void clearUserId() => $_clearField(1);
 }
 
 /// Response message for deleting a user.
@@ -315,11 +473,11 @@ class UpdateUserRequest extends $pb.GeneratedMessage {
 /// Request message for updating a user's avatar.
 class UpdateUserAvatarRequest extends $pb.GeneratedMessage {
   factory UpdateUserAvatarRequest({
-    $core.String? id,
+    $core.String? userId,
     $2.ResourceId? avatar,
   }) {
     final result = create();
-    if (id != null) result.id = id;
+    if (userId != null) result.userId = userId;
     if (avatar != null) result.avatar = avatar;
     return result;
   }
@@ -337,7 +495,7 @@ class UpdateUserAvatarRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'UpdateUserAvatarRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..aOM<$2.ResourceId>(2, _omitFieldNames ? '' : 'avatar',
         subBuilder: $2.ResourceId.create)
     ..hasRequiredFields = false;
@@ -364,13 +522,13 @@ class UpdateUserAvatarRequest extends $pb.GeneratedMessage {
 
   /// ID of the user to update.
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($core.String value) => $_setString(0, value);
+  set userId($core.String value) => $_setString(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => $_clearField(1);
+  void clearUserId() => $_clearField(1);
 
   /// New avatar resource ID.
   @$pb.TagNumber(2)
@@ -507,10 +665,10 @@ class UpdateUserResponse extends $pb.GeneratedMessage {
 /// Request message for getting a user.
 class GetUserRequest extends $pb.GeneratedMessage {
   factory GetUserRequest({
-    $core.String? id,
+    $core.String? userId,
   }) {
     final result = create();
-    if (id != null) result.id = id;
+    if (userId != null) result.userId = userId;
     return result;
   }
 
@@ -527,7 +685,7 @@ class GetUserRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetUserRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -551,13 +709,13 @@ class GetUserRequest extends $pb.GeneratedMessage {
 
   /// ID of the user to get.
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($core.String value) => $_setString(0, value);
+  set userId($core.String value) => $_setString(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => $_clearField(1);
+  void clearUserId() => $_clearField(1);
 }
 
 enum GetUserResponse_Result { user, error, notSet }
@@ -780,7 +938,7 @@ class SearchUsersResponse extends $pb.GeneratedMessage {
 /// Should only be used internally or by administrators.
 class User extends $pb.GeneratedMessage {
   factory User({
-    $core.String? id,
+    $core.String? userId,
     $core.String? username,
     $core.String? email,
     $core.String? password,
@@ -788,7 +946,7 @@ class User extends $pb.GeneratedMessage {
     $2.ResourceId? icon,
   }) {
     final result = create();
-    if (id != null) result.id = id;
+    if (userId != null) result.userId = userId;
     if (username != null) result.username = username;
     if (email != null) result.email = email;
     if (password != null) result.password = password;
@@ -810,7 +968,7 @@ class User extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'User',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..aOS(2, _omitFieldNames ? '' : 'username')
     ..aOS(3, _omitFieldNames ? '' : 'email')
     ..aOS(4, _omitFieldNames ? '' : 'password')
@@ -840,13 +998,13 @@ class User extends $pb.GeneratedMessage {
 
   /// Unique user identifier.
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($core.String value) => $_setString(0, value);
+  set userId($core.String value) => $_setString(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => $_clearField(1);
+  void clearUserId() => $_clearField(1);
 
   /// Username of the user.
   @$pb.TagNumber(2)
@@ -906,13 +1064,13 @@ class User extends $pb.GeneratedMessage {
 /// A safe representation of a user without sensitive information.
 class UserProfile extends $pb.GeneratedMessage {
   factory UserProfile({
-    $core.String? id,
+    $core.String? userId,
     $core.String? username,
     UserRole? role,
     $2.ResourceId? icon,
   }) {
     final result = create();
-    if (id != null) result.id = id;
+    if (userId != null) result.userId = userId;
     if (username != null) result.username = username;
     if (role != null) result.role = role;
     if (icon != null) result.icon = icon;
@@ -932,7 +1090,7 @@ class UserProfile extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'UserProfile',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..aOS(2, _omitFieldNames ? '' : 'username')
     ..aE<UserRole>(3, _omitFieldNames ? '' : 'role',
         enumValues: UserRole.values)
@@ -961,13 +1119,13 @@ class UserProfile extends $pb.GeneratedMessage {
 
   /// Unique user identifier.
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($core.String value) => $_setString(0, value);
+  set userId($core.String value) => $_setString(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => $_clearField(1);
+  void clearUserId() => $_clearField(1);
 
   /// Username of the user.
   @$pb.TagNumber(2)
