@@ -33,6 +33,26 @@ class ChatServiceClient extends $grpc.Client {
 
   ChatServiceClient(super.channel, {super.options, super.interceptors});
 
+  /// Creates a new channel.
+  ///
+  /// Requires Authentication: Only authorized users can create channels.
+  $grpc.ResponseFuture<$0.CreateChannelResponse> createChannel(
+    $0.CreateChannelRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$createChannel, request, options: options);
+  }
+
+  /// Reads messages from a channel.
+  ///
+  /// Requires Authentication: Only authorized and invited users can read messages.
+  $grpc.ResponseFuture<$0.ReadMessagesResponse> readMessages(
+    $0.ReadMessagesRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$readMessages, request, options: options);
+  }
+
   /// Sends a message to a channel.
   ///
   /// Requires Authentication: Only authorized users can send messages.
@@ -69,6 +89,16 @@ class ChatServiceClient extends $grpc.Client {
 
   // method descriptors
 
+  static final _$createChannel =
+      $grpc.ClientMethod<$0.CreateChannelRequest, $0.CreateChannelResponse>(
+          '/chat.v1.ChatService/CreateChannel',
+          ($0.CreateChannelRequest value) => value.writeToBuffer(),
+          $0.CreateChannelResponse.fromBuffer);
+  static final _$readMessages =
+      $grpc.ClientMethod<$0.ReadMessagesRequest, $0.ReadMessagesResponse>(
+          '/chat.v1.ChatService/ReadMessages',
+          ($0.ReadMessagesRequest value) => value.writeToBuffer(),
+          $0.ReadMessagesResponse.fromBuffer);
   static final _$sendMessage =
       $grpc.ClientMethod<$0.SendMessageRequest, $0.SendMessageResponse>(
           '/chat.v1.ChatService/SendMessage',
@@ -91,6 +121,24 @@ abstract class ChatServiceBase extends $grpc.Service {
   $core.String get $name => 'chat.v1.ChatService';
 
   ChatServiceBase() {
+    $addMethod(
+        $grpc.ServiceMethod<$0.CreateChannelRequest, $0.CreateChannelResponse>(
+            'CreateChannel',
+            createChannel_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.CreateChannelRequest.fromBuffer(value),
+            ($0.CreateChannelResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.ReadMessagesRequest, $0.ReadMessagesResponse>(
+            'ReadMessages',
+            readMessages_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.ReadMessagesRequest.fromBuffer(value),
+            ($0.ReadMessagesResponse value) => value.writeToBuffer()));
     $addMethod(
         $grpc.ServiceMethod<$0.SendMessageRequest, $0.SendMessageResponse>(
             'SendMessage',
@@ -119,6 +167,24 @@ abstract class ChatServiceBase extends $grpc.Service {
                 $0.UpdateMessageRequest.fromBuffer(value),
             ($0.UpdateMessageResponse value) => value.writeToBuffer()));
   }
+
+  $async.Future<$0.CreateChannelResponse> createChannel_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.CreateChannelRequest> $request) async {
+    return createChannel($call, await $request);
+  }
+
+  $async.Future<$0.CreateChannelResponse> createChannel(
+      $grpc.ServiceCall call, $0.CreateChannelRequest request);
+
+  $async.Future<$0.ReadMessagesResponse> readMessages_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.ReadMessagesRequest> $request) async {
+    return readMessages($call, await $request);
+  }
+
+  $async.Future<$0.ReadMessagesResponse> readMessages(
+      $grpc.ServiceCall call, $0.ReadMessagesRequest request);
 
   $async.Future<$0.SendMessageResponse> sendMessage_Pre($grpc.ServiceCall $call,
       $async.Future<$0.SendMessageRequest> $request) async {

@@ -15,6 +15,105 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+@$core.Deprecated('Use createChannelRequestDescriptor instead')
+const CreateChannelRequest$json = {
+  '1': 'CreateChannelRequest',
+  '2': [
+    {
+      '1': 'channel',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.chat.v1.Channel',
+      '10': 'channel'
+    },
+  ],
+};
+
+/// Descriptor for `CreateChannelRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List createChannelRequestDescriptor = $convert.base64Decode(
+    'ChRDcmVhdGVDaGFubmVsUmVxdWVzdBIqCgdjaGFubmVsGAEgASgLMhAuY2hhdC52MS5DaGFubm'
+    'VsUgdjaGFubmVs');
+
+@$core.Deprecated('Use createChannelResponseDescriptor instead')
+const CreateChannelResponse$json = {
+  '1': 'CreateChannelResponse',
+  '2': [
+    {
+      '1': 'error',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error',
+      '17': true
+    },
+  ],
+  '8': [
+    {'1': '_error'},
+  ],
+};
+
+/// Descriptor for `CreateChannelResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List createChannelResponseDescriptor = $convert.base64Decode(
+    'ChVDcmVhdGVDaGFubmVsUmVzcG9uc2USKwoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3'
+    'JIAFIFZXJyb3KIAQFCCAoGX2Vycm9y');
+
+@$core.Deprecated('Use readMessagesRequestDescriptor instead')
+const ReadMessagesRequest$json = {
+  '1': 'ReadMessagesRequest',
+  '2': [
+    {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
+    {'1': 'limit', '3': 2, '4': 1, '5': 13, '10': 'limit'},
+  ],
+};
+
+/// Descriptor for `ReadMessagesRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List readMessagesRequestDescriptor = $convert.base64Decode(
+    'ChNSZWFkTWVzc2FnZXNSZXF1ZXN0Eh0KCmNoYW5uZWxfaWQYASABKAlSCWNoYW5uZWxJZBIUCg'
+    'VsaW1pdBgCIAEoDVIFbGltaXQ=');
+
+@$core.Deprecated('Use readMessageResponseDescriptor instead')
+const ReadMessageResponse$json = {
+  '1': 'ReadMessageResponse',
+  '2': [
+    {
+      '1': 'messages',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.chat.v1.Message',
+      '10': 'messages'
+    },
+  ],
+};
+
+/// Descriptor for `ReadMessageResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List readMessageResponseDescriptor = $convert.base64Decode(
+    'ChNSZWFkTWVzc2FnZVJlc3BvbnNlEiwKCG1lc3NhZ2VzGAEgAygLMhAuY2hhdC52MS5NZXNzYW'
+    'dlUghtZXNzYWdlcw==');
+
+@$core.Deprecated('Use readMessagesResponseDescriptor instead')
+const ReadMessagesResponse$json = {
+  '1': 'ReadMessagesResponse',
+  '2': [
+    {
+      '1': 'messages',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.chat.v1.Message',
+      '10': 'messages'
+    },
+  ],
+};
+
+/// Descriptor for `ReadMessagesResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List readMessagesResponseDescriptor = $convert.base64Decode(
+    'ChRSZWFkTWVzc2FnZXNSZXNwb25zZRIsCghtZXNzYWdlcxgBIAMoCzIQLmNoYXQudjEuTWVzc2'
+    'FnZVIIbWVzc2FnZXM=');
+
 @$core.Deprecated('Use sendMessageRequestDescriptor instead')
 const SendMessageRequest$json = {
   '1': 'SendMessageRequest',
@@ -161,6 +260,23 @@ final $typed_data.Uint8List updateMessageResponseDescriptor = $convert.base64Dec
     'ChVVcGRhdGVNZXNzYWdlUmVzcG9uc2USLAoHbWVzc2FnZRgBIAEoCzIQLmNoYXQudjEuTWVzc2'
     'FnZUgAUgdtZXNzYWdlEigKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9y'
     'QggKBnJlc3VsdA==');
+
+@$core.Deprecated('Use channelDescriptor instead')
+const Channel$json = {
+  '1': 'Channel',
+  '2': [
+    {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
+    {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
+    {'1': 'description', '3': 3, '4': 1, '5': 9, '10': 'description'},
+    {'1': 'members', '3': 4, '4': 3, '5': 9, '10': 'members'},
+  ],
+};
+
+/// Descriptor for `Channel`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List channelDescriptor = $convert.base64Decode(
+    'CgdDaGFubmVsEh0KCmNoYW5uZWxfaWQYASABKAlSCWNoYW5uZWxJZBISCgRuYW1lGAIgASgJUg'
+    'RuYW1lEiAKC2Rlc2NyaXB0aW9uGAMgASgJUgtkZXNjcmlwdGlvbhIYCgdtZW1iZXJzGAQgAygJ'
+    'UgdtZW1iZXJz');
 
 @$core.Deprecated('Use messageDescriptor instead')
 const Message$json = {

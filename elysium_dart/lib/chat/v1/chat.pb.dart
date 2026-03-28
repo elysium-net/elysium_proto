@@ -19,6 +19,295 @@ import '../../resource/v1/resource.pb.dart' as $2;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
+/// The request message for creating a channel.
+class CreateChannelRequest extends $pb.GeneratedMessage {
+  factory CreateChannelRequest({
+    Channel? channel,
+  }) {
+    final result = create();
+    if (channel != null) result.channel = channel;
+    return result;
+  }
+
+  CreateChannelRequest._();
+
+  factory CreateChannelRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory CreateChannelRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CreateChannelRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..aOM<Channel>(1, _omitFieldNames ? '' : 'channel',
+        subBuilder: Channel.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CreateChannelRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CreateChannelRequest copyWith(void Function(CreateChannelRequest) updates) =>
+      super.copyWith((message) => updates(message as CreateChannelRequest))
+          as CreateChannelRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CreateChannelRequest create() => CreateChannelRequest._();
+  @$core.override
+  CreateChannelRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static CreateChannelRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CreateChannelRequest>(create);
+  static CreateChannelRequest? _defaultInstance;
+
+  /// The channel to create.
+  @$pb.TagNumber(1)
+  Channel get channel => $_getN(0);
+  @$pb.TagNumber(1)
+  set channel(Channel value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasChannel() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChannel() => $_clearField(1);
+  @$pb.TagNumber(1)
+  Channel ensureChannel() => $_ensure(0);
+}
+
+/// The response message for creating a channel.
+class CreateChannelResponse extends $pb.GeneratedMessage {
+  factory CreateChannelResponse({
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  CreateChannelResponse._();
+
+  factory CreateChannelResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory CreateChannelResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'CreateChannelResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CreateChannelResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  CreateChannelResponse copyWith(
+          void Function(CreateChannelResponse) updates) =>
+      super.copyWith((message) => updates(message as CreateChannelResponse))
+          as CreateChannelResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CreateChannelResponse create() => CreateChannelResponse._();
+  @$core.override
+  CreateChannelResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static CreateChannelResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<CreateChannelResponse>(create);
+  static CreateChannelResponse? _defaultInstance;
+
+  /// An error that occurred during the create operation, if any.
+  @$pb.TagNumber(2)
+  $1.Error get error => $_getN(0);
+  @$pb.TagNumber(2)
+  set error($1.Error value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasError() => $_has(0);
+  @$pb.TagNumber(2)
+  void clearError() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $1.Error ensureError() => $_ensure(0);
+}
+
+/// The request message for reading messages.
+class ReadMessagesRequest extends $pb.GeneratedMessage {
+  factory ReadMessagesRequest({
+    $core.String? channelId,
+    $core.int? limit,
+  }) {
+    final result = create();
+    if (channelId != null) result.channelId = channelId;
+    if (limit != null) result.limit = limit;
+    return result;
+  }
+
+  ReadMessagesRequest._();
+
+  factory ReadMessagesRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ReadMessagesRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ReadMessagesRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..aI(2, _omitFieldNames ? '' : 'limit', fieldType: $pb.PbFieldType.OU3)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ReadMessagesRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ReadMessagesRequest copyWith(void Function(ReadMessagesRequest) updates) =>
+      super.copyWith((message) => updates(message as ReadMessagesRequest))
+          as ReadMessagesRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ReadMessagesRequest create() => ReadMessagesRequest._();
+  @$core.override
+  ReadMessagesRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ReadMessagesRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ReadMessagesRequest>(create);
+  static ReadMessagesRequest? _defaultInstance;
+
+  /// The ID of the channel to read messages from.
+  @$pb.TagNumber(1)
+  $core.String get channelId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set channelId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasChannelId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChannelId() => $_clearField(1);
+
+  /// The maximum number of messages to load.
+  @$pb.TagNumber(2)
+  $core.int get limit => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set limit($core.int value) => $_setUnsignedInt32(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasLimit() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearLimit() => $_clearField(2);
+}
+
+/// The response message for reading messages.
+class ReadMessageResponse extends $pb.GeneratedMessage {
+  factory ReadMessageResponse({
+    $core.Iterable<Message>? messages,
+  }) {
+    final result = create();
+    if (messages != null) result.messages.addAll(messages);
+    return result;
+  }
+
+  ReadMessageResponse._();
+
+  factory ReadMessageResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ReadMessageResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ReadMessageResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..pPM<Message>(1, _omitFieldNames ? '' : 'messages',
+        subBuilder: Message.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ReadMessageResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ReadMessageResponse copyWith(void Function(ReadMessageResponse) updates) =>
+      super.copyWith((message) => updates(message as ReadMessageResponse))
+          as ReadMessageResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ReadMessageResponse create() => ReadMessageResponse._();
+  @$core.override
+  ReadMessageResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ReadMessageResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ReadMessageResponse>(create);
+  static ReadMessageResponse? _defaultInstance;
+
+  /// The messages read from the channel.
+  @$pb.TagNumber(1)
+  $pb.PbList<Message> get messages => $_getList(0);
+}
+
+class ReadMessagesResponse extends $pb.GeneratedMessage {
+  factory ReadMessagesResponse({
+    $core.Iterable<Message>? messages,
+  }) {
+    final result = create();
+    if (messages != null) result.messages.addAll(messages);
+    return result;
+  }
+
+  ReadMessagesResponse._();
+
+  factory ReadMessagesResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ReadMessagesResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ReadMessagesResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..pPM<Message>(1, _omitFieldNames ? '' : 'messages',
+        subBuilder: Message.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ReadMessagesResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ReadMessagesResponse copyWith(void Function(ReadMessagesResponse) updates) =>
+      super.copyWith((message) => updates(message as ReadMessagesResponse))
+          as ReadMessagesResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ReadMessagesResponse create() => ReadMessagesResponse._();
+  @$core.override
+  ReadMessagesResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static ReadMessagesResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ReadMessagesResponse>(create);
+  static ReadMessagesResponse? _defaultInstance;
+
+  /// The messages read from the channel.
+  @$pb.TagNumber(1)
+  $pb.PbList<Message> get messages => $_getList(0);
+}
+
 /// The request message for sending a message.
 class SendMessageRequest extends $pb.GeneratedMessage {
   factory SendMessageRequest({
@@ -461,6 +750,96 @@ class UpdateMessageResponse extends $pb.GeneratedMessage {
   void clearError() => $_clearField(2);
   @$pb.TagNumber(2)
   $1.Error ensureError() => $_ensure(1);
+}
+
+/// A messaging channel.
+///
+/// Can be a private channel to a user or a public channel.
+class Channel extends $pb.GeneratedMessage {
+  factory Channel({
+    $core.String? channelId,
+    $core.String? name,
+    $core.String? description,
+    $core.Iterable<$core.String>? members,
+  }) {
+    final result = create();
+    if (channelId != null) result.channelId = channelId;
+    if (name != null) result.name = name;
+    if (description != null) result.description = description;
+    if (members != null) result.members.addAll(members);
+    return result;
+  }
+
+  Channel._();
+
+  factory Channel.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory Channel.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Channel',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'channelId')
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..aOS(3, _omitFieldNames ? '' : 'description')
+    ..pPS(4, _omitFieldNames ? '' : 'members')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  Channel clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  Channel copyWith(void Function(Channel) updates) =>
+      super.copyWith((message) => updates(message as Channel)) as Channel;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static Channel create() => Channel._();
+  @$core.override
+  Channel createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static Channel getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Channel>(create);
+  static Channel? _defaultInstance;
+
+  /// The ID of the channel.
+  @$pb.TagNumber(1)
+  $core.String get channelId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set channelId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasChannelId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChannelId() => $_clearField(1);
+
+  /// The name of the channel.
+  @$pb.TagNumber(2)
+  $core.String get name => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set name($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearName() => $_clearField(2);
+
+  /// The description of the channel.
+  @$pb.TagNumber(3)
+  $core.String get description => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set description($core.String value) => $_setString(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasDescription() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDescription() => $_clearField(3);
+
+  /// The members of the channel.
+  @$pb.TagNumber(4)
+  $pb.PbList<$core.String> get members => $_getList(3);
 }
 
 /// A message sent to a channel.
