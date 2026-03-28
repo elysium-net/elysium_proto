@@ -22,10 +22,14 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 /// The request message for creating a channel.
 class CreateChannelRequest extends $pb.GeneratedMessage {
   factory CreateChannelRequest({
-    Channel? channel,
+    $core.String? name,
+    $core.String? description,
+    $core.Iterable<$core.String>? members,
   }) {
     final result = create();
-    if (channel != null) result.channel = channel;
+    if (name != null) result.name = name;
+    if (description != null) result.description = description;
+    if (members != null) result.members.addAll(members);
     return result;
   }
 
@@ -42,8 +46,9 @@ class CreateChannelRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'CreateChannelRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
-    ..aOM<Channel>(1, _omitFieldNames ? '' : 'channel',
-        subBuilder: Channel.create)
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..aOS(3, _omitFieldNames ? '' : 'description')
+    ..pPS(4, _omitFieldNames ? '' : 'members')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -65,25 +70,41 @@ class CreateChannelRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<CreateChannelRequest>(create);
   static CreateChannelRequest? _defaultInstance;
 
-  /// The channel to create.
-  @$pb.TagNumber(1)
-  Channel get channel => $_getN(0);
-  @$pb.TagNumber(1)
-  set channel(Channel value) => $_setField(1, value);
-  @$pb.TagNumber(1)
-  $core.bool hasChannel() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearChannel() => $_clearField(1);
-  @$pb.TagNumber(1)
-  Channel ensureChannel() => $_ensure(0);
+  /// The name of the channel.
+  @$pb.TagNumber(2)
+  $core.String get name => $_getSZ(0);
+  @$pb.TagNumber(2)
+  set name($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(2)
+  $core.bool hasName() => $_has(0);
+  @$pb.TagNumber(2)
+  void clearName() => $_clearField(2);
+
+  /// The description of the channel.
+  @$pb.TagNumber(3)
+  $core.String get description => $_getSZ(1);
+  @$pb.TagNumber(3)
+  set description($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(3)
+  $core.bool hasDescription() => $_has(1);
+  @$pb.TagNumber(3)
+  void clearDescription() => $_clearField(3);
+
+  /// The members of the channel.
+  @$pb.TagNumber(4)
+  $pb.PbList<$core.String> get members => $_getList(2);
 }
+
+enum CreateChannelResponse_Result { channel, error, notSet }
 
 /// The response message for creating a channel.
 class CreateChannelResponse extends $pb.GeneratedMessage {
   factory CreateChannelResponse({
+    Channel? channel,
     $1.Error? error,
   }) {
     final result = create();
+    if (channel != null) result.channel = channel;
     if (error != null) result.error = error;
     return result;
   }
@@ -97,10 +118,19 @@ class CreateChannelResponse extends $pb.GeneratedMessage {
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
+  static const $core.Map<$core.int, CreateChannelResponse_Result>
+      _CreateChannelResponse_ResultByTag = {
+    1: CreateChannelResponse_Result.channel,
+    2: CreateChannelResponse_Result.error,
+    0: CreateChannelResponse_Result.notSet
+  };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'CreateChannelResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOM<Channel>(1, _omitFieldNames ? '' : 'channel',
+        subBuilder: Channel.create)
     ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
@@ -125,17 +155,37 @@ class CreateChannelResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<CreateChannelResponse>(create);
   static CreateChannelResponse? _defaultInstance;
 
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  CreateChannelResponse_Result whichResult() =>
+      _CreateChannelResponse_ResultByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  void clearResult() => $_clearField($_whichOneof(0));
+
+  /// The channel that was created.
+  @$pb.TagNumber(1)
+  Channel get channel => $_getN(0);
+  @$pb.TagNumber(1)
+  set channel(Channel value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasChannel() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearChannel() => $_clearField(1);
+  @$pb.TagNumber(1)
+  Channel ensureChannel() => $_ensure(0);
+
   /// An error that occurred during the create operation, if any.
   @$pb.TagNumber(2)
-  $1.Error get error => $_getN(0);
+  $1.Error get error => $_getN(1);
   @$pb.TagNumber(2)
   set error($1.Error value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(0);
+  $core.bool hasError() => $_has(1);
   @$pb.TagNumber(2)
   void clearError() => $_clearField(2);
   @$pb.TagNumber(2)
-  $1.Error ensureError() => $_ensure(0);
+  $1.Error ensureError() => $_ensure(1);
 }
 
 /// The request message for reading messages.

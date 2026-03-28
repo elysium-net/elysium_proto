@@ -39,14 +39,23 @@ service ChatService {
 
 // The request message for creating a channel.
 message CreateChannelRequest {
-  // The channel to create.
-  Channel channel = 1;
+  // The name of the channel.
+  string name = 2;
+  // The description of the channel.
+  string description = 3;
+  // The members of the channel.
+  repeated string members = 4;
 }
 
 // The response message for creating a channel.
 message CreateChannelResponse {
-  // An error that occurred during the create operation, if any.
-  optional common.v1.Error error = 2;
+  // The result of the create operation.
+  oneof result {
+    // The channel that was created.
+    Channel channel = 1;
+    // An error that occurred during the create operation, if any.
+    common.v1.Error error = 2;
+  }
 }
 
 // The request message for reading messages.
