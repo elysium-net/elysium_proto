@@ -37,14 +37,42 @@ const CreateChannelRequest$json = {
   '2': [
     {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
     {'1': 'description', '3': 3, '4': 1, '5': 9, '10': 'description'},
-    {'1': 'members', '3': 4, '4': 3, '5': 9, '10': 'members'},
+    {
+      '1': 'members',
+      '3': 4,
+      '4': 3,
+      '5': 11,
+      '6': '.chat.v1.CreateChannelRequest.MembersEntry',
+      '10': 'members'
+    },
   ],
+  '3': [CreateChannelRequest_MembersEntry$json],
+};
+
+@$core.Deprecated('Use createChannelRequestDescriptor instead')
+const CreateChannelRequest_MembersEntry$json = {
+  '1': 'MembersEntry',
+  '2': [
+    {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
+    {
+      '1': 'value',
+      '3': 2,
+      '4': 1,
+      '5': 14,
+      '6': '.chat.v1.ChannelPermission',
+      '10': 'value'
+    },
+  ],
+  '7': {'7': true},
 };
 
 /// Descriptor for `CreateChannelRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createChannelRequestDescriptor = $convert.base64Decode(
     'ChRDcmVhdGVDaGFubmVsUmVxdWVzdBISCgRuYW1lGAIgASgJUgRuYW1lEiAKC2Rlc2NyaXB0aW'
-    '9uGAMgASgJUgtkZXNjcmlwdGlvbhIYCgdtZW1iZXJzGAQgAygJUgdtZW1iZXJz');
+    '9uGAMgASgJUgtkZXNjcmlwdGlvbhJECgdtZW1iZXJzGAQgAygLMiouY2hhdC52MS5DcmVhdGVD'
+    'aGFubmVsUmVxdWVzdC5NZW1iZXJzRW50cnlSB21lbWJlcnMaVgoMTWVtYmVyc0VudHJ5EhAKA2'
+    'tleRgBIAEoCVIDa2V5EjAKBXZhbHVlGAIgASgOMhouY2hhdC52MS5DaGFubmVsUGVybWlzc2lv'
+    'blIFdmFsdWU6AjgB');
 
 @$core.Deprecated('Use createChannelResponseDescriptor instead')
 const CreateChannelResponse$json = {

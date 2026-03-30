@@ -44,7 +44,7 @@ message CreateChannelRequest {
   // The description of the channel.
   string description = 3;
   // The members of the channel.
-  repeated string members = 4;
+  map<string, ChannelPermission> members = 4;
 }
 
 // The response message for creating a channel.

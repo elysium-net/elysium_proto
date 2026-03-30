@@ -27,12 +27,12 @@ class CreateChannelRequest extends $pb.GeneratedMessage {
   factory CreateChannelRequest({
     $core.String? name,
     $core.String? description,
-    $core.Iterable<$core.String>? members,
+    $core.Iterable<$core.MapEntry<$core.String, ChannelPermission>>? members,
   }) {
     final result = create();
     if (name != null) result.name = name;
     if (description != null) result.description = description;
-    if (members != null) result.members.addAll(members);
+    if (members != null) result.members.addEntries(members);
     return result;
   }
 
@@ -51,7 +51,17 @@ class CreateChannelRequest extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'description')
-    ..pPS(4, _omitFieldNames ? '' : 'members')
+    ..m<$core.String, ChannelPermission>(4, _omitFieldNames ? '' : 'members',
+        entryClassName: 'CreateChannelRequest.MembersEntry',
+        keyFieldType: $pb.PbFieldType.OS,
+        valueFieldType: $pb.PbFieldType.OE,
+        valueOf: ChannelPermission.valueOf,
+        enumValues: ChannelPermission.values,
+        valueDefaultOrMaker:
+            ChannelPermission.CHANNEL_PERMISSION_READ_ONLY_UNSPECIFIED,
+        defaultEnumValue:
+            ChannelPermission.CHANNEL_PERMISSION_READ_ONLY_UNSPECIFIED,
+        packageName: const $pb.PackageName('chat.v1'))
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -95,7 +105,7 @@ class CreateChannelRequest extends $pb.GeneratedMessage {
 
   /// The members of the channel.
   @$pb.TagNumber(4)
-  $pb.PbList<$core.String> get members => $_getList(2);
+  $pb.PbMap<$core.String, ChannelPermission> get members => $_getMap(2);
 }
 
 enum CreateChannelResponse_Result { channel, error, notSet }
