@@ -15,6 +15,22 @@ import 'dart:convert' as $convert;
 import 'dart:core' as $core;
 import 'dart:typed_data' as $typed_data;
 
+@$core.Deprecated('Use channelPermissionDescriptor instead')
+const ChannelPermission$json = {
+  '1': 'ChannelPermission',
+  '2': [
+    {'1': 'CHANNEL_PERMISSION_READ_ONLY_UNSPECIFIED', '2': 0},
+    {'1': 'CHANNEL_PERMISSION_READ_WRITE', '2': 1},
+    {'1': 'CHANNEL_PERMISSION_MANAGER', '2': 2},
+  ],
+};
+
+/// Descriptor for `ChannelPermission`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List channelPermissionDescriptor = $convert.base64Decode(
+    'ChFDaGFubmVsUGVybWlzc2lvbhIsCihDSEFOTkVMX1BFUk1JU1NJT05fUkVBRF9PTkxZX1VOU1'
+    'BFQ0lGSUVEEAASIQodQ0hBTk5FTF9QRVJNSVNTSU9OX1JFQURfV1JJVEUQARIeChpDSEFOTkVM'
+    'X1BFUk1JU1NJT05fTUFOQUdFUhAC');
+
 @$core.Deprecated('Use createChannelRequestDescriptor instead')
 const CreateChannelRequest$json = {
   '1': 'CreateChannelRequest',
@@ -272,15 +288,42 @@ const Channel$json = {
     {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
     {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
     {'1': 'description', '3': 3, '4': 1, '5': 9, '10': 'description'},
-    {'1': 'members', '3': 4, '4': 3, '5': 9, '10': 'members'},
+    {
+      '1': 'members',
+      '3': 4,
+      '4': 3,
+      '5': 11,
+      '6': '.chat.v1.Channel.MembersEntry',
+      '10': 'members'
+    },
   ],
+  '3': [Channel_MembersEntry$json],
+};
+
+@$core.Deprecated('Use channelDescriptor instead')
+const Channel_MembersEntry$json = {
+  '1': 'MembersEntry',
+  '2': [
+    {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
+    {
+      '1': 'value',
+      '3': 2,
+      '4': 1,
+      '5': 14,
+      '6': '.chat.v1.ChannelPermission',
+      '10': 'value'
+    },
+  ],
+  '7': {'7': true},
 };
 
 /// Descriptor for `Channel`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List channelDescriptor = $convert.base64Decode(
     'CgdDaGFubmVsEh0KCmNoYW5uZWxfaWQYASABKAlSCWNoYW5uZWxJZBISCgRuYW1lGAIgASgJUg'
-    'RuYW1lEiAKC2Rlc2NyaXB0aW9uGAMgASgJUgtkZXNjcmlwdGlvbhIYCgdtZW1iZXJzGAQgAygJ'
-    'UgdtZW1iZXJz');
+    'RuYW1lEiAKC2Rlc2NyaXB0aW9uGAMgASgJUgtkZXNjcmlwdGlvbhI3CgdtZW1iZXJzGAQgAygL'
+    'Mh0uY2hhdC52MS5DaGFubmVsLk1lbWJlcnNFbnRyeVIHbWVtYmVycxpWCgxNZW1iZXJzRW50cn'
+    'kSEAoDa2V5GAEgASgJUgNrZXkSMAoFdmFsdWUYAiABKA4yGi5jaGF0LnYxLkNoYW5uZWxQZXJt'
+    'aXNzaW9uUgV2YWx1ZToCOAE=');
 
 @$core.Deprecated('Use messageDescriptor instead')
 const Message$json = {

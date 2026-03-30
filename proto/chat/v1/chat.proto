@@ -137,7 +137,13 @@ message Channel {
   // The description of the channel.
   string description = 3;
   // The members of the channel.
-  repeated string members = 4;
+  map<string, ChannelPermission> members = 4;
+}
+
+enum ChannelPermission {
+  CHANNEL_PERMISSION_READ_ONLY_UNSPECIFIED = 0;
+  CHANNEL_PERMISSION_READ_WRITE = 1;
+  CHANNEL_PERMISSION_MANAGER = 2;
 }
 
 // A message sent to a channel.
