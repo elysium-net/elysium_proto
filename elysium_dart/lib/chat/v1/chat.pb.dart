@@ -270,60 +270,9 @@ class ReadMessagesRequest extends $pb.GeneratedMessage {
   void clearLimit() => $_clearField(2);
 }
 
-/// The response message for reading messages.
-class ReadMessageResponse extends $pb.GeneratedMessage {
-  factory ReadMessageResponse({
-    $core.Iterable<Message>? messages,
-  }) {
-    final result = create();
-    if (messages != null) result.messages.addAll(messages);
-    return result;
-  }
-
-  ReadMessageResponse._();
-
-  factory ReadMessageResponse.fromBuffer($core.List<$core.int> data,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(data, registry);
-  factory ReadMessageResponse.fromJson($core.String json,
-          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(json, registry);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'ReadMessageResponse',
-      package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
-      createEmptyInstance: create)
-    ..pPM<Message>(1, _omitFieldNames ? '' : 'messages',
-        subBuilder: Message.create)
-    ..hasRequiredFields = false;
-
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ReadMessageResponse clone() => deepCopy();
-  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  ReadMessageResponse copyWith(void Function(ReadMessageResponse) updates) =>
-      super.copyWith((message) => updates(message as ReadMessageResponse))
-          as ReadMessageResponse;
-
-  @$core.override
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static ReadMessageResponse create() => ReadMessageResponse._();
-  @$core.override
-  ReadMessageResponse createEmptyInstance() => create();
-  @$core.pragma('dart2js:noInline')
-  static ReadMessageResponse getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<ReadMessageResponse>(create);
-  static ReadMessageResponse? _defaultInstance;
-
-  /// The messages read from the channel.
-  @$pb.TagNumber(1)
-  $pb.PbList<Message> get messages => $_getList(0);
-}
-
 class ReadMessagesResponse extends $pb.GeneratedMessage {
   factory ReadMessagesResponse({
-    $core.Iterable<Message>? messages,
+    $core.Iterable<Post>? messages,
   }) {
     final result = create();
     if (messages != null) result.messages.addAll(messages);
@@ -343,8 +292,7 @@ class ReadMessagesResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'ReadMessagesResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
-    ..pPM<Message>(1, _omitFieldNames ? '' : 'messages',
-        subBuilder: Message.create)
+    ..pPM<Post>(1, _omitFieldNames ? '' : 'messages', subBuilder: Post.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -366,20 +314,20 @@ class ReadMessagesResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ReadMessagesResponse>(create);
   static ReadMessagesResponse? _defaultInstance;
 
-  /// The messages read from the channel.
+  /// The posts read from the channel.
   @$pb.TagNumber(1)
-  $pb.PbList<Message> get messages => $_getList(0);
+  $pb.PbList<Post> get messages => $_getList(0);
 }
 
 /// The request message for sending a message.
 class SendMessageRequest extends $pb.GeneratedMessage {
   factory SendMessageRequest({
     $core.String? channelId,
-    Content? content,
+    Message? message,
   }) {
     final result = create();
     if (channelId != null) result.channelId = channelId;
-    if (content != null) result.content = content;
+    if (message != null) result.message = message;
     return result;
   }
 
@@ -397,8 +345,8 @@ class SendMessageRequest extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'channelId')
-    ..aOM<Content>(2, _omitFieldNames ? '' : 'content',
-        subBuilder: Content.create)
+    ..aOM<Message>(2, _omitFieldNames ? '' : 'message',
+        subBuilder: Message.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -430,29 +378,29 @@ class SendMessageRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearChannelId() => $_clearField(1);
 
-  /// The content of the message.
+  /// The message.
   @$pb.TagNumber(2)
-  Content get content => $_getN(1);
+  Message get message => $_getN(1);
   @$pb.TagNumber(2)
-  set content(Content value) => $_setField(2, value);
+  set message(Message value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasContent() => $_has(1);
+  $core.bool hasMessage() => $_has(1);
   @$pb.TagNumber(2)
-  void clearContent() => $_clearField(2);
+  void clearMessage() => $_clearField(2);
   @$pb.TagNumber(2)
-  Content ensureContent() => $_ensure(1);
+  Message ensureMessage() => $_ensure(1);
 }
 
-enum SendMessageResponse_Result { message, error, notSet }
+enum SendMessageResponse_Result { post, error, notSet }
 
 /// The response message for sending a message.
 class SendMessageResponse extends $pb.GeneratedMessage {
   factory SendMessageResponse({
-    Message? message,
+    Post? post,
     $1.Error? error,
   }) {
     final result = create();
-    if (message != null) result.message = message;
+    if (post != null) result.post = post;
     if (error != null) result.error = error;
     return result;
   }
@@ -468,7 +416,7 @@ class SendMessageResponse extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, SendMessageResponse_Result>
       _SendMessageResponse_ResultByTag = {
-    1: SendMessageResponse_Result.message,
+    1: SendMessageResponse_Result.post,
     2: SendMessageResponse_Result.error,
     0: SendMessageResponse_Result.notSet
   };
@@ -477,8 +425,7 @@ class SendMessageResponse extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<Message>(1, _omitFieldNames ? '' : 'message',
-        subBuilder: Message.create)
+    ..aOM<Post>(1, _omitFieldNames ? '' : 'post', subBuilder: Post.create)
     ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
@@ -510,17 +457,17 @@ class SendMessageResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearResult() => $_clearField($_whichOneof(0));
 
-  /// The message that was sent.
+  /// The created post.
   @$pb.TagNumber(1)
-  Message get message => $_getN(0);
+  Post get post => $_getN(0);
   @$pb.TagNumber(1)
-  set message(Message value) => $_setField(1, value);
+  set post(Post value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasMessage() => $_has(0);
+  $core.bool hasPost() => $_has(0);
   @$pb.TagNumber(1)
-  void clearMessage() => $_clearField(1);
+  void clearPost() => $_clearField(1);
   @$pb.TagNumber(1)
-  Message ensureMessage() => $_ensure(0);
+  Post ensurePost() => $_ensure(0);
 
   /// An error that occurred during the send operation.
   @$pb.TagNumber(2)
@@ -654,7 +601,7 @@ class DeleteMessageResponse extends $pb.GeneratedMessage {
 class UpdateMessageRequest extends $pb.GeneratedMessage {
   factory UpdateMessageRequest({
     $core.String? messageId,
-    Content? content,
+    Message? content,
   }) {
     final result = create();
     if (messageId != null) result.messageId = messageId;
@@ -676,8 +623,8 @@ class UpdateMessageRequest extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'messageId')
-    ..aOM<Content>(2, _omitFieldNames ? '' : 'content',
-        subBuilder: Content.create)
+    ..aOM<Message>(2, _omitFieldNames ? '' : 'content',
+        subBuilder: Message.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -709,29 +656,29 @@ class UpdateMessageRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearMessageId() => $_clearField(1);
 
-  /// The updated content of the message.
+  /// The updated message.
   @$pb.TagNumber(2)
-  Content get content => $_getN(1);
+  Message get content => $_getN(1);
   @$pb.TagNumber(2)
-  set content(Content value) => $_setField(2, value);
+  set content(Message value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasContent() => $_has(1);
   @$pb.TagNumber(2)
   void clearContent() => $_clearField(2);
   @$pb.TagNumber(2)
-  Content ensureContent() => $_ensure(1);
+  Message ensureContent() => $_ensure(1);
 }
 
-enum UpdateMessageResponse_Result { message, error, notSet }
+enum UpdateMessageResponse_Result { post, error, notSet }
 
 /// The response message for updating a message.
 class UpdateMessageResponse extends $pb.GeneratedMessage {
   factory UpdateMessageResponse({
-    Message? message,
+    Post? post,
     $1.Error? error,
   }) {
     final result = create();
-    if (message != null) result.message = message;
+    if (post != null) result.post = post;
     if (error != null) result.error = error;
     return result;
   }
@@ -747,7 +694,7 @@ class UpdateMessageResponse extends $pb.GeneratedMessage {
 
   static const $core.Map<$core.int, UpdateMessageResponse_Result>
       _UpdateMessageResponse_ResultByTag = {
-    1: UpdateMessageResponse_Result.message,
+    1: UpdateMessageResponse_Result.post,
     2: UpdateMessageResponse_Result.error,
     0: UpdateMessageResponse_Result.notSet
   };
@@ -756,8 +703,7 @@ class UpdateMessageResponse extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<Message>(1, _omitFieldNames ? '' : 'message',
-        subBuilder: Message.create)
+    ..aOM<Post>(1, _omitFieldNames ? '' : 'post', subBuilder: Post.create)
     ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
         subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
@@ -790,17 +736,17 @@ class UpdateMessageResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearResult() => $_clearField($_whichOneof(0));
 
-  /// The updated message.
+  /// The updated post.
   @$pb.TagNumber(1)
-  Message get message => $_getN(0);
+  Post get post => $_getN(0);
   @$pb.TagNumber(1)
-  set message(Message value) => $_setField(1, value);
+  set post(Post value) => $_setField(1, value);
   @$pb.TagNumber(1)
-  $core.bool hasMessage() => $_has(0);
+  $core.bool hasPost() => $_has(0);
   @$pb.TagNumber(1)
-  void clearMessage() => $_clearField(1);
+  void clearPost() => $_clearField(1);
   @$pb.TagNumber(1)
-  Message ensureMessage() => $_ensure(0);
+  Post ensurePost() => $_ensure(0);
 
   /// An error that occurred during the update operation.
   @$pb.TagNumber(2)
@@ -915,13 +861,13 @@ class Channel extends $pb.GeneratedMessage {
   $pb.PbMap<$core.String, ChannelPermission> get members => $_getMap(3);
 }
 
-/// A message sent to a channel.
-class Message extends $pb.GeneratedMessage {
-  factory Message({
+/// A concrete post sent to a channel.
+class Post extends $pb.GeneratedMessage {
+  factory Post({
     $core.String? messageId,
     $core.String? channelId,
     $core.String? userId,
-    Content? content,
+    Message? content,
   }) {
     final result = create();
     if (messageId != null) result.messageId = messageId;
@@ -931,43 +877,43 @@ class Message extends $pb.GeneratedMessage {
     return result;
   }
 
-  Message._();
+  Post._();
 
-  factory Message.fromBuffer($core.List<$core.int> data,
+  factory Post.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory Message.fromJson($core.String json,
+  factory Post.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'Message',
+      _omitMessageNames ? '' : 'Post',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'messageId')
     ..aOS(2, _omitFieldNames ? '' : 'channelId')
     ..aOS(3, _omitFieldNames ? '' : 'userId')
-    ..aOM<Content>(4, _omitFieldNames ? '' : 'content',
-        subBuilder: Content.create)
+    ..aOM<Message>(4, _omitFieldNames ? '' : 'content',
+        subBuilder: Message.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Message clone() => deepCopy();
+  Post clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Message copyWith(void Function(Message) updates) =>
-      super.copyWith((message) => updates(message as Message)) as Message;
+  Post copyWith(void Function(Post) updates) =>
+      super.copyWith((message) => updates(message as Post)) as Post;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static Message create() => Message._();
+  static Post create() => Post._();
   @$core.override
-  Message createEmptyInstance() => create();
+  Post createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static Message getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Message>(create);
-  static Message? _defaultInstance;
+  static Post getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Post>(create);
+  static Post? _defaultInstance;
 
   /// The ID of the message.
   @$pb.TagNumber(1)
@@ -1001,22 +947,22 @@ class Message extends $pb.GeneratedMessage {
 
   /// The content of the message.
   @$pb.TagNumber(4)
-  Content get content => $_getN(3);
+  Message get content => $_getN(3);
   @$pb.TagNumber(4)
-  set content(Content value) => $_setField(4, value);
+  set content(Message value) => $_setField(4, value);
   @$pb.TagNumber(4)
   $core.bool hasContent() => $_has(3);
   @$pb.TagNumber(4)
   void clearContent() => $_clearField(4);
   @$pb.TagNumber(4)
-  Content ensureContent() => $_ensure(3);
+  Message ensureContent() => $_ensure(3);
 }
 
-enum Content_Content { text, resource, notSet }
+enum Message_Content { text, resource, notSet }
 
 /// The content of a message.
-class Content extends $pb.GeneratedMessage {
-  factory Content({
+class Message extends $pb.GeneratedMessage {
+  factory Message({
     $core.String? text,
     $2.ResourceId? resource,
   }) {
@@ -1026,22 +972,22 @@ class Content extends $pb.GeneratedMessage {
     return result;
   }
 
-  Content._();
+  Message._();
 
-  factory Content.fromBuffer($core.List<$core.int> data,
+  factory Message.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory Content.fromJson($core.String json,
+  factory Message.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
-  static const $core.Map<$core.int, Content_Content> _Content_ContentByTag = {
-    1: Content_Content.text,
-    2: Content_Content.resource,
-    0: Content_Content.notSet
+  static const $core.Map<$core.int, Message_Content> _Message_ContentByTag = {
+    1: Message_Content.text,
+    2: Message_Content.resource,
+    0: Message_Content.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'Content',
+      _omitMessageNames ? '' : 'Message',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
@@ -1051,26 +997,26 @@ class Content extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Content clone() => deepCopy();
+  Message clone() => deepCopy();
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  Content copyWith(void Function(Content) updates) =>
-      super.copyWith((message) => updates(message as Content)) as Content;
+  Message copyWith(void Function(Message) updates) =>
+      super.copyWith((message) => updates(message as Message)) as Message;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static Content create() => Content._();
+  static Message create() => Message._();
   @$core.override
-  Content createEmptyInstance() => create();
+  Message createEmptyInstance() => create();
   @$core.pragma('dart2js:noInline')
-  static Content getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Content>(create);
-  static Content? _defaultInstance;
+  static Message getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Message>(create);
+  static Message? _defaultInstance;
 
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
-  Content_Content whichContent() => _Content_ContentByTag[$_whichOneof(0)]!;
+  Message_Content whichContent() => _Message_ContentByTag[$_whichOneof(0)]!;
   @$pb.TagNumber(1)
   @$pb.TagNumber(2)
   void clearContent() => $_clearField($_whichOneof(0));

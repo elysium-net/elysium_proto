@@ -66,31 +66,25 @@ message ReadMessagesRequest {
   uint32 limit = 2;
 }
 
-// The response message for reading messages.
-message ReadMessageResponse {
-  // The messages read from the channel.
-  repeated Message messages = 1;
-}
-
 message ReadMessagesResponse {
-  // The messages read from the channel.
-  repeated Message messages = 1;
+  // The posts read from the channel.
+  repeated Post messages = 1;
 }
 
 // The request message for sending a message.
 message SendMessageRequest {
   // The ID of the channel to send the message to.
   string channel_id = 1;
-  // The content of the message.
-  Content content = 2;
+  // The message.
+  Message message = 2;
 }
 
 // The response message for sending a message.
 message SendMessageResponse {
   // The result of the send operation.
   oneof result {
-    // The message that was sent.
-    Message message = 1;
+    // The created post.
+    Post post = 1;
     // An error that occurred during the send operation.
     common.v1.Error error = 2;
   }
@@ -111,16 +105,16 @@ message DeleteMessageResponse {
 message UpdateMessageRequest {
   // The ID of the message to update.
   string message_id = 1;
-  // The updated content of the message.
-  Content content = 2;
+  // The updated message.
+  Message content = 2;
 }
 
 // The response message for updating a message.
 message UpdateMessageResponse {
   // The result of the update operation.
   oneof result {
-    // The updated message.
-    Message message = 1;
+    // The updated post.
+    Post post = 1;
     // An error that occurred during the update operation.
     common.v1.Error error = 2;
   }
@@ -146,8 +140,8 @@ enum ChannelPermission {
   CHANNEL_PERMISSION_MANAGER = 2;
 }
 
-// A message sent to a channel.
-message Message {
+// A concrete post sent to a channel.
+message Post {
   // The ID of the message.
   string message_id = 1;
   // The ID of the channel the message was sent to.
@@ -155,11 +149,11 @@ message Message {
   // The ID of the user who sent the message.
   string user_id = 3;
   // The content of the message.
-  Content content = 4;
+  Message content = 4;
 }
 
 // The content of a message.
-message Content {
+message Message {
   // The type of content.
   oneof content {
     // The text content of the message.
