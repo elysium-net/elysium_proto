@@ -24,11 +24,11 @@ export 'common.pbenum.dart';
 /// A JWT token claim.
 class Auth extends $pb.GeneratedMessage {
   factory Auth({
-    $core.String? userid,
+    $core.String? userId,
     $fixnum.Int64? exp,
   }) {
     final result = create();
-    if (userid != null) result.userid = userid;
+    if (userId != null) result.userId = userId;
     if (exp != null) result.exp = exp;
     return result;
   }
@@ -46,7 +46,7 @@ class Auth extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'Auth',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'common.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'userid')
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..aInt64(2, _omitFieldNames ? '' : 'exp')
     ..hasRequiredFields = false;
 
@@ -70,13 +70,13 @@ class Auth extends $pb.GeneratedMessage {
 
   /// The user ID.
   @$pb.TagNumber(1)
-  $core.String get userid => $_getSZ(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set userid($core.String value) => $_setString(0, value);
+  set userId($core.String value) => $_setString(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasUserid() => $_has(0);
+  $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUserid() => $_clearField(1);
+  void clearUserId() => $_clearField(1);
 
   /// The expiration date as a Unix timestamp.
   @$pb.TagNumber(2)

@@ -5,7 +5,7 @@ package common.v1;
 // A JWT token claim.
 message Auth {
   // The user ID.
-  string userid = 1;
+  string user_id = 1;
   // The expiration date as a Unix timestamp.
   int64 exp = 2;
 }
