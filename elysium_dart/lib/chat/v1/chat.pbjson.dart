@@ -140,7 +140,7 @@ const ReadMessagesResponse$json = {
       '3': 1,
       '4': 3,
       '5': 11,
-      '6': '.chat.v1.Post',
+      '6': '.chat.v1.Message',
       '10': 'messages'
     },
   ],
@@ -148,8 +148,8 @@ const ReadMessagesResponse$json = {
 
 /// Descriptor for `ReadMessagesResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List readMessagesResponseDescriptor = $convert.base64Decode(
-    'ChRSZWFkTWVzc2FnZXNSZXNwb25zZRIpCghtZXNzYWdlcxgBIAMoCzINLmNoYXQudjEuUG9zdF'
-    'IIbWVzc2FnZXM=');
+    'ChRSZWFkTWVzc2FnZXNSZXNwb25zZRIsCghtZXNzYWdlcxgBIAMoCzIQLmNoYXQudjEuTWVzc2'
+    'FnZVIIbWVzc2FnZXM=');
 
 @$core.Deprecated('Use sendMessageRequestDescriptor instead')
 const SendMessageRequest$json = {
@@ -157,12 +157,12 @@ const SendMessageRequest$json = {
   '2': [
     {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
     {
-      '1': 'message',
+      '1': 'content',
       '3': 2,
       '4': 1,
       '5': 11,
-      '6': '.chat.v1.Message',
-      '10': 'message'
+      '6': '.chat.v1.Content',
+      '10': 'content'
     },
   ],
 };
@@ -170,20 +170,20 @@ const SendMessageRequest$json = {
 /// Descriptor for `SendMessageRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List sendMessageRequestDescriptor = $convert.base64Decode(
     'ChJTZW5kTWVzc2FnZVJlcXVlc3QSHQoKY2hhbm5lbF9pZBgBIAEoCVIJY2hhbm5lbElkEioKB2'
-    '1lc3NhZ2UYAiABKAsyEC5jaGF0LnYxLk1lc3NhZ2VSB21lc3NhZ2U=');
+    'NvbnRlbnQYAiABKAsyEC5jaGF0LnYxLkNvbnRlbnRSB2NvbnRlbnQ=');
 
 @$core.Deprecated('Use sendMessageResponseDescriptor instead')
 const SendMessageResponse$json = {
   '1': 'SendMessageResponse',
   '2': [
     {
-      '1': 'post',
+      '1': 'message',
       '3': 1,
       '4': 1,
       '5': 11,
-      '6': '.chat.v1.Post',
+      '6': '.chat.v1.Message',
       '9': 0,
-      '10': 'post'
+      '10': 'message'
     },
     {
       '1': 'error',
@@ -202,8 +202,9 @@ const SendMessageResponse$json = {
 
 /// Descriptor for `SendMessageResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List sendMessageResponseDescriptor = $convert.base64Decode(
-    'ChNTZW5kTWVzc2FnZVJlc3BvbnNlEiMKBHBvc3QYASABKAsyDS5jaGF0LnYxLlBvc3RIAFIEcG'
-    '9zdBIoCgVlcnJvchgCIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcnJvckIICgZyZXN1bHQ=');
+    'ChNTZW5kTWVzc2FnZVJlc3BvbnNlEiwKB21lc3NhZ2UYASABKAsyEC5jaGF0LnYxLk1lc3NhZ2'
+    'VIAFIHbWVzc2FnZRIoCgVlcnJvchgCIAEoCzIQLmNvbW1vbi52MS5FcnJvckgAUgVlcnJvckII'
+    'CgZyZXN1bHQ=');
 
 @$core.Deprecated('Use deleteMessageRequestDescriptor instead')
 const DeleteMessageRequest$json = {
@@ -268,13 +269,13 @@ const UpdateMessageResponse$json = {
   '1': 'UpdateMessageResponse',
   '2': [
     {
-      '1': 'post',
+      '1': 'message',
       '3': 1,
       '4': 1,
       '5': 11,
-      '6': '.chat.v1.Post',
+      '6': '.chat.v1.Message',
       '9': 0,
-      '10': 'post'
+      '10': 'message'
     },
     {
       '1': 'error',
@@ -293,9 +294,9 @@ const UpdateMessageResponse$json = {
 
 /// Descriptor for `UpdateMessageResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateMessageResponseDescriptor = $convert.base64Decode(
-    'ChVVcGRhdGVNZXNzYWdlUmVzcG9uc2USIwoEcG9zdBgBIAEoCzINLmNoYXQudjEuUG9zdEgAUg'
-    'Rwb3N0EigKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9yQggKBnJlc3Vs'
-    'dA==');
+    'ChVVcGRhdGVNZXNzYWdlUmVzcG9uc2USLAoHbWVzc2FnZRgBIAEoCzIQLmNoYXQudjEuTWVzc2'
+    'FnZUgAUgdtZXNzYWdlEigKBWVycm9yGAIgASgLMhAuY29tbW9uLnYxLkVycm9ySABSBWVycm9y'
+    'QggKBnJlc3VsdA==');
 
 @$core.Deprecated('Use channelDescriptor instead')
 const Channel$json = {
@@ -341,9 +342,9 @@ final $typed_data.Uint8List channelDescriptor = $convert.base64Decode(
     'kSEAoDa2V5GAEgASgJUgNrZXkSMAoFdmFsdWUYAiABKA4yGi5jaGF0LnYxLkNoYW5uZWxQZXJt'
     'aXNzaW9uUgV2YWx1ZToCOAE=');
 
-@$core.Deprecated('Use postDescriptor instead')
-const Post$json = {
-  '1': 'Post',
+@$core.Deprecated('Use messageDescriptor instead')
+const Message$json = {
+  '1': 'Message',
   '2': [
     {'1': 'message_id', '3': 1, '4': 1, '5': 9, '10': 'messageId'},
     {'1': 'channel_id', '3': 2, '4': 1, '5': 9, '10': 'channelId'},
@@ -353,21 +354,21 @@ const Post$json = {
       '3': 4,
       '4': 1,
       '5': 11,
-      '6': '.chat.v1.Message',
+      '6': '.chat.v1.Content',
       '10': 'content'
     },
   ],
 };
 
-/// Descriptor for `Post`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List postDescriptor = $convert.base64Decode(
-    'CgRQb3N0Eh0KCm1lc3NhZ2VfaWQYASABKAlSCW1lc3NhZ2VJZBIdCgpjaGFubmVsX2lkGAIgAS'
-    'gJUgljaGFubmVsSWQSFwoHdXNlcl9pZBgDIAEoCVIGdXNlcklkEioKB2NvbnRlbnQYBCABKAsy'
-    'EC5jaGF0LnYxLk1lc3NhZ2VSB2NvbnRlbnQ=');
+/// Descriptor for `Message`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List messageDescriptor = $convert.base64Decode(
+    'CgdNZXNzYWdlEh0KCm1lc3NhZ2VfaWQYASABKAlSCW1lc3NhZ2VJZBIdCgpjaGFubmVsX2lkGA'
+    'IgASgJUgljaGFubmVsSWQSFwoHdXNlcl9pZBgDIAEoCVIGdXNlcklkEioKB2NvbnRlbnQYBCAB'
+    'KAsyEC5jaGF0LnYxLkNvbnRlbnRSB2NvbnRlbnQ=');
 
-@$core.Deprecated('Use messageDescriptor instead')
-const Message$json = {
-  '1': 'Message',
+@$core.Deprecated('Use contentDescriptor instead')
+const Content$json = {
+  '1': 'Content',
   '2': [
     {
       '1': 'created_at',
@@ -393,8 +394,8 @@ const Message$json = {
   ],
 };
 
-/// Descriptor for `Message`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List messageDescriptor = $convert.base64Decode(
-    'CgdNZXNzYWdlEjMKCmNyZWF0ZWRfYXQYASABKAsyFC5jb21tb24udjEuVGltZXN0YW1wUgljcm'
+/// Descriptor for `Content`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List contentDescriptor = $convert.base64Decode(
+    'CgdDb250ZW50EjMKCmNyZWF0ZWRfYXQYASABKAsyFC5jb21tb24udjEuVGltZXN0YW1wUgljcm'
     'VhdGVkQXQSFAoEdGV4dBgCIAEoCUgAUgR0ZXh0EjUKCHJlc291cmNlGAMgASgLMhcucmVzb3Vy'
     'Y2UudjEuUmVzb3VyY2VJZEgAUghyZXNvdXJjZUIJCgdjb250ZW50');

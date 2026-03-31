@@ -4,7 +4,7 @@ use walkdir::WalkDir;
 const IMPORT: &str = "#[allow(unused)] use surrealdb::types::SurrealValue;";
 const IMPORT_AT: &[&str] = &[
     "chat.v1.SendMessageRequest",
-    "chat.v1.Message.content",
+    "chat.v1.Content.content",
     "chat.v1.UpdateMessageResponse.result",
     "chat.v1.SendMessageResponse.result",
     "chat.v1.CreateChannelResponse.result",
