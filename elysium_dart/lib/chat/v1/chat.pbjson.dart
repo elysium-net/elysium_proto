@@ -114,13 +114,22 @@ const ReadMessagesRequest$json = {
   '2': [
     {'1': 'channel_id', '3': 1, '4': 1, '5': 9, '10': 'channelId'},
     {'1': 'limit', '3': 2, '4': 1, '5': 13, '10': 'limit'},
+    {
+      '1': 'start_time',
+      '3': 3,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Timestamp',
+      '10': 'startTime'
+    },
   ],
 };
 
 /// Descriptor for `ReadMessagesRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List readMessagesRequestDescriptor = $convert.base64Decode(
     'ChNSZWFkTWVzc2FnZXNSZXF1ZXN0Eh0KCmNoYW5uZWxfaWQYASABKAlSCWNoYW5uZWxJZBIUCg'
-    'VsaW1pdBgCIAEoDVIFbGltaXQ=');
+    'VsaW1pdBgCIAEoDVIFbGltaXQSMwoKc3RhcnRfdGltZRgDIAEoCzIULmNvbW1vbi52MS5UaW1l'
+    'c3RhbXBSCXN0YXJ0VGltZQ==');
 
 @$core.Deprecated('Use readMessagesResponseDescriptor instead')
 const ReadMessagesResponse$json = {

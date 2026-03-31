@@ -206,10 +206,12 @@ class ReadMessagesRequest extends $pb.GeneratedMessage {
   factory ReadMessagesRequest({
     $core.String? channelId,
     $core.int? limit,
+    $1.Timestamp? startTime,
   }) {
     final result = create();
     if (channelId != null) result.channelId = channelId;
     if (limit != null) result.limit = limit;
+    if (startTime != null) result.startTime = startTime;
     return result;
   }
 
@@ -228,6 +230,8 @@ class ReadMessagesRequest extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'channelId')
     ..aI(2, _omitFieldNames ? '' : 'limit', fieldType: $pb.PbFieldType.OU3)
+    ..aOM<$1.Timestamp>(3, _omitFieldNames ? '' : 'startTime',
+        subBuilder: $1.Timestamp.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -268,6 +272,18 @@ class ReadMessagesRequest extends $pb.GeneratedMessage {
   $core.bool hasLimit() => $_has(1);
   @$pb.TagNumber(2)
   void clearLimit() => $_clearField(2);
+
+  /// The timestamp to start reading from.
+  @$pb.TagNumber(3)
+  $1.Timestamp get startTime => $_getN(2);
+  @$pb.TagNumber(3)
+  set startTime($1.Timestamp value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasStartTime() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearStartTime() => $_clearField(3);
+  @$pb.TagNumber(3)
+  $1.Timestamp ensureStartTime() => $_ensure(2);
 }
 
 class ReadMessagesResponse extends $pb.GeneratedMessage {

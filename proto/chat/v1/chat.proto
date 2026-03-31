@@ -64,6 +64,8 @@ message ReadMessagesRequest {
   string channel_id = 1;
   // The maximum number of messages to load.
   uint32 limit = 2;
+  // The timestamp to start reading from.
+  common.v1.Timestamp start_time = 3;
 }
 
 message ReadMessagesResponse {
