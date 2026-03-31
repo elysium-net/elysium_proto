@@ -45,7 +45,7 @@ class ChatServiceClient extends $grpc.Client {
 
   /// Reads messages from a channel.
   ///
-  /// Requires Authentication: Only authorized and invited users can read messages.
+  /// Requires Authentication: Only authorized & invited users can read messages.
   $grpc.ResponseFuture<$0.ReadMessagesResponse> readMessages(
     $0.ReadMessagesRequest request, {
     $grpc.CallOptions? options,

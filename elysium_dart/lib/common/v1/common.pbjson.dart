@@ -48,6 +48,18 @@ const Auth$json = {
 final $typed_data.Uint8List authDescriptor = $convert.base64Decode(
     'CgRBdXRoEhYKBnVzZXJpZBgBIAEoCVIGdXNlcmlkEhAKA2V4cBgCIAEoA1IDZXhw');
 
+@$core.Deprecated('Use timestampDescriptor instead')
+const Timestamp$json = {
+  '1': 'Timestamp',
+  '2': [
+    {'1': 'millis', '3': 1, '4': 1, '5': 4, '10': 'millis'},
+  ],
+};
+
+/// Descriptor for `Timestamp`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List timestampDescriptor =
+    $convert.base64Decode('CglUaW1lc3RhbXASFgoGbWlsbGlzGAEgASgEUgZtaWxsaXM=');
+
 @$core.Deprecated('Use errorDescriptor instead')
 const Error$json = {
   '1': 'Error',

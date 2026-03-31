@@ -360,10 +360,18 @@ final $typed_data.Uint8List postDescriptor = $convert.base64Decode(
 const Message$json = {
   '1': 'Message',
   '2': [
-    {'1': 'text', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'text'},
+    {
+      '1': 'created_at',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Timestamp',
+      '10': 'createdAt'
+    },
+    {'1': 'text', '3': 2, '4': 1, '5': 9, '9': 0, '10': 'text'},
     {
       '1': 'resource',
-      '3': 2,
+      '3': 3,
       '4': 1,
       '5': 11,
       '6': '.resource.v1.ResourceId',
@@ -378,5 +386,6 @@ const Message$json = {
 
 /// Descriptor for `Message`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List messageDescriptor = $convert.base64Decode(
-    'CgdNZXNzYWdlEhQKBHRleHQYASABKAlIAFIEdGV4dBI1CghyZXNvdXJjZRgCIAEoCzIXLnJlc2'
-    '91cmNlLnYxLlJlc291cmNlSWRIAFIIcmVzb3VyY2VCCQoHY29udGVudA==');
+    'CgdNZXNzYWdlEjMKCmNyZWF0ZWRfYXQYASABKAsyFC5jb21tb24udjEuVGltZXN0YW1wUgljcm'
+    'VhdGVkQXQSFAoEdGV4dBgCIAEoCUgAUgR0ZXh0EjUKCHJlc291cmNlGAMgASgLMhcucmVzb3Vy'
+    'Y2UudjEuUmVzb3VyY2VJZEgAUghyZXNvdXJjZUIJCgdjb250ZW50');

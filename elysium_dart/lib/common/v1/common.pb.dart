@@ -89,6 +89,65 @@ class Auth extends $pb.GeneratedMessage {
   void clearExp() => $_clearField(2);
 }
 
+/// A timestamp in milliseconds since the Unix epoch.
+///
+/// We can't use google.protobuf.Timestamp,
+/// because it doesn't implement `SurrealValue`.
+class Timestamp extends $pb.GeneratedMessage {
+  factory Timestamp({
+    $fixnum.Int64? millis,
+  }) {
+    final result = create();
+    if (millis != null) result.millis = millis;
+    return result;
+  }
+
+  Timestamp._();
+
+  factory Timestamp.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory Timestamp.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'Timestamp',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'common.v1'),
+      createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, _omitFieldNames ? '' : 'millis', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  Timestamp clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  Timestamp copyWith(void Function(Timestamp) updates) =>
+      super.copyWith((message) => updates(message as Timestamp)) as Timestamp;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static Timestamp create() => Timestamp._();
+  @$core.override
+  Timestamp createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static Timestamp getDefault() =>
+      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Timestamp>(create);
+  static Timestamp? _defaultInstance;
+
+  /// The timestamp in milliseconds since the Unix epoch.
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get millis => $_getI64(0);
+  @$pb.TagNumber(1)
+  set millis($fixnum.Int64 value) => $_setInt64(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasMillis() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMillis() => $_clearField(1);
+}
+
 /// Message represents an error that occurred during a request.
 class Error extends $pb.GeneratedMessage {
   factory Error({

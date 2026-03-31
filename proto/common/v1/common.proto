@@ -10,6 +10,15 @@ message Auth {
   int64 exp = 2;
 }
 
+// A timestamp in milliseconds since the Unix epoch.
+//
+// We can't use google.protobuf.Timestamp,
+// because it doesn't implement `SurrealValue`.
+message Timestamp {
+  // The timestamp in milliseconds since the Unix epoch.
+  uint64 millis = 1;
+}
+
 // Message represents an error that occurred during a request.
 message Error {
   // The error code.

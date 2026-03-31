@@ -14,7 +14,7 @@ service ChatService {
 
   // Reads messages from a channel.
   //
-  // Requires Authentication: Only authorized and invited users can read messages.
+  // Requires Authentication: Only authorized & invited users can read messages.
   rpc ReadMessages(ReadMessagesRequest) returns (ReadMessagesResponse);
 
   // Sends a message to a channel.
@@ -154,11 +154,13 @@ message Post {
 
 // The content of a message.
 message Message {
+  // The timestamp when the message was created.
+  common.v1.Timestamp created_at = 1;
   // The type of content.
   oneof content {
     // The text content of the message.
-    string text = 1;
+    string text = 2;
     // The resource content of the message.
-    resource.v1.ResourceId resource = 2;
+    resource.v1.ResourceId resource = 3;
   }
 }

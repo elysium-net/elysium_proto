@@ -963,10 +963,12 @@ enum Message_Content { text, resource, notSet }
 /// The content of a message.
 class Message extends $pb.GeneratedMessage {
   factory Message({
+    $1.Timestamp? createdAt,
     $core.String? text,
     $2.ResourceId? resource,
   }) {
     final result = create();
+    if (createdAt != null) result.createdAt = createdAt;
     if (text != null) result.text = text;
     if (resource != null) result.resource = resource;
     return result;
@@ -982,17 +984,19 @@ class Message extends $pb.GeneratedMessage {
       create()..mergeFromJson(json, registry);
 
   static const $core.Map<$core.int, Message_Content> _Message_ContentByTag = {
-    1: Message_Content.text,
-    2: Message_Content.resource,
+    2: Message_Content.text,
+    3: Message_Content.resource,
     0: Message_Content.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'Message',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
-    ..oo(0, [1, 2])
-    ..aOS(1, _omitFieldNames ? '' : 'text')
-    ..aOM<$2.ResourceId>(2, _omitFieldNames ? '' : 'resource',
+    ..oo(0, [2, 3])
+    ..aOM<$1.Timestamp>(1, _omitFieldNames ? '' : 'createdAt',
+        subBuilder: $1.Timestamp.create)
+    ..aOS(2, _omitFieldNames ? '' : 'text')
+    ..aOM<$2.ResourceId>(3, _omitFieldNames ? '' : 'resource',
         subBuilder: $2.ResourceId.create)
     ..hasRequiredFields = false;
 
@@ -1014,34 +1018,46 @@ class Message extends $pb.GeneratedMessage {
       _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Message>(create);
   static Message? _defaultInstance;
 
-  @$pb.TagNumber(1)
   @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   Message_Content whichContent() => _Message_ContentByTag[$_whichOneof(0)]!;
-  @$pb.TagNumber(1)
   @$pb.TagNumber(2)
+  @$pb.TagNumber(3)
   void clearContent() => $_clearField($_whichOneof(0));
 
+  /// The timestamp when the message was created.
+  @$pb.TagNumber(1)
+  $1.Timestamp get createdAt => $_getN(0);
+  @$pb.TagNumber(1)
+  set createdAt($1.Timestamp value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasCreatedAt() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCreatedAt() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $1.Timestamp ensureCreatedAt() => $_ensure(0);
+
   /// The text content of the message.
-  @$pb.TagNumber(1)
-  $core.String get text => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set text($core.String value) => $_setString(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasText() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearText() => $_clearField(1);
+  @$pb.TagNumber(2)
+  $core.String get text => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set text($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasText() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearText() => $_clearField(2);
 
   /// The resource content of the message.
-  @$pb.TagNumber(2)
-  $2.ResourceId get resource => $_getN(1);
-  @$pb.TagNumber(2)
-  set resource($2.ResourceId value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasResource() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearResource() => $_clearField(2);
-  @$pb.TagNumber(2)
-  $2.ResourceId ensureResource() => $_ensure(1);
+  @$pb.TagNumber(3)
+  $2.ResourceId get resource => $_getN(2);
+  @$pb.TagNumber(3)
+  set resource($2.ResourceId value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasResource() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearResource() => $_clearField(3);
+  @$pb.TagNumber(3)
+  $2.ResourceId ensureResource() => $_ensure(2);
 }
 
 const $core.bool _omitFieldNames =
