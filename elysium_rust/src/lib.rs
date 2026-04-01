@@ -45,6 +45,14 @@ impl TryFrom<common::v1::Timestamp> for Timestamp {
     }
 }
 
+impl Into<common::v1::Timestamp> for Timestamp {
+    fn into(self) -> common::v1::Timestamp {
+        common::v1::Timestamp {
+            millis: self.millis,
+        }
+    }
+}
+
 /// See [common::v1::Auth].
 #[derive(Clone, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct Auth {
@@ -60,6 +68,15 @@ impl TryFrom<common::v1::Auth> for Auth {
             user_id: value.user_id,
             exp: value.exp,
         })
+    }
+}
+
+impl Into<common::v1::Auth> for Auth {
+    fn into(self) -> common::v1::Auth {
+        common::v1::Auth {
+            user_id: self.user_id,
+            exp: self.exp,
+        }
     }
 }
 
@@ -89,6 +106,19 @@ impl TryFrom<user::v1::User> for User {
     }
 }
 
+impl Into<user::v1::User> for User {
+    fn into(self) -> user::v1::User {
+        user::v1::User {
+            user_id: self.user_id,
+            username: self.username,
+            email: self.email,
+            password: self.password,
+            role: self.role,
+            icon: Some(self.icon.into()),
+        }
+    }
+}
+
 /// See [resource::v1::ResourceId].
 #[derive(Clone, Debug, PartialEq, Eq, Hash, SurrealValue)]
 pub struct ResourceId {
@@ -104,6 +134,15 @@ impl TryFrom<resource::v1::ResourceId> for ResourceId {
             namespace: value.namespace,
             key: value.key,
         })
+    }
+}
+
+impl Into<resource::v1::ResourceId> for ResourceId {
+    fn into(self) -> resource::v1::ResourceId {
+        resource::v1::ResourceId {
+            namespace: self.namespace,
+            key: self.key,
+        }
     }
 }
 
@@ -129,6 +168,17 @@ impl TryFrom<resource::v1::ResourceMeta> for ResourceMeta {
     }
 }
 
+impl Into<resource::v1::ResourceMeta> for ResourceMeta {
+    fn into(self) -> resource::v1::ResourceMeta {
+        resource::v1::ResourceMeta {
+            format: self.format,
+            checksum: self.checksum,
+            size: self.size,
+            metadata: self.metadata,
+        }
+    }
+}
+
 /// See [chat::v1::Channel].
 #[derive(Clone, Debug, PartialEq, Eq, SurrealValue)]
 pub struct Channel {
@@ -148,6 +198,17 @@ impl TryFrom<chat::v1::Channel> for Channel {
             description: value.description,
             members: value.members,
         })
+    }
+}
+
+impl Into<chat::v1::Channel> for Channel {
+    fn into(self) -> chat::v1::Channel {
+        chat::v1::Channel {
+            channel_id: self.channel_id,
+            name: self.name,
+            description: self.description,
+            members: self.members,
+        }
     }
 }
 
@@ -173,6 +234,17 @@ impl TryFrom<chat::v1::Message> for Message {
     }
 }
 
+impl Into<chat::v1::Message> for Message {
+    fn into(self) -> chat::v1::Message {
+        chat::v1::Message {
+            message_id: self.message_id,
+            channel_id: self.channel_id,
+            user_id: self.user_id,
+            content: Some(self.content.into()),
+        }
+    }
+}
+
 /// See [chat::v1::Content].
 #[derive(Clone, Debug, PartialEq, Eq, Hash, SurrealValue)]
 pub struct Content {
@@ -188,6 +260,15 @@ impl TryFrom<chat::v1::Content> for Content {
             created_at: Timestamp::try_from(value.created_at.ok_or(ErrorCode::InvalidFormat)?)?,
             content: ContentContent::try_from(value.content.ok_or(ErrorCode::InvalidFormat)?)?,
         })
+    }
+}
+
+impl Into<chat::v1::Content> for Content {
+    fn into(self) -> chat::v1::Content {
+        chat::v1::Content {
+            created_at: Some(self.created_at.into()),
+            content: Some(self.content.into()),
+        }
     }
 }
 
@@ -208,5 +289,14 @@ impl TryFrom<chat::v1::content::Content> for ContentContent {
                 Self::Resource(ResourceId::try_from(resource)?)
             }
         })
+    }
+}
+
+impl Into<chat::v1::content::Content> for ContentContent {
+    fn into(self) -> chat::v1::content::Content {
+        match self {
+            Self::Text(text) => chat::v1::content::Content::Text(text),
+            Self::Resource(resource) => chat::v1::content::Content::Resource(resource.into()),
+        }
     }
 }
