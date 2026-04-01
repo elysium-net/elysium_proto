@@ -71,6 +71,8 @@ message ReadMessagesRequest {
 message ReadMessagesResponse {
   // The messages read from the channel.
   repeated Message messages = 1;
+  // An error that occurred during the read operation, if any.
+  optional common.v1.Error error = 2;
 }
 
 // The request message for sending a message.

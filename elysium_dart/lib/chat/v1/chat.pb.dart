@@ -289,9 +289,11 @@ class ReadMessagesRequest extends $pb.GeneratedMessage {
 class ReadMessagesResponse extends $pb.GeneratedMessage {
   factory ReadMessagesResponse({
     $core.Iterable<Message>? messages,
+    $1.Error? error,
   }) {
     final result = create();
     if (messages != null) result.messages.addAll(messages);
+    if (error != null) result.error = error;
     return result;
   }
 
@@ -310,6 +312,8 @@ class ReadMessagesResponse extends $pb.GeneratedMessage {
       createEmptyInstance: create)
     ..pPM<Message>(1, _omitFieldNames ? '' : 'messages',
         subBuilder: Message.create)
+    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -334,6 +338,18 @@ class ReadMessagesResponse extends $pb.GeneratedMessage {
   /// The messages read from the channel.
   @$pb.TagNumber(1)
   $pb.PbList<Message> get messages => $_getList(0);
+
+  /// An error that occurred during the read operation, if any.
+  @$pb.TagNumber(2)
+  $1.Error get error => $_getN(1);
+  @$pb.TagNumber(2)
+  set error($1.Error value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasError() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearError() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $1.Error ensureError() => $_ensure(1);
 }
 
 /// The request message for sending a message.

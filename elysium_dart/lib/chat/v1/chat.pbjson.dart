@@ -143,13 +143,21 @@ const ReadMessagesResponse$json = {
       '6': '.chat.v1.Message',
       '10': 'messages'
     },
+    {
+      '1': 'error',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '10': 'error'
+    },
   ],
 };
 
 /// Descriptor for `ReadMessagesResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List readMessagesResponseDescriptor = $convert.base64Decode(
     'ChRSZWFkTWVzc2FnZXNSZXNwb25zZRIsCghtZXNzYWdlcxgBIAMoCzIQLmNoYXQudjEuTWVzc2'
-    'FnZVIIbWVzc2FnZXM=');
+    'FnZVIIbWVzc2FnZXMSJgoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JSBWVycm9y');
 
 @$core.Deprecated('Use sendMessageRequestDescriptor instead')
 const SendMessageRequest$json = {
