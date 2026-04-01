@@ -149,15 +149,21 @@ const ReadMessagesResponse$json = {
       '4': 1,
       '5': 11,
       '6': '.common.v1.Error',
-      '10': 'error'
+      '9': 0,
+      '10': 'error',
+      '17': true
     },
+  ],
+  '8': [
+    {'1': '_error'},
   ],
 };
 
 /// Descriptor for `ReadMessagesResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List readMessagesResponseDescriptor = $convert.base64Decode(
     'ChRSZWFkTWVzc2FnZXNSZXNwb25zZRIsCghtZXNzYWdlcxgBIAMoCzIQLmNoYXQudjEuTWVzc2'
-    'FnZVIIbWVzc2FnZXMSJgoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JSBWVycm9y');
+    'FnZVIIbWVzc2FnZXMSKwoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIFZXJyb3KI'
+    'AQFCCAoGX2Vycm9y');
 
 @$core.Deprecated('Use sendMessageRequestDescriptor instead')
 const SendMessageRequest$json = {
