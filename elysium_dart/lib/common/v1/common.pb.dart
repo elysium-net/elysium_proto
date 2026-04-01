@@ -47,7 +47,8 @@ class Auth extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'common.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'userId')
-    ..aInt64(2, _omitFieldNames ? '' : 'exp')
+    ..a<$fixnum.Int64>(2, _omitFieldNames ? '' : 'exp', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')

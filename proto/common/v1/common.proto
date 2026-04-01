@@ -7,7 +7,7 @@ message Auth {
   // The user ID.
   string user_id = 1;
   // The expiration date as a Unix timestamp.
-  int64 exp = 2;
+  uint64 exp = 2;
 }
 
 // A timestamp in milliseconds since the Unix epoch.

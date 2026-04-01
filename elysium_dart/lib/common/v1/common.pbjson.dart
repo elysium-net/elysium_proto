@@ -40,13 +40,13 @@ const Auth$json = {
   '1': 'Auth',
   '2': [
     {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
-    {'1': 'exp', '3': 2, '4': 1, '5': 3, '10': 'exp'},
+    {'1': 'exp', '3': 2, '4': 1, '5': 4, '10': 'exp'},
   ],
 };
 
 /// Descriptor for `Auth`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List authDescriptor = $convert.base64Decode(
-    'CgRBdXRoEhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZBIQCgNleHAYAiABKANSA2V4cA==');
+    'CgRBdXRoEhcKB3VzZXJfaWQYASABKAlSBnVzZXJJZBIQCgNleHAYAiABKARSA2V4cA==');
 
 @$core.Deprecated('Use timestampDescriptor instead')
 const Timestamp$json = {
