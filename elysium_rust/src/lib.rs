@@ -1,7 +1,7 @@
 use crate::common::v1::ErrorCode;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
-use surrealdb_types::SurrealValue;
+use surrealdb::types::SurrealValue;
 
 pub static FILE_DESCRIPTOR_SET: &[u8] = tonic::include_file_descriptor_set!("descriptor");
 
