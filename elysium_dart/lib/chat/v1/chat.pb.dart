@@ -635,7 +635,7 @@ class DeleteMessageResponse extends $pb.GeneratedMessage {
 class UpdateMessageRequest extends $pb.GeneratedMessage {
   factory UpdateMessageRequest({
     $core.String? messageId,
-    Message? content,
+    Content? content,
   }) {
     final result = create();
     if (messageId != null) result.messageId = messageId;
@@ -657,8 +657,8 @@ class UpdateMessageRequest extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'chat.v1'),
       createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'messageId')
-    ..aOM<Message>(2, _omitFieldNames ? '' : 'content',
-        subBuilder: Message.create)
+    ..aOM<Content>(2, _omitFieldNames ? '' : 'content',
+        subBuilder: Content.create)
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -692,15 +692,15 @@ class UpdateMessageRequest extends $pb.GeneratedMessage {
 
   /// The updated message content.
   @$pb.TagNumber(2)
-  Message get content => $_getN(1);
+  Content get content => $_getN(1);
   @$pb.TagNumber(2)
-  set content(Message value) => $_setField(2, value);
+  set content(Content value) => $_setField(2, value);
   @$pb.TagNumber(2)
   $core.bool hasContent() => $_has(1);
   @$pb.TagNumber(2)
   void clearContent() => $_clearField(2);
   @$pb.TagNumber(2)
-  Message ensureContent() => $_ensure(1);
+  Content ensureContent() => $_ensure(1);
 }
 
 enum UpdateMessageResponse_Result { message, error, notSet }

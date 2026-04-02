@@ -110,7 +110,7 @@ message UpdateMessageRequest {
   // The ID of the message to update.
   string message_id = 1;
   // The updated message content.
-  Message content = 2;
+  Content content = 2;
 }
 
 // The response message for updating a message.

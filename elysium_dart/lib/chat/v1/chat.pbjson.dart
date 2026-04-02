@@ -267,7 +267,7 @@ const UpdateMessageRequest$json = {
       '3': 2,
       '4': 1,
       '5': 11,
-      '6': '.chat.v1.Message',
+      '6': '.chat.v1.Content',
       '10': 'content'
     },
   ],
@@ -276,7 +276,7 @@ const UpdateMessageRequest$json = {
 /// Descriptor for `UpdateMessageRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateMessageRequestDescriptor = $convert.base64Decode(
     'ChRVcGRhdGVNZXNzYWdlUmVxdWVzdBIdCgptZXNzYWdlX2lkGAEgASgJUgltZXNzYWdlSWQSKg'
-    'oHY29udGVudBgCIAEoCzIQLmNoYXQudjEuTWVzc2FnZVIHY29udGVudA==');
+    'oHY29udGVudBgCIAEoCzIQLmNoYXQudjEuQ29udGVudFIHY29udGVudA==');
 
 @$core.Deprecated('Use updateMessageResponseDescriptor instead')
 const UpdateMessageResponse$json = {
