@@ -14,3 +14,7 @@ serde = { version = "1.0.228", features = ["derive"] }
 [build-dependencies]
 tonic-prost-build = "0.14.5"
 walkdir = "2.5.0"
+
+[features]
+default = []
+testing = []

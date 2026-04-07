@@ -29,6 +29,13 @@ pub mod user {
     }
 }
 
+#[cfg(feature = "testing")]
+pub mod testing {
+    pub mod v1 {
+        tonic::include_proto!("testing.v1");
+    }
+}
+
 /// See [common::v1::Timestamp].
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, SurrealValue)]
 pub struct Timestamp {
