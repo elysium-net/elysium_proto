@@ -3,7 +3,7 @@ syntax = "proto3";
 package testing.v1;
 
 // Service for controlling the server testing environment.
-service UserService {
+service TestingService {
   // Clear the server state for a new test.
   rpc ClearState(ClearStateRequest) returns (ClearStateResponse);
 }
