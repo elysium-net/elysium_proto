@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package testing.v1;
+
+// Service for controlling the server testing environment.
+service UserService {
+  // Clear the server state for a new test.
+  rpc ClearState(ClearStateRequest) returns (ClearStateResponse);
+}
+
+// A request to clear the server state.
+message ClearStateRequest {
+
+}
+
+// A response from a request to clear the server state.
+message ClearStateResponse {
+
+}
