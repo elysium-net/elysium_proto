@@ -159,7 +159,6 @@ final $typed_data.Uint8List updateUserRequestDescriptor = $convert.base64Decode(
 const UpdateUserAvatarRequest$json = {
   '1': 'UpdateUserAvatarRequest',
   '2': [
-    {'1': 'user_id', '3': 1, '4': 1, '5': 9, '10': 'userId'},
     {
       '1': 'avatar',
       '3': 2,
@@ -174,8 +173,8 @@ const UpdateUserAvatarRequest$json = {
 /// Descriptor for `UpdateUserAvatarRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateUserAvatarRequestDescriptor =
     $convert.base64Decode(
-        'ChdVcGRhdGVVc2VyQXZhdGFyUmVxdWVzdBIXCgd1c2VyX2lkGAEgASgJUgZ1c2VySWQSLwoGYX'
-        'ZhdGFyGAIgASgLMhcucmVzb3VyY2UudjEuUmVzb3VyY2VJZFIGYXZhdGFy');
+        'ChdVcGRhdGVVc2VyQXZhdGFyUmVxdWVzdBIvCgZhdmF0YXIYAiABKAsyFy5yZXNvdXJjZS52MS'
+        '5SZXNvdXJjZUlkUgZhdmF0YXI=');
 
 @$core.Deprecated('Use updateUserAvatarResponseDescriptor instead')
 const UpdateUserAvatarResponse$json = {

@@ -473,11 +473,9 @@ class UpdateUserRequest extends $pb.GeneratedMessage {
 /// Request message for updating a user's avatar.
 class UpdateUserAvatarRequest extends $pb.GeneratedMessage {
   factory UpdateUserAvatarRequest({
-    $core.String? userId,
     $2.ResourceId? avatar,
   }) {
     final result = create();
-    if (userId != null) result.userId = userId;
     if (avatar != null) result.avatar = avatar;
     return result;
   }
@@ -495,7 +493,6 @@ class UpdateUserAvatarRequest extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'UpdateUserAvatarRequest',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'user.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'userId')
     ..aOM<$2.ResourceId>(2, _omitFieldNames ? '' : 'avatar',
         subBuilder: $2.ResourceId.create)
     ..hasRequiredFields = false;
@@ -520,27 +517,17 @@ class UpdateUserAvatarRequest extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<UpdateUserAvatarRequest>(create);
   static UpdateUserAvatarRequest? _defaultInstance;
 
-  /// ID of the user to update.
-  @$pb.TagNumber(1)
-  $core.String get userId => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set userId($core.String value) => $_setString(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasUserId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearUserId() => $_clearField(1);
-
   /// New avatar resource ID.
   @$pb.TagNumber(2)
-  $2.ResourceId get avatar => $_getN(1);
+  $2.ResourceId get avatar => $_getN(0);
   @$pb.TagNumber(2)
   set avatar($2.ResourceId value) => $_setField(2, value);
   @$pb.TagNumber(2)
-  $core.bool hasAvatar() => $_has(1);
+  $core.bool hasAvatar() => $_has(0);
   @$pb.TagNumber(2)
   void clearAvatar() => $_clearField(2);
   @$pb.TagNumber(2)
-  $2.ResourceId ensureAvatar() => $_ensure(1);
+  $2.ResourceId ensureAvatar() => $_ensure(0);
 }
 
 /// Response message for updating a user's avatar.

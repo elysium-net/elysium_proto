@@ -93,8 +93,6 @@ message UpdateUserRequest {
 
 // Request message for updating a user's avatar.
 message UpdateUserAvatarRequest {
-  // ID of the user to update.
-  string user_id = 1;
   // New avatar resource ID.
   resource.v1.ResourceId avatar = 2;
 }
