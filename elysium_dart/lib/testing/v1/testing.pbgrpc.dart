@@ -21,8 +21,8 @@ import 'testing.pb.dart' as $0;
 export 'testing.pb.dart';
 
 /// Service for controlling the server testing environment.
-@$pb.GrpcServiceName('testing.v1.UserService')
-class UserServiceClient extends $grpc.Client {
+@$pb.GrpcServiceName('testing.v1.TestingService')
+class TestingServiceClient extends $grpc.Client {
   /// The hostname for this service.
   static const $core.String defaultHost = '';
 
@@ -31,7 +31,7 @@ class UserServiceClient extends $grpc.Client {
     '',
   ];
 
-  UserServiceClient(super.channel, {super.options, super.interceptors});
+  TestingServiceClient(super.channel, {super.options, super.interceptors});
 
   /// Clear the server state for a new test.
   $grpc.ResponseFuture<$0.ClearStateResponse> clearState(
@@ -45,16 +45,16 @@ class UserServiceClient extends $grpc.Client {
 
   static final _$clearState =
       $grpc.ClientMethod<$0.ClearStateRequest, $0.ClearStateResponse>(
-          '/testing.v1.UserService/ClearState',
+          '/testing.v1.TestingService/ClearState',
           ($0.ClearStateRequest value) => value.writeToBuffer(),
           $0.ClearStateResponse.fromBuffer);
 }
 
-@$pb.GrpcServiceName('testing.v1.UserService')
-abstract class UserServiceBase extends $grpc.Service {
-  $core.String get $name => 'testing.v1.UserService';
+@$pb.GrpcServiceName('testing.v1.TestingService')
+abstract class TestingServiceBase extends $grpc.Service {
+  $core.String get $name => 'testing.v1.TestingService';
 
-  UserServiceBase() {
+  TestingServiceBase() {
     $addMethod($grpc.ServiceMethod<$0.ClearStateRequest, $0.ClearStateResponse>(
         'ClearState',
         clearState_Pre,
