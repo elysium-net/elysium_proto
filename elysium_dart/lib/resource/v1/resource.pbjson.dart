@@ -147,12 +147,10 @@ final $typed_data.Uint8List resourceIdDescriptor = $convert.base64Decode(
 const ResourceMeta$json = {
   '1': 'ResourceMeta',
   '2': [
-    {'1': 'format', '3': 1, '4': 1, '5': 9, '10': 'format'},
-    {'1': 'checksum', '3': 3, '4': 1, '5': 9, '10': 'checksum'},
-    {'1': 'size', '3': 4, '4': 1, '5': 5, '10': 'size'},
+    {'1': 'size', '3': 1, '4': 1, '5': 5, '10': 'size'},
     {
       '1': 'metadata',
-      '3': 5,
+      '3': 2,
       '4': 3,
       '5': 11,
       '6': '.resource.v1.ResourceMeta.MetadataEntry',
@@ -174,7 +172,6 @@ const ResourceMeta_MetadataEntry$json = {
 
 /// Descriptor for `ResourceMeta`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List resourceMetaDescriptor = $convert.base64Decode(
-    'CgxSZXNvdXJjZU1ldGESFgoGZm9ybWF0GAEgASgJUgZmb3JtYXQSGgoIY2hlY2tzdW0YAyABKA'
-    'lSCGNoZWNrc3VtEhIKBHNpemUYBCABKAVSBHNpemUSQwoIbWV0YWRhdGEYBSADKAsyJy5yZXNv'
-    'dXJjZS52MS5SZXNvdXJjZU1ldGEuTWV0YWRhdGFFbnRyeVIIbWV0YWRhdGEaOwoNTWV0YWRhdG'
-    'FFbnRyeRIQCgNrZXkYASABKAlSA2tleRIUCgV2YWx1ZRgCIAEoCVIFdmFsdWU6AjgB');
+    'CgxSZXNvdXJjZU1ldGESEgoEc2l6ZRgBIAEoBVIEc2l6ZRJDCghtZXRhZGF0YRgCIAMoCzInLn'
+    'Jlc291cmNlLnYxLlJlc291cmNlTWV0YS5NZXRhZGF0YUVudHJ5UghtZXRhZGF0YRo7Cg1NZXRh'
+    'ZGF0YUVudHJ5EhAKA2tleRgBIAEoCVIDa2V5EhQKBXZhbHVlGAIgASgJUgV2YWx1ZToCOAE=');

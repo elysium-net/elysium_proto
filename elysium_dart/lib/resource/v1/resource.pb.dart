@@ -421,14 +421,10 @@ class ResourceId extends $pb.GeneratedMessage {
 /// The metadata for a resource.
 class ResourceMeta extends $pb.GeneratedMessage {
   factory ResourceMeta({
-    $core.String? format,
-    $core.String? checksum,
     $core.int? size,
     $core.Iterable<$core.MapEntry<$core.String, $core.String>>? metadata,
   }) {
     final result = create();
-    if (format != null) result.format = format;
-    if (checksum != null) result.checksum = checksum;
     if (size != null) result.size = size;
     if (metadata != null) result.metadata.addEntries(metadata);
     return result;
@@ -447,10 +443,8 @@ class ResourceMeta extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'ResourceMeta',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'format')
-    ..aOS(3, _omitFieldNames ? '' : 'checksum')
-    ..aI(4, _omitFieldNames ? '' : 'size')
-    ..m<$core.String, $core.String>(5, _omitFieldNames ? '' : 'metadata',
+    ..aI(1, _omitFieldNames ? '' : 'size')
+    ..m<$core.String, $core.String>(2, _omitFieldNames ? '' : 'metadata',
         entryClassName: 'ResourceMeta.MetadataEntry',
         keyFieldType: $pb.PbFieldType.OS,
         valueFieldType: $pb.PbFieldType.OS,
@@ -476,39 +470,19 @@ class ResourceMeta extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<ResourceMeta>(create);
   static ResourceMeta? _defaultInstance;
 
-  /// The format of the resource.
-  @$pb.TagNumber(1)
-  $core.String get format => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set format($core.String value) => $_setString(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasFormat() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearFormat() => $_clearField(1);
-
-  /// The checksum of the resource.
-  @$pb.TagNumber(3)
-  $core.String get checksum => $_getSZ(1);
-  @$pb.TagNumber(3)
-  set checksum($core.String value) => $_setString(1, value);
-  @$pb.TagNumber(3)
-  $core.bool hasChecksum() => $_has(1);
-  @$pb.TagNumber(3)
-  void clearChecksum() => $_clearField(3);
-
   /// The size of the resource in bytes.
-  @$pb.TagNumber(4)
-  $core.int get size => $_getIZ(2);
-  @$pb.TagNumber(4)
-  set size($core.int value) => $_setSignedInt32(2, value);
-  @$pb.TagNumber(4)
-  $core.bool hasSize() => $_has(2);
-  @$pb.TagNumber(4)
-  void clearSize() => $_clearField(4);
+  @$pb.TagNumber(1)
+  $core.int get size => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set size($core.int value) => $_setSignedInt32(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasSize() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearSize() => $_clearField(1);
 
   /// Additional metadata for the resource.
-  @$pb.TagNumber(5)
-  $pb.PbMap<$core.String, $core.String> get metadata => $_getMap(3);
+  @$pb.TagNumber(2)
+  $pb.PbMap<$core.String, $core.String> get metadata => $_getMap(1);
 }
 
 const $core.bool _omitFieldNames =

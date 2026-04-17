@@ -156,8 +156,6 @@ impl Into<resource::v1::ResourceId> for ResourceId {
 /// See [resource::v1::ResourceMeta].
 #[derive(Clone, Debug, PartialEq, Eq, SurrealValue)]
 pub struct ResourceMeta {
-    pub format: String,
-    pub checksum: String,
     pub size: i32,
     pub metadata: HashMap<String, String>,
 }
@@ -167,8 +165,6 @@ impl TryFrom<resource::v1::ResourceMeta> for ResourceMeta {
 
     fn try_from(value: resource::v1::ResourceMeta) -> Result<Self, Self::Error> {
         Ok(Self {
-            format: value.format,
-            checksum: value.checksum,
             size: value.size,
             metadata: value.metadata,
         })
@@ -178,8 +174,6 @@ impl TryFrom<resource::v1::ResourceMeta> for ResourceMeta {
 impl Into<resource::v1::ResourceMeta> for ResourceMeta {
     fn into(self) -> resource::v1::ResourceMeta {
         resource::v1::ResourceMeta {
-            format: self.format,
-            checksum: self.checksum,
             size: self.size,
             metadata: self.metadata,
         }
