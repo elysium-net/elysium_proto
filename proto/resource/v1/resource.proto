@@ -66,6 +66,8 @@ message ResourceId {
 message ResourceMeta {
   // The size of the resource in bytes.
   int32 size = 1;
+  // The last time the resource changed.
+  common.v1.Timestamp timestamp = 2;
   // Additional metadata for the resource.
-  map<string, string> metadata = 2;
+  map<string, string> metadata = 3;
 }

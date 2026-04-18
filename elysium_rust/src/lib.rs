@@ -157,6 +157,7 @@ impl Into<resource::v1::ResourceId> for ResourceId {
 #[derive(Clone, Debug, PartialEq, Eq, SurrealValue)]
 pub struct ResourceMeta {
     pub size: i32,
+    pub timestamp: Timestamp,
     pub metadata: HashMap<String, String>,
 }
 
@@ -166,6 +167,7 @@ impl TryFrom<resource::v1::ResourceMeta> for ResourceMeta {
     fn try_from(value: resource::v1::ResourceMeta) -> Result<Self, Self::Error> {
         Ok(Self {
             size: value.size,
+            timestamp: Timestamp::try_from(value.timestamp.ok_or(ErrorCode::InvalidFormat)?)?,
             metadata: value.metadata,
         })
     }
@@ -175,6 +177,7 @@ impl Into<resource::v1::ResourceMeta> for ResourceMeta {
     fn into(self) -> resource::v1::ResourceMeta {
         resource::v1::ResourceMeta {
             size: self.size,
+            timestamp: Some(self.timestamp.into()),
             metadata: self.metadata,
         }
     }

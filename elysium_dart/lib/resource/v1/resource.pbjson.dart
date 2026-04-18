@@ -149,8 +149,16 @@ const ResourceMeta$json = {
   '2': [
     {'1': 'size', '3': 1, '4': 1, '5': 5, '10': 'size'},
     {
-      '1': 'metadata',
+      '1': 'timestamp',
       '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Timestamp',
+      '10': 'timestamp'
+    },
+    {
+      '1': 'metadata',
+      '3': 3,
       '4': 3,
       '5': 11,
       '6': '.resource.v1.ResourceMeta.MetadataEntry',
@@ -172,6 +180,7 @@ const ResourceMeta_MetadataEntry$json = {
 
 /// Descriptor for `ResourceMeta`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List resourceMetaDescriptor = $convert.base64Decode(
-    'CgxSZXNvdXJjZU1ldGESEgoEc2l6ZRgBIAEoBVIEc2l6ZRJDCghtZXRhZGF0YRgCIAMoCzInLn'
-    'Jlc291cmNlLnYxLlJlc291cmNlTWV0YS5NZXRhZGF0YUVudHJ5UghtZXRhZGF0YRo7Cg1NZXRh'
-    'ZGF0YUVudHJ5EhAKA2tleRgBIAEoCVIDa2V5EhQKBXZhbHVlGAIgASgJUgV2YWx1ZToCOAE=');
+    'CgxSZXNvdXJjZU1ldGESEgoEc2l6ZRgBIAEoBVIEc2l6ZRIyCgl0aW1lc3RhbXAYAiABKAsyFC'
+    '5jb21tb24udjEuVGltZXN0YW1wUgl0aW1lc3RhbXASQwoIbWV0YWRhdGEYAyADKAsyJy5yZXNv'
+    'dXJjZS52MS5SZXNvdXJjZU1ldGEuTWV0YWRhdGFFbnRyeVIIbWV0YWRhdGEaOwoNTWV0YWRhdG'
+    'FFbnRyeRIQCgNrZXkYASABKAlSA2tleRIUCgV2YWx1ZRgCIAEoCVIFdmFsdWU6AjgB');

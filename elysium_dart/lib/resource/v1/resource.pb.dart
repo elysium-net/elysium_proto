@@ -422,10 +422,12 @@ class ResourceId extends $pb.GeneratedMessage {
 class ResourceMeta extends $pb.GeneratedMessage {
   factory ResourceMeta({
     $core.int? size,
+    $1.Timestamp? timestamp,
     $core.Iterable<$core.MapEntry<$core.String, $core.String>>? metadata,
   }) {
     final result = create();
     if (size != null) result.size = size;
+    if (timestamp != null) result.timestamp = timestamp;
     if (metadata != null) result.metadata.addEntries(metadata);
     return result;
   }
@@ -444,7 +446,9 @@ class ResourceMeta extends $pb.GeneratedMessage {
       package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
       createEmptyInstance: create)
     ..aI(1, _omitFieldNames ? '' : 'size')
-    ..m<$core.String, $core.String>(2, _omitFieldNames ? '' : 'metadata',
+    ..aOM<$1.Timestamp>(2, _omitFieldNames ? '' : 'timestamp',
+        subBuilder: $1.Timestamp.create)
+    ..m<$core.String, $core.String>(3, _omitFieldNames ? '' : 'metadata',
         entryClassName: 'ResourceMeta.MetadataEntry',
         keyFieldType: $pb.PbFieldType.OS,
         valueFieldType: $pb.PbFieldType.OS,
@@ -480,9 +484,21 @@ class ResourceMeta extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   void clearSize() => $_clearField(1);
 
-  /// Additional metadata for the resource.
+  /// The last time the resource changed.
   @$pb.TagNumber(2)
-  $pb.PbMap<$core.String, $core.String> get metadata => $_getMap(1);
+  $1.Timestamp get timestamp => $_getN(1);
+  @$pb.TagNumber(2)
+  set timestamp($1.Timestamp value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasTimestamp() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearTimestamp() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $1.Timestamp ensureTimestamp() => $_ensure(1);
+
+  /// Additional metadata for the resource.
+  @$pb.TagNumber(3)
+  $pb.PbMap<$core.String, $core.String> get metadata => $_getMap(2);
 }
 
 const $core.bool _omitFieldNames =
