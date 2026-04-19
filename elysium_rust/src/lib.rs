@@ -3,6 +3,8 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use surrealdb::types::SurrealValue;
 
+pub const RESOURCE_CHUNK_SIZE: usize = 1024 * 2;
+
 pub static FILE_DESCRIPTOR_SET: &[u8] = tonic::include_file_descriptor_set!("descriptor");
 
 pub mod common {
