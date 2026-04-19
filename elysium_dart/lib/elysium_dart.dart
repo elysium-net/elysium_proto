@@ -20,4 +20,3 @@ export 'user/v1/user.pbenum.dart';
 export 'user/v1/user.pbgrpc.dart';
 export 'user/v1/user.pbjson.dart';
 
-const int resourceChunkSize = 1024 * 2;
