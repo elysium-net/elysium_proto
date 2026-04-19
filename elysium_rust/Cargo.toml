@@ -17,4 +17,3 @@ walkdir = "2.5.0"
 
 [features]
 default = []
-testing = []

@@ -31,10 +31,9 @@ pub mod user {
     }
 }
 
-#[cfg(feature = "testing")]
-pub mod testing {
+pub mod general {
     pub mod v1 {
-        tonic::include_proto!("testing.v1");
+        tonic::include_proto!("general.v1");
     }
 }
 
