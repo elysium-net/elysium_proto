@@ -28,16 +28,17 @@ final $typed_data.Uint8List getConfigRequestDescriptor =
 const GetConfigResponse$json = {
   '1': 'GetConfigResponse',
   '2': [
+    {'1': 'version', '3': 1, '4': 1, '5': 9, '10': 'version'},
     {
       '1': 'resource_chunk_size',
-      '3': 1,
+      '3': 2,
       '4': 1,
       '5': 13,
       '10': 'resourceChunkSize'
     },
     {
       '1': 'allow_message_delete',
-      '3': 2,
+      '3': 3,
       '4': 1,
       '5': 14,
       '6': '.user.v1.UserRole',
@@ -45,7 +46,7 @@ const GetConfigResponse$json = {
     },
     {
       '1': 'allow_message_update',
-      '3': 3,
+      '3': 4,
       '4': 1,
       '5': 14,
       '6': '.user.v1.UserRole',
@@ -56,10 +57,11 @@ const GetConfigResponse$json = {
 
 /// Descriptor for `GetConfigResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getConfigResponseDescriptor = $convert.base64Decode(
-    'ChFHZXRDb25maWdSZXNwb25zZRIuChNyZXNvdXJjZV9jaHVua19zaXplGAEgASgNUhFyZXNvdX'
-    'JjZUNodW5rU2l6ZRJDChRhbGxvd19tZXNzYWdlX2RlbGV0ZRgCIAEoDjIRLnVzZXIudjEuVXNl'
-    'clJvbGVSEmFsbG93TWVzc2FnZURlbGV0ZRJDChRhbGxvd19tZXNzYWdlX3VwZGF0ZRgDIAEoDj'
-    'IRLnVzZXIudjEuVXNlclJvbGVSEmFsbG93TWVzc2FnZVVwZGF0ZQ==');
+    'ChFHZXRDb25maWdSZXNwb25zZRIYCgd2ZXJzaW9uGAEgASgJUgd2ZXJzaW9uEi4KE3Jlc291cm'
+    'NlX2NodW5rX3NpemUYAiABKA1SEXJlc291cmNlQ2h1bmtTaXplEkMKFGFsbG93X21lc3NhZ2Vf'
+    'ZGVsZXRlGAMgASgOMhEudXNlci52MS5Vc2VyUm9sZVISYWxsb3dNZXNzYWdlRGVsZXRlEkMKFG'
+    'FsbG93X21lc3NhZ2VfdXBkYXRlGAQgASgOMhEudXNlci52MS5Vc2VyUm9sZVISYWxsb3dNZXNz'
+    'YWdlVXBkYXRl');
 
 @$core.Deprecated('Use clearStateRequestDescriptor instead')
 const ClearStateRequest$json = {

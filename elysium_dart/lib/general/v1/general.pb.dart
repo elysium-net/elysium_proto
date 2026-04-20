@@ -60,11 +60,13 @@ class GetConfigRequest extends $pb.GeneratedMessage {
 /// A response from a request to get the server configuration.
 class GetConfigResponse extends $pb.GeneratedMessage {
   factory GetConfigResponse({
+    $core.String? version,
     $core.int? resourceChunkSize,
     $1.UserRole? allowMessageDelete,
     $1.UserRole? allowMessageUpdate,
   }) {
     final result = create();
+    if (version != null) result.version = version;
     if (resourceChunkSize != null) result.resourceChunkSize = resourceChunkSize;
     if (allowMessageDelete != null)
       result.allowMessageDelete = allowMessageDelete;
@@ -86,11 +88,12 @@ class GetConfigResponse extends $pb.GeneratedMessage {
       _omitMessageNames ? '' : 'GetConfigResponse',
       package: const $pb.PackageName(_omitMessageNames ? '' : 'general.v1'),
       createEmptyInstance: create)
-    ..aI(1, _omitFieldNames ? '' : 'resourceChunkSize',
+    ..aOS(1, _omitFieldNames ? '' : 'version')
+    ..aI(2, _omitFieldNames ? '' : 'resourceChunkSize',
         fieldType: $pb.PbFieldType.OU3)
-    ..aE<$1.UserRole>(2, _omitFieldNames ? '' : 'allowMessageDelete',
+    ..aE<$1.UserRole>(3, _omitFieldNames ? '' : 'allowMessageDelete',
         enumValues: $1.UserRole.values)
-    ..aE<$1.UserRole>(3, _omitFieldNames ? '' : 'allowMessageUpdate',
+    ..aE<$1.UserRole>(4, _omitFieldNames ? '' : 'allowMessageUpdate',
         enumValues: $1.UserRole.values)
     ..hasRequiredFields = false;
 
@@ -113,35 +116,44 @@ class GetConfigResponse extends $pb.GeneratedMessage {
       $pb.GeneratedMessage.$_defaultFor<GetConfigResponse>(create);
   static GetConfigResponse? _defaultInstance;
 
+  @$pb.TagNumber(1)
+  $core.String get version => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set version($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasVersion() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearVersion() => $_clearField(1);
+
   /// The chunk size to use for resource operations.
-  @$pb.TagNumber(1)
-  $core.int get resourceChunkSize => $_getIZ(0);
-  @$pb.TagNumber(1)
-  set resourceChunkSize($core.int value) => $_setUnsignedInt32(0, value);
-  @$pb.TagNumber(1)
-  $core.bool hasResourceChunkSize() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearResourceChunkSize() => $_clearField(1);
+  @$pb.TagNumber(2)
+  $core.int get resourceChunkSize => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set resourceChunkSize($core.int value) => $_setUnsignedInt32(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasResourceChunkSize() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearResourceChunkSize() => $_clearField(2);
 
   /// The minimum user role that is allowed to delete messages.
-  @$pb.TagNumber(2)
-  $1.UserRole get allowMessageDelete => $_getN(1);
-  @$pb.TagNumber(2)
-  set allowMessageDelete($1.UserRole value) => $_setField(2, value);
-  @$pb.TagNumber(2)
-  $core.bool hasAllowMessageDelete() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearAllowMessageDelete() => $_clearField(2);
+  @$pb.TagNumber(3)
+  $1.UserRole get allowMessageDelete => $_getN(2);
+  @$pb.TagNumber(3)
+  set allowMessageDelete($1.UserRole value) => $_setField(3, value);
+  @$pb.TagNumber(3)
+  $core.bool hasAllowMessageDelete() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAllowMessageDelete() => $_clearField(3);
 
   /// The minimum user role that is allowed to update messages.
-  @$pb.TagNumber(3)
-  $1.UserRole get allowMessageUpdate => $_getN(2);
-  @$pb.TagNumber(3)
-  set allowMessageUpdate($1.UserRole value) => $_setField(3, value);
-  @$pb.TagNumber(3)
-  $core.bool hasAllowMessageUpdate() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearAllowMessageUpdate() => $_clearField(3);
+  @$pb.TagNumber(4)
+  $1.UserRole get allowMessageUpdate => $_getN(3);
+  @$pb.TagNumber(4)
+  set allowMessageUpdate($1.UserRole value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasAllowMessageUpdate() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearAllowMessageUpdate() => $_clearField(4);
 }
 
 /// A request to clear the server state.
