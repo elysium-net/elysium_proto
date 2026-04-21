@@ -1,9 +1,14 @@
 use crate::common::v1::ErrorCode;
 use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
+use std::{collections::HashMap, sync::LazyLock};
 use surrealdb::types::SurrealValue;
 
-pub static FILE_DESCRIPTOR_SET: &[u8] = tonic::include_file_descriptor_set!("descriptor");
+pub static DEFAULT_USER_ICON: LazyLock<ResourceId> = LazyLock::new(|| ResourceId {
+    namespace: "elysium".to_string(),
+    key: "default_icon.png".to_string(),
+});
+
+pub const FILE_DESCRIPTOR_SET: &[u8] = tonic::include_file_descriptor_set!("descriptor");
 
 pub mod common {
     pub mod v1 {
