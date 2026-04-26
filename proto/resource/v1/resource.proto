@@ -15,6 +15,11 @@ service ResourceService {
   //
   // Requires Authentication: Only authorized users can download resources.
   rpc Download(DownloadRequest) returns (stream DownloadResponse);
+
+  // Get the metadata of a resource.
+  //
+  // Requires Authentication: Only authorized users can get resource metadata.
+  rpc GetResourceMeta(GetResourceMetaRequest) returns (GetResourceMetaResponse);
 }
 
 // Request for uploading a resource.
@@ -51,6 +56,23 @@ message DownloadResponse {
     // The raw data of the resource.
     bytes data = 2;
     common.v1.Error error = 3;
+  }
+}
+
+// Request for getting resource meta.
+message GetResourceMetaRequest {
+  // The ID of the resource to get.
+  ResourceId resource_id = 1;
+}
+
+// Response for getting resource meta.
+message GetResourceMetaResponse {
+  // The result of the get request.
+  oneof result {
+    // The returned resource meta of the resource.
+    ResourceMeta meta = 1;
+    // The error, if any, that occurred during the get request.
+    common.v1.Error error = 2;
   }
 }
 

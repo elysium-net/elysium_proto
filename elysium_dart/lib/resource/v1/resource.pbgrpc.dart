@@ -55,6 +55,16 @@ class ResourceServiceClient extends $grpc.Client {
         options: options);
   }
 
+  /// Get the metadata of a resource.
+  ///
+  /// Requires Authentication: Only authorized users can get resource metadata.
+  $grpc.ResponseFuture<$0.GetResourceMetaResponse> getResourceMeta(
+    $0.GetResourceMetaRequest request, {
+    $grpc.CallOptions? options,
+  }) {
+    return $createUnaryCall(_$getResourceMeta, request, options: options);
+  }
+
   // method descriptors
 
   static final _$upload =
@@ -67,6 +77,11 @@ class ResourceServiceClient extends $grpc.Client {
           '/resource.v1.ResourceService/Download',
           ($0.DownloadRequest value) => value.writeToBuffer(),
           $0.DownloadResponse.fromBuffer);
+  static final _$getResourceMeta =
+      $grpc.ClientMethod<$0.GetResourceMetaRequest, $0.GetResourceMetaResponse>(
+          '/resource.v1.ResourceService/GetResourceMeta',
+          ($0.GetResourceMetaRequest value) => value.writeToBuffer(),
+          $0.GetResourceMetaResponse.fromBuffer);
 }
 
 @$pb.GrpcServiceName('resource.v1.ResourceService')
@@ -88,6 +103,15 @@ abstract class ResourceServiceBase extends $grpc.Service {
         true,
         ($core.List<$core.int> value) => $0.DownloadRequest.fromBuffer(value),
         ($0.DownloadResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.GetResourceMetaRequest,
+            $0.GetResourceMetaResponse>(
+        'GetResourceMeta',
+        getResourceMeta_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) =>
+            $0.GetResourceMetaRequest.fromBuffer(value),
+        ($0.GetResourceMetaResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.UploadResponse> upload(
@@ -100,4 +124,13 @@ abstract class ResourceServiceBase extends $grpc.Service {
 
   $async.Stream<$0.DownloadResponse> download(
       $grpc.ServiceCall call, $0.DownloadRequest request);
+
+  $async.Future<$0.GetResourceMetaResponse> getResourceMeta_Pre(
+      $grpc.ServiceCall $call,
+      $async.Future<$0.GetResourceMetaRequest> $request) async {
+    return getResourceMeta($call, await $request);
+  }
+
+  $async.Future<$0.GetResourceMetaResponse> getResourceMeta(
+      $grpc.ServiceCall call, $0.GetResourceMetaRequest request);
 }

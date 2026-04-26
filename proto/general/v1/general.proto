@@ -16,8 +16,7 @@ service GeneralService {
 }
 
 // A request to get the server configuration.
-message GetConfigRequest {
-}
+message GetConfigRequest {}
 
 // A response from a request to get the server configuration.
 message GetConfigResponse {
@@ -33,11 +32,9 @@ message GetConfigResponse {
 // A request to clear the server state.
 //
 // Only available in testing mode.
-message ClearStateRequest {
-}
+message ClearStateRequest {}
 
 // A response from a request to clear the server state.
 //
 // Only available in testing mode.
-message ClearStateResponse {
-}
+message ClearStateResponse {}

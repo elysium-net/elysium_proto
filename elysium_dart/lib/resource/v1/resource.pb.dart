@@ -350,6 +350,159 @@ class DownloadResponse extends $pb.GeneratedMessage {
   $1.Error ensureError() => $_ensure(2);
 }
 
+/// Request for getting resource meta.
+class GetResourceMetaRequest extends $pb.GeneratedMessage {
+  factory GetResourceMetaRequest({
+    ResourceId? resourceId,
+  }) {
+    final result = create();
+    if (resourceId != null) result.resourceId = resourceId;
+    return result;
+  }
+
+  GetResourceMetaRequest._();
+
+  factory GetResourceMetaRequest.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetResourceMetaRequest.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetResourceMetaRequest',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
+      createEmptyInstance: create)
+    ..aOM<ResourceId>(1, _omitFieldNames ? '' : 'resourceId',
+        subBuilder: ResourceId.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetResourceMetaRequest clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetResourceMetaRequest copyWith(
+          void Function(GetResourceMetaRequest) updates) =>
+      super.copyWith((message) => updates(message as GetResourceMetaRequest))
+          as GetResourceMetaRequest;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetResourceMetaRequest create() => GetResourceMetaRequest._();
+  @$core.override
+  GetResourceMetaRequest createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetResourceMetaRequest getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetResourceMetaRequest>(create);
+  static GetResourceMetaRequest? _defaultInstance;
+
+  /// The ID of the resource to get.
+  @$pb.TagNumber(1)
+  ResourceId get resourceId => $_getN(0);
+  @$pb.TagNumber(1)
+  set resourceId(ResourceId value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasResourceId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearResourceId() => $_clearField(1);
+  @$pb.TagNumber(1)
+  ResourceId ensureResourceId() => $_ensure(0);
+}
+
+enum GetResourceMetaResponse_Result { meta, error, notSet }
+
+/// Response for getting resource meta.
+class GetResourceMetaResponse extends $pb.GeneratedMessage {
+  factory GetResourceMetaResponse({
+    ResourceMeta? meta,
+    $1.Error? error,
+  }) {
+    final result = create();
+    if (meta != null) result.meta = meta;
+    if (error != null) result.error = error;
+    return result;
+  }
+
+  GetResourceMetaResponse._();
+
+  factory GetResourceMetaResponse.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory GetResourceMetaResponse.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static const $core.Map<$core.int, GetResourceMetaResponse_Result>
+      _GetResourceMetaResponse_ResultByTag = {
+    1: GetResourceMetaResponse_Result.meta,
+    2: GetResourceMetaResponse_Result.error,
+    0: GetResourceMetaResponse_Result.notSet
+  };
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'GetResourceMetaResponse',
+      package: const $pb.PackageName(_omitMessageNames ? '' : 'resource.v1'),
+      createEmptyInstance: create)
+    ..oo(0, [1, 2])
+    ..aOM<ResourceMeta>(1, _omitFieldNames ? '' : 'meta',
+        subBuilder: ResourceMeta.create)
+    ..aOM<$1.Error>(2, _omitFieldNames ? '' : 'error',
+        subBuilder: $1.Error.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetResourceMetaResponse clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  GetResourceMetaResponse copyWith(
+          void Function(GetResourceMetaResponse) updates) =>
+      super.copyWith((message) => updates(message as GetResourceMetaResponse))
+          as GetResourceMetaResponse;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static GetResourceMetaResponse create() => GetResourceMetaResponse._();
+  @$core.override
+  GetResourceMetaResponse createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static GetResourceMetaResponse getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<GetResourceMetaResponse>(create);
+  static GetResourceMetaResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  GetResourceMetaResponse_Result whichResult() =>
+      _GetResourceMetaResponse_ResultByTag[$_whichOneof(0)]!;
+  @$pb.TagNumber(1)
+  @$pb.TagNumber(2)
+  void clearResult() => $_clearField($_whichOneof(0));
+
+  /// The returned resource meta of the resource.
+  @$pb.TagNumber(1)
+  ResourceMeta get meta => $_getN(0);
+  @$pb.TagNumber(1)
+  set meta(ResourceMeta value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasMeta() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearMeta() => $_clearField(1);
+  @$pb.TagNumber(1)
+  ResourceMeta ensureMeta() => $_ensure(0);
+
+  /// The error, if any, that occurred during the get request.
+  @$pb.TagNumber(2)
+  $1.Error get error => $_getN(1);
+  @$pb.TagNumber(2)
+  set error($1.Error value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasError() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearError() => $_clearField(2);
+  @$pb.TagNumber(2)
+  $1.Error ensureError() => $_ensure(1);
+}
+
 /// The unique identifier for a resource.
 class ResourceId extends $pb.GeneratedMessage {
   factory ResourceId({

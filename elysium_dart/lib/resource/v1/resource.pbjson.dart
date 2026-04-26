@@ -129,6 +129,61 @@ final $typed_data.Uint8List downloadResponseDescriptor = $convert.base64Decode(
     '1ldGFIAFIEbWV0YRIUCgRkYXRhGAIgASgMSABSBGRhdGESKAoFZXJyb3IYAyABKAsyEC5jb21t'
     'b24udjEuRXJyb3JIAFIFZXJyb3JCCAoGcmVzdWx0');
 
+@$core.Deprecated('Use getResourceMetaRequestDescriptor instead')
+const GetResourceMetaRequest$json = {
+  '1': 'GetResourceMetaRequest',
+  '2': [
+    {
+      '1': 'resource_id',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.resource.v1.ResourceId',
+      '10': 'resourceId'
+    },
+  ],
+};
+
+/// Descriptor for `GetResourceMetaRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getResourceMetaRequestDescriptor =
+    $convert.base64Decode(
+        'ChZHZXRSZXNvdXJjZU1ldGFSZXF1ZXN0EjgKC3Jlc291cmNlX2lkGAEgASgLMhcucmVzb3VyY2'
+        'UudjEuUmVzb3VyY2VJZFIKcmVzb3VyY2VJZA==');
+
+@$core.Deprecated('Use getResourceMetaResponseDescriptor instead')
+const GetResourceMetaResponse$json = {
+  '1': 'GetResourceMetaResponse',
+  '2': [
+    {
+      '1': 'meta',
+      '3': 1,
+      '4': 1,
+      '5': 11,
+      '6': '.resource.v1.ResourceMeta',
+      '9': 0,
+      '10': 'meta'
+    },
+    {
+      '1': 'error',
+      '3': 2,
+      '4': 1,
+      '5': 11,
+      '6': '.common.v1.Error',
+      '9': 0,
+      '10': 'error'
+    },
+  ],
+  '8': [
+    {'1': 'result'},
+  ],
+};
+
+/// Descriptor for `GetResourceMetaResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getResourceMetaResponseDescriptor = $convert.base64Decode(
+    'ChdHZXRSZXNvdXJjZU1ldGFSZXNwb25zZRIvCgRtZXRhGAEgASgLMhkucmVzb3VyY2UudjEuUm'
+    'Vzb3VyY2VNZXRhSABSBG1ldGESKAoFZXJyb3IYAiABKAsyEC5jb21tb24udjEuRXJyb3JIAFIF'
+    'ZXJyb3JCCAoGcmVzdWx0');
+
 @$core.Deprecated('Use resourceIdDescriptor instead')
 const ResourceId$json = {
   '1': 'ResourceId',
